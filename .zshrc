@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -107,23 +107,31 @@ alias dcd="dc down"
 alias dcr="dc restart"
 alias dcl="dc logs -f"
 alias dcps="clear; dc ps;"
-alias lzd="lazydocker
+alias lzd="lazydocker"
 
-git_branch() {
-  git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
+alias n="sudo nvim"
 
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
+# git_branch() {
+#  git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+# }
 
-PS1=""
-PS1+="\[\e[0;95m\]\W\[\e[m\]"
-PS1+="\[\e[0;92m\]\$(git_branch)\[\e[m\]"
-PS1+=" > "
-export PS1
+# export CLICOLOR=1
+# export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# PS1=""
+# PS1+="\[\e[0;95m\]\W\[\e[m\]"
+# PS1+="\[\e[0;92m\]\$(git_branch)\[\e[m\]"
+# PS1+=" > "
+# export PS1
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-alias gbc="git branch -d $(echo `git branch --merged | grep -v $(git branch --show-current)`)"
+# alias gbc="git branch -d $(echo `git branch --merged | grep -v $(git branch --show-current)`)"
+alias py="ampy --port /dev/tty.usbmodem401301"
+alias pyg="py get"
+alias pyp="py put"
+alias pyr="py run"
+alias pyd="py rm"
+alias pyl="py ls"

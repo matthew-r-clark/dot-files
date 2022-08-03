@@ -16,10 +16,20 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-peekaboo'
 Plug 'airblade/vim-gitgutter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'christoomey/vim-sort-motion'
+Plug 'easymotion/vim-easymotion'
+Plug 'w0rp/ale'
 call plug#end()
+
+" ale eslint autofix
+let g:ale_fixers = { 'javascript': ['eslint'] }
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:ale_fix_on_save = 0
+map <leader>l :ALEToggle<CR>
 
 let g:NERDTreeShowHidden=1
 
@@ -36,7 +46,7 @@ let g:airline_right_sep=''
 let g:airline_right_alt_sep=''
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+let g:airline_symbols = {}
 endif
 
 " unicode symbols
@@ -59,6 +69,14 @@ let g:airline_symbols.linenr = ' -'
 
 let g:sort_motion_flags = 'ui'
 
+" vim-fugitive show git diff side-by-side
+map <leader>gd :Gvdiff<CR>
+
+" easymotion greatly improves default f functionality
+map f <Plug>(easymotion-bd-f)
+" easymotion ignore case on search
+let g:EasyMotion_smartcase = 1
+
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
@@ -68,6 +86,15 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
+
+map - :vertical resize -5<CR>
+map = :vertical resize +5<CR>
+map _ :resize -5<CR>
+map + :resize +5<CR>
+map J <C-w>h
+map I <C-w>k
+map K <C-w>j
+map L <C-w>l
 
 syntax on
 colorscheme onedark
@@ -83,9 +110,12 @@ set nowrap " turn off word wrap
 map <leader>o :NERDTreeToggle<CR>
 map <leader>f :Files<CR>
 map <leader>gf :GF?<CR>
-map <Leader>/ :execute 'Rg ' . input('Rg/')<CR>
-map <C-u> :m-2<CR>
-map <C-n> :m+1<CR>
+map <leader>/ :execute 'Rg ' . input('Rg/')<CR>
+map <leader>w :w<CR>
+map <leader>wc :w<CR>:bd<CR>
+map <leader>c :bd<CR>
+map <leader>C :bd!<CR>
+map <leader>r :source ~/.vim/.vimrc<CR>
 map vat va<
 map vit vi<
 map dat da<
