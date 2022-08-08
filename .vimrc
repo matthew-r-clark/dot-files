@@ -114,6 +114,7 @@ map <leader>/ :execute 'Rg ' . input('Rg/')<CR>
 map <leader>w :w<CR>
 map <leader>wc :w<CR>:bd<CR>
 map <leader>c :bd<CR>
+map <leader>ac :%bd<CR>
 map <leader>C :bd!<CR>
 map <leader>r :source ~/.vim/.vimrc<CR>
 map vat va<
