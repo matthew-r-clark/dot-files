@@ -106,6 +106,7 @@ set expandtab " convert tabs to spaces
 set number " turn on line numbers
 set ignorecase " ignore case on search by default
 set nowrap " turn off word wrap
+set diffopt+=iwhite
 
 map <leader>o :NERDTreeToggle<CR>
 map <leader>f :Files<CR>
