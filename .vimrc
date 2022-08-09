@@ -112,11 +112,11 @@ map <leader>o :NERDTreeToggle<CR>
 map <leader>f :Files<CR>
 map <leader>gf :GF?<CR>
 map <leader>/ :execute 'Rg ' . input('Rg/')<CR>
-map <leader>w :w<CR>
-map <leader>wc :w<CR>:bd<CR>
-map <leader>c :bd<CR>
-map <leader>ac :%bd<CR>
-map <leader>C :bd!<CR>
+map <leader>wf :w<CR>
+map <leader>cf :w<CR>:bd<CR>
+map <leader>Cf :bd!<CR>
+map <leader>caf :%bd<CR>
+map <leader>cw <C-w>c
 map <leader>r :source ~/.vim/.vimrc<CR>
 map vat va<
 map vit vi<
