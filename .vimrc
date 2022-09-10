@@ -107,7 +107,8 @@ set number " turn on line numbers
 set ignorecase " ignore case on search by default
 set nowrap " turn off word wrap
 set diffopt+=iwhite
-
+set mouse=a
+set clipboard+=unnamed
 map <leader>o :NERDTreeToggle<CR>
 map <leader>f :Files<CR>
 map <leader>gf :GF?<CR>
