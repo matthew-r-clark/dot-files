@@ -22,12 +22,14 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'christoomey/vim-sort-motion'
 Plug 'easymotion/vim-easymotion'
 Plug 'w0rp/ale'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 call plug#end()
 
 " ale eslint autofix
 let g:ale_fixers = { 'javascript': ['eslint'] }
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'W'
 let g:ale_fix_on_save = 0
 map <leader>l :ALEToggle<CR>
 
@@ -109,16 +111,17 @@ set nowrap " turn off word wrap
 set diffopt+=iwhite
 set mouse=a
 set clipboard+=unnamed
-map <leader>o :NERDTreeToggle<CR>
+map <leader>o :NvimTreeToggle<CR>
 map <leader>f :Files<CR>
 map <leader>gf :GF?<CR>
 map <leader>/ :execute 'Rg ' . input('Rg/')<CR>
-map <leader>wf :w<CR>
-map <leader>cf :w<CR>:bd<CR>
-map <leader>Cf :bd!<CR>
-map <leader>caf :%bd<CR>
+map <leader>w :w<CR>
+map <leader>d :bd<CR>
+map <leader>x :w<CR>:bd<CR>
+map <leader>D :bd!<CR>
+map <leader>da :%bd<CR>
 map <leader>cw <C-w>c
-map <leader>r :source ~/.vim/.vimrc<CR>
+map <leader>r :source ~/.config/nvim/init.lua<CR>
 map vat va<
 map vit vi<
 map dat da<
