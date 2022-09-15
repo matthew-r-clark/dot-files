@@ -8,7 +8,6 @@ Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mkitt/tabline.vim'
@@ -32,8 +31,6 @@ let g:ale_sign_error = 'E'
 let g:ale_sign_warning = 'W'
 let g:ale_fix_on_save = 0
 map <leader>l :ALEToggle<CR>
-
-let g:NERDTreeShowHidden=1
 
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_idx_mode=1
@@ -71,8 +68,14 @@ let g:airline_symbols.linenr = ' -'
 
 let g:sort_motion_flags = 'ui'
 
+" plug shortcuts
+nmap <leader>pi :PlugInstall<CR>
+nmap <leader>pu :PlugUpdate<CR>
+nmap <leader>pc :PlugClean<CR>
+
 " vim-fugitive show git diff side-by-side
 map <leader>gd :Gvdiff<CR>
+map <leader>gb :Git blame<CR>
 
 " easymotion greatly improves default f functionality
 map f <Plug>(easymotion-bd-f)
@@ -93,9 +96,9 @@ map - :vertical resize -5<CR>
 map = :vertical resize +5<CR>
 map _ :resize -5<CR>
 map + :resize +5<CR>
-map J <C-w>h
-map I <C-w>k
-map K <C-w>j
+map H <C-w>h
+map K <C-w>k
+map J <C-w>j
 map L <C-w>l
 
 syntax on
