@@ -23,5 +23,8 @@ require('nvim-tree').setup({
             },
         },
     },
+    view = {
+        adaptive_size = true,
+    },
 });
 require('nvim-web-devicons').setup({ default = true });
