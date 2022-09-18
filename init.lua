@@ -1,4 +1,23 @@
-vim.cmd('source ~/.vim/.vimrc');
+vim.cmd('source ~/.vim/.vimrc')
+
+require('packer').startup(function(use)
+    use 'wbthomason/packer.nvim'
+
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons', -- optional, for file icons
+        },
+        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    }
+
+    use {
+        'gelguy/wilder.nvim',
+        config = function()
+            -- config goes here
+        end,
+    }
+end)
 
 require('nvim-tree').setup({
     open_on_setup = true,
@@ -26,5 +45,7 @@ require('nvim-tree').setup({
     view = {
         adaptive_size = true,
     },
-});
-require('nvim-web-devicons').setup({ default = true });
+})
+require('nvim-web-devicons').setup({ default = true })
+
+require('wilder').setup()

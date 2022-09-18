@@ -21,8 +21,6 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'christoomey/vim-sort-motion'
 Plug 'easymotion/vim-easymotion'
 Plug 'w0rp/ale'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 call plug#end()
 
 " ale eslint autofix
@@ -114,6 +112,15 @@ set nowrap " turn off word wrap
 set diffopt+=iwhite
 set mouse=a
 set clipboard+=unnamed
+set colorcolumn=80 " highlight column 80
+set noswapfile
+set ruler
+set listchars=tab:›\ ,eol:¬,space:⋅ " highlight whitespace
+set nolist
+set wildmenu
+set showmatch
+set lazyredraw
+
 map <leader>o :NvimTreeToggle<CR>
 map <leader>f :Files<CR>
 map <leader>gf :GF?<CR>
@@ -122,7 +129,7 @@ map <leader>w :w<CR>
 map <leader>d :bd<CR>
 map <leader>x :w<CR>:bd<CR>
 map <leader>D :bd!<CR>
-map <leader>da :%bd<CR>
+map <leader>ad :%bd<CR>
 map <leader>cw <C-w>c
 map <leader>r :source ~/.config/nvim/init.lua<CR>
 map vat va<
