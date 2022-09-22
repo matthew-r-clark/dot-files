@@ -1,9 +1,7 @@
-vim.cmd('source ~/.vim/.vimrc')
-
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    use {
+    use { -- file explorer
         'kyazdani42/nvim-tree.lua',
         requires = {
             'kyazdani42/nvim-web-devicons', -- optional, for file icons
@@ -11,12 +9,14 @@ require('packer').startup(function(use)
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
+    use 'EdenEast/nightfox.nvim'
+
     use {
-        'gelguy/wilder.nvim',
-        config = function()
-            -- config goes here
-        end,
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     }
+
+    use 'norcalli/nvim-colorizer.lua'
 end)
 
 require('nvim-tree').setup({
@@ -48,4 +48,15 @@ require('nvim-tree').setup({
 })
 require('nvim-web-devicons').setup({ default = true })
 
-require('wilder').setup()
+require('nightfox')
+
+require('lualine').setup({
+    options = {
+        theme = 'nord',
+    }
+})
+
+vim.opt.termguicolors = true
+require('colorizer').setup({'*'})
+
+vim.cmd('source ~/.vim/.vimrc')

@@ -4,18 +4,17 @@
 let mapleader = "\<Space>"
 
 call plug#begin()
-Plug 'joshdick/onedark.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'mkitt/tabline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-peekaboo'
+" plug 'junegunn/vim-peekaboo'
 Plug 'airblade/vim-gitgutter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'christoomey/vim-sort-motion'
@@ -100,7 +99,7 @@ map J <C-w>j
 map L <C-w>l
 
 syntax on
-colorscheme onedark
+colorscheme nordfox
 
 filetype indent on " turn auto indent on
 set tabstop=4 " set tab size in spaces (manual indenting)
@@ -126,11 +125,12 @@ map <leader>f :Files<CR>
 map <leader>gf :GF?<CR>
 map <leader>/ :execute 'Rg ' . input('Rg/')<CR>
 map <leader>w :w<CR>
-map <leader>d :bd<CR>
-map <leader>x :w<CR>:bd<CR>
-map <leader>D :bd!<CR>
-map <leader>ad :%bd<CR>
-map <leader>cw <C-w>c
+map <leader>bd :bd<CR>
+map <leader>bwd :w<CR>:bd<CR>
+map <leader>X :x<CR>
+map <leader>bD :bd!<CR>
+map <leader>bad :%bd<CR>
+map <leader>Q :q!<CR>
 map <leader>r :source ~/.config/nvim/init.lua<CR>
 map vat va<
 map vit vi<
@@ -139,5 +139,8 @@ map dit di<
 map cat ca<
 map cit ci<
 
-map <leader>v :split 
-map <leader>h :vsplit 
+map <leader>ev :vsplit 
+map <leader>eh :split 
+map <leader>v <C-w>v
+map <leader>s <C-w>s
+map <leader>qp <C-w>q
