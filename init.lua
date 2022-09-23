@@ -48,15 +48,70 @@ require('nvim-tree').setup({
 })
 require('nvim-web-devicons').setup({ default = true })
 
-require('nightfox')
+require('nightfox').setup({
+    options = {
+        transparent = true,
+        dim_inactive = true,
+        styles = {
+            keywords = 'bold',
+        },
+    },
+    groups = {
+        all = {
+        },
+    },
+})
 
 require('lualine').setup({
     options = {
         theme = 'nord',
-    }
+        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
+        disabled_filetypes = { 'NvimTree' },
+    },
+    sections = {
+        lualine_b = {},
+        lualine_c = {
+            {
+                'filename',
+                color = {
+                    fg = '#2E3440',
+                    bg = vim.bo.modified and '#88C0D0' or '#4C566A',
+                },
+                path = 3,
+                shorting_target = 10,
+            },
+        },
+        lualine_x = {
+            {
+                'filetype',
+                icon_only = true,
+            },
+        },
+        lualine_y = {},
+    },
+    tabline = {
+        lualine_a = {
+            {
+                'buffers',
+                mode = 2,
+                show_filename_only = false,
+                buffers_color = {
+                    active = { fg = '#2E3440', bg = '#88C0D0' },
+                    inactive = { fg = '#2E3440', bg = '#4C566A' },
+                },
+            },
+        },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+    },
 })
 
 vim.opt.termguicolors = true
 require('colorizer').setup({'*'})
 
 vim.cmd('source ~/.vim/.vimrc')
+vim.o.showtabline = 2
