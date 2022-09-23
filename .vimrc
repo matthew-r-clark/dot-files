@@ -41,6 +41,17 @@ map f <Plug>(easymotion-bd-f)
 " easymotion ignore case on search
 let g:EasyMotion_smartcase = 1
 
+nmap <leader>1 :LualineBuffersJump 1<CR>
+nmap <leader>2 :LualineBuffersJump 2<CR>
+nmap <leader>3 :LualineBuffersJump 3<CR>
+nmap <leader>4 :LualineBuffersJump 4<CR>
+nmap <leader>5 :LualineBuffersJump 5<CR>
+nmap <leader>6 :LualineBuffersJump 6<CR>
+nmap <leader>7 :LualineBuffersJump 7<CR>
+nmap <leader>8 :LualineBuffersJump 8<CR>
+nmap <leader>9 :LualineBuffersJump 9<CR>
+nmap <leader>0 :LualineBuffersJump 10<CR>
+
 map - :vertical resize -5<CR>
 map = :vertical resize +5<CR>
 map _ :resize -5<CR>
