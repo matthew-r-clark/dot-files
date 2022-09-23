@@ -83,6 +83,8 @@ set wildmenu
 set showmatch
 set lazyredraw
 
+map p pgvy
+
 map <leader>o :NvimTreeToggle<CR>
 map <leader>f :Files<CR>
 map <leader>gf :GF?<CR>
