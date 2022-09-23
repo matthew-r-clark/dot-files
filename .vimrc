@@ -85,6 +85,7 @@ set diffopt+=iwhite
 set mouse=a
 set clipboard+=unnamed
 set colorcolumn=80 " highlight column 80
+set cursorline
 set noswapfile
 set ruler
 set listchars=tab:›\ ,eol:¬,space:⋅ " highlight whitespace

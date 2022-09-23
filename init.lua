@@ -58,6 +58,8 @@ require('nightfox').setup({
     },
     groups = {
         all = {
+            CursorLine = { bg = '#3B4252' },
+            CursorColumn = { bg = '#3B4252' },
         },
     },
 })
