@@ -13,9 +13,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'christoomey/vim-sort-motion'
-Plug 'easymotion/vim-easymotion'
-Plug 'w0rp/ale'
 call plug#end()
 
 " ale eslint autofix
@@ -40,27 +37,6 @@ map <leader>gb :Git blame<CR>
 map f <Plug>(easymotion-bd-f)
 " easymotion ignore case on search
 let g:EasyMotion_smartcase = 1
-
-nmap <leader>1 :LualineBuffersJump 1<CR>
-nmap <leader>2 :LualineBuffersJump 2<CR>
-nmap <leader>3 :LualineBuffersJump 3<CR>
-nmap <leader>4 :LualineBuffersJump 4<CR>
-nmap <leader>5 :LualineBuffersJump 5<CR>
-nmap <leader>6 :LualineBuffersJump 6<CR>
-nmap <leader>7 :LualineBuffersJump 7<CR>
-nmap <leader>8 :LualineBuffersJump 8<CR>
-nmap <leader>9 :LualineBuffersJump 9<CR>
-nmap <leader>0 :LualineBuffersJump 10<CR>
-nmap <leader><leader>1 :LualineBuffersJump 11<CR>
-nmap <leader><leader>2 :LualineBuffersJump 12<CR>
-nmap <leader><leader>3 :LualineBuffersJump 13<CR>
-nmap <leader><leader>4 :LualineBuffersJump 14<CR>
-nmap <leader><leader>5 :LualineBuffersJump 15<CR>
-nmap <leader><leader>6 :LualineBuffersJump 16<CR>
-nmap <leader><leader>7 :LualineBuffersJump 17<CR>
-nmap <leader><leader>8 :LualineBuffersJump 18<CR>
-nmap <leader><leader>9 :LualineBuffersJump 19<CR>
-nmap <leader><leader>0 :LualineBuffersJump 20<CR>
 
 map - :vertical resize -5<CR>
 map = :vertical resize +5<CR>
