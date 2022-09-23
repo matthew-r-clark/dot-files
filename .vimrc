@@ -51,6 +51,16 @@ nmap <leader>7 :LualineBuffersJump 7<CR>
 nmap <leader>8 :LualineBuffersJump 8<CR>
 nmap <leader>9 :LualineBuffersJump 9<CR>
 nmap <leader>0 :LualineBuffersJump 10<CR>
+nmap <leader><leader>1 :LualineBuffersJump 11<CR>
+nmap <leader><leader>2 :LualineBuffersJump 12<CR>
+nmap <leader><leader>3 :LualineBuffersJump 13<CR>
+nmap <leader><leader>4 :LualineBuffersJump 14<CR>
+nmap <leader><leader>5 :LualineBuffersJump 15<CR>
+nmap <leader><leader>6 :LualineBuffersJump 16<CR>
+nmap <leader><leader>7 :LualineBuffersJump 17<CR>
+nmap <leader><leader>8 :LualineBuffersJump 18<CR>
+nmap <leader><leader>9 :LualineBuffersJump 19<CR>
+nmap <leader><leader>0 :LualineBuffersJump 20<CR>
 
 map - :vertical resize -5<CR>
 map = :vertical resize +5<CR>
