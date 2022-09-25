@@ -12,15 +12,17 @@ require('packer').startup(function(use)
     use 'EdenEast/nightfox.nvim'
 
     use {
-        'nvim-lualine/lualine.nvim',
+        'nvim-lualine/lualine.nvim', -- vim status line theme
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     }
 
-    use 'norcalli/nvim-colorizer.lua'
+    use 'norcalli/nvim-colorizer.lua' -- highlight color codes
     
-    use 'christoomey/vim-sort-motion'
-    use 'easymotion/vim-easymotion'
-    use 'w0rp/ale' 
+    use 'christoomey/vim-sort-motion' -- sort bindings
+
+    use 'easymotion/vim-easymotion' -- find letter
+
+    use 'w0rp/ale' -- prettier
 end)
 
 require('nvim-tree').setup({
