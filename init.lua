@@ -9,7 +9,7 @@ require('packer').startup(function(use)
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
-    use 'EdenEast/nightfox.nvim'
+    use 'EdenEast/nightfox.nvim' -- vim syntax theme (Nord)
 
     use {
         'nvim-lualine/lualine.nvim', -- vim status line theme
@@ -23,6 +23,20 @@ require('packer').startup(function(use)
     use 'easymotion/vim-easymotion' -- find letter
 
     use 'w0rp/ale' -- prettier
+
+    use 'sheerun/vim-polyglot' -- vim language packs
+
+    use 'yuezk/vim-js' -- syntax highlighting for JS
+    
+    use 'maxmellon/vim-jsx-pretty' -- React syntax highlighting
+
+    use 'tpope/vim-fugitive' -- git
+
+    use 'tpope/vim-surround' -- modify surround chars
+
+    use 'airblade/vim-gitgutter' -- show git diff in side column
+
+    use 'mg979/vim-visual-multi' -- multi cursor
 end)
 
 require('nvim-tree').setup({

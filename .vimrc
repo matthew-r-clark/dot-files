@@ -4,21 +4,12 @@
 let mapleader = "\<Space>"
 
 call plug#begin()
-Plug 'sheerun/vim-polyglot'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
 
 " ale eslint autofix
 let g:ale_fixers = { 'javascript': ['eslint'] }
-let g:ale_sign_error = 'E'
-let g:ale_sign_warning = 'W'
 let g:ale_fix_on_save = 0
 map <leader>l :ALEToggle<CR>
 
@@ -69,8 +60,6 @@ set nolist
 set wildmenu
 set showmatch
 set lazyredraw
-
-map p pgvy
 
 map <leader>o :NvimTreeToggle<CR>
 map <leader>f :Files<CR>
