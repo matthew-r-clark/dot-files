@@ -30,3 +30,82 @@ alias pyl="py ls"
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Install Alien if not found
+if [ ! -f ~/alien/alien.zsh ]; then
+    TEMP_DIR=$PWD
+    cd ~
+    git clone https://github.com/eendroroy/alien.git
+    cd alien
+    git submodule update --init --recursive
+    cd $TEMP_DIR 
+fi
+
+source ~/alien/alien.zsh
+
+export ALIEN_SECTIONS_LEFT=(
+    exit
+    user
+    path
+    vcs_branch:async
+    vcs_status:async
+    vcs_dirty:async
+    newline
+    ssh
+    venv
+    versions
+    prompt
+)
+
+export ALIEN_SECTIONS_RIGHT=(
+    time
+)
+
+# Color definitions (https://www.nordtheme.com/docs/colors-and-palettes)
+# Polar Night (dark gray)
+background_color="#2E3440" # nord0, darkest
+elevated_background_color="#3B4252" # nord1 (also good for border, drop shadow, etc)
+selection_color="#434C5E" # nord2
+guide_marker_color="#4C566A" # nord3, lightest
+
+# Snow Storm (light gray or offwhite)
+subtext_color="#D8DEE9" #nord4, darkest
+text_color="#E5E9F0" #nord5
+elevated_text_color="#ECEFF4" #nord6, lightest
+
+# Frost (blues)
+primary_action_accent_color="#8FBCBB" # nord7
+primary_action_color="#88C0D0" # nord8
+secondary_action_color="#81A1C1" # nord9
+tertiary_action_color="#5E81AC" # nord10
+
+# Aurora (other colors)
+error_color="#BF616A" # red, nord11
+dangerous_color="#D08770" # orange, nord12
+warning_color="#EBCB8B" # yellow, nord13
+success_color="#A3BE8C" # green, nord14
+uncommon_color="#B48EAD" # purple, nord15
+
+export ALIEN_VERSIONS_PROMPT='NODE'
+export ALIEN_PROMPT_FG=$background_color
+export ALIEN_SECTION_EXIT_FG=$subtext_color
+export ALIEN_SECTION_EXIT_BG=$background_color
+export ALIEN_SECTION_EXIT_BG_ERROR=$error_color
+export ALIEN_SECTION_USER_FG=$background_color
+export ALIEN_SECTION_USER_BG=$primary_action_color
+export ALIEN_SECTION_PATH_FG=$text_color
+export ALIEN_SECTION_PATH_BG=$guide_marker_color
+export ALIEN_SECTION_VCS_BRANCH_FG=$subtext_color
+export ALIEN_SECTION_VCS_BRANCH_BG=$selection_color
+export ALIEN_SECTION_VCS_STATUS_FG=$elevated_text_color
+export ALIEN_SECTION_VCS_STATUS_BG=$elevated_background_color
+export ALIEN_SECTION_VCS_DIRTY_FG=$text_color
+export ALIEN_SECTION_VCS_DIRTY_BG=$primary_action_color
+export ALIEN_SECTION_SSH_FG=$text_color
+export ALIEN_SECTION_VENV_FG=$text_color
+export ALIEN_GIT_TRACKED_COLOR=234
+export ALIEN_GIT_UN_TRACKED_COLOR=241
+export ALIEN_SECTION_VERSION_BG=$elevated_background_color
+export ALIEN_NODE_COLOR=$primary_action_accent_color
+export ALIEN_SECTION_TIME_FG=$background_color
+export ALIEN_SECTION_TIME_BG=$primary_action_color
