@@ -81,31 +81,35 @@ tertiary_action_color="#5E81AC" # nord10
 
 # Aurora (other colors)
 error_color="#BF616A" # red, nord11
-dangerous_color="#D08770" # orange, nord12
+danger_color="#D08770" # orange, nord12
 warning_color="#EBCB8B" # yellow, nord13
 success_color="#A3BE8C" # green, nord14
 uncommon_color="#B48EAD" # purple, nord15
 
+export ALIEN_SECTIONS_LEFT_SEP_SYM=""
+export ALIEN_SECTIONS_RIGHT_SEP_SYM=""
+
 export ALIEN_VERSIONS_PROMPT='NODE'
-export ALIEN_PROMPT_FG=$background_color
+export ALIEN_PROMPT_FG=$primary_action_color
 export ALIEN_SECTION_EXIT_FG=$subtext_color
 export ALIEN_SECTION_EXIT_BG=$background_color
 export ALIEN_SECTION_EXIT_BG_ERROR=$error_color
 export ALIEN_SECTION_USER_FG=$background_color
 export ALIEN_SECTION_USER_BG=$primary_action_color
-export ALIEN_SECTION_PATH_FG=$text_color
+export ALIEN_SECTION_PATH_FG=$primary_action_color
 export ALIEN_SECTION_PATH_BG=$guide_marker_color
-export ALIEN_SECTION_VCS_BRANCH_FG=$subtext_color
+export ALIEN_SECTION_VCS_BRANCH_FG=$primary_action_color
 export ALIEN_SECTION_VCS_BRANCH_BG=$selection_color
-export ALIEN_SECTION_VCS_STATUS_FG=$elevated_text_color
-export ALIEN_SECTION_VCS_STATUS_BG=$elevated_background_color
-export ALIEN_SECTION_VCS_DIRTY_FG=$text_color
-export ALIEN_SECTION_VCS_DIRTY_BG=$primary_action_color
+export ALIEN_SECTION_VCS_STATUS_FG=$background_color
+export ALIEN_SECTION_VCS_STATUS_BG=$primary_action_color
+export ALIEN_SECTION_VCS_DIRTY_FG=$success_color
+export ALIEN_SECTION_VCS_DIRTY_BG=$elevated_background_color
+export ALIEN_GIT_TRACKED_COLOR=$success_color
+export ALIEN_GIT_UN_TRACKED_COLOR=$error_color
 export ALIEN_SECTION_SSH_FG=$text_color
 export ALIEN_SECTION_VENV_FG=$text_color
-export ALIEN_GIT_TRACKED_COLOR=234
-export ALIEN_GIT_UN_TRACKED_COLOR=241
 export ALIEN_SECTION_VERSION_BG=$elevated_background_color
 export ALIEN_NODE_COLOR=$primary_action_accent_color
 export ALIEN_SECTION_TIME_FG=$background_color
 export ALIEN_SECTION_TIME_BG=$primary_action_color
+export ALIEN_USE_NERD_FONT=1
