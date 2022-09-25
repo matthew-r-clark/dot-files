@@ -1,8 +1,3 @@
-"" unlet! skip_defaults_vim
-"" source $VIMRUNTIME/defaults.vim
-
-let mapleader = "\<Space>"
-
 call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'

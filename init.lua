@@ -136,6 +136,7 @@ vim.opt.termguicolors = true
 require('colorizer').setup({'*'})
 
 local map = vim.api.nvim_set_keymap
+vim.g.mapleader = ' '
 map('n', '<leader>1', '<cmd>LualineBuffersJump 1<cr>', {})
 map('n', '<leader>2', '<cmd>LualineBuffersJump 2<cr>', {})
 map('n', '<leader>3', '<cmd>LualineBuffersJump 3<cr>', {})
