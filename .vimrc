@@ -96,3 +96,6 @@ map <leader>eh :split
 map <leader>v <C-w>v
 map <leader>s <C-w>s
 map <leader>qp <C-w>q
+
+hi InactiveWindow guibg=#181e2a
+set winhighlight=NormalNC:InactiveWindow
