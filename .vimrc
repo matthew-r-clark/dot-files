@@ -1,8 +1,3 @@
-call plug#begin()
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-call plug#end()
-
 " ale eslint autofix
 let g:ale_fixers = { 'javascript': ['eslint'] }
 let g:ale_fix_on_save = 0
@@ -57,9 +52,9 @@ set showmatch
 set lazyredraw
 
 map <leader>o :NvimTreeToggle<CR>
-map <leader>f :Files<CR>
+map <leader>f :Telescope find_files<cr>
 map <leader>gf :GF?<CR>
-map <leader>/ :execute 'Rg ' . input('Rg/')<CR>
+map <leader>/ :Telescope live_grep<cr> 
 map <leader>w :w<CR>
 map <leader>bd :bd<CR>
 map <leader>bwd :w<CR>:bd<CR>
