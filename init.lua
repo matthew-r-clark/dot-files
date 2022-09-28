@@ -38,6 +38,13 @@ require('packer').startup(function(use)
 
     use 'mg979/vim-visual-multi' -- multi cursor
 
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end,
+    }
+
     use { -- fuzzy finder
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'} }
@@ -75,7 +82,7 @@ telescope.setup({
             }
         },
         prompt_prefix = ' ',
-        selection_caret = ' ',
+        selection_caret = ' ',
         entry_prefix = '  ',
         initial_mode = 'insert',
         layout_strategy = 'flex',
@@ -94,7 +101,7 @@ telescope.setup({
                 'rg', '--hidden', '--files', '--no-ignore', '--glob',
                 '!.git/*', '--glob', '!/node_modules',
             },
-        }
+        },
     },
 })
 
