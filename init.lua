@@ -38,7 +38,7 @@ require('packer').startup(function(use)
 
     use 'mg979/vim-visual-multi' -- multi cursor
 
-    use {
+    use { -- comment motion
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
