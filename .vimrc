@@ -1,6 +1,12 @@
 " ale eslint autofix
 let g:ale_fixers = { 'javascript': ['eslint'] }
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+
+hi ALEErrorSign guibg=#2E3440 guifg=#BF616A 
+hi ALEWarningSign guibg=#2E3440 guifg=#EBCB8B
+
 map <leader>l :ALEToggle<CR>
 
 let g:sort_motion_flags = 'ui'
