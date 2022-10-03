@@ -71,8 +71,10 @@ telescope.setup({
         vimgrep_arguments = { -- live_grep()
              'rg', '--follow', '--color=never', '--no-heading',
             '--with-filename', '--line-number', '--column', '--smart-case',
-            '--hidden', '--no-ignore', '--glob', '!.git/*', '--glob',
-            '!/node_modules',
+            '--hidden', '--no-ignore',
+            '--glob', '!.git/*',
+            '--glob', '!/node_modules',
+            '--glob', '!.next/*',
         },
         mappings = {
             i = {
@@ -222,6 +224,7 @@ require('lualine').setup({
                     active = { fg = '#2E3440', bg = '#88C0D0' },
                     inactive = { fg = '#2E3440', bg = '#4C566A' },
                 },
+                max_length = vim.o.columns,
             },
         },
         lualine_b = {},
