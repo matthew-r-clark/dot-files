@@ -12,9 +12,10 @@ map <leader>l :ALEToggle<CR>
 let g:sort_motion_flags = 'ui'
 
 " plug shortcuts
-nmap <leader>pi :PlugInstall<CR>
-nmap <leader>pu :PlugUpdate<CR>
-nmap <leader>pc :PlugClean<CR>
+nmap <leader>pc :PackerCompile<CR>
+nmap <leader>pi :PackerInstall<CR>
+nmap <leader>pu :PackerUpdate<CR>
+nmap <leader>pC :PackerClean<CR>
 
 " vim-fugitive show git diff side-by-side
 map <leader>gd :Gvdiff<CR>
