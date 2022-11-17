@@ -74,7 +74,10 @@ telescope.setup({
             '--hidden', '--no-ignore',
             '--glob', '!.git/*',
             '--glob', '!/node_modules',
-            '--glob', '!.next/*',
+            '--glob', '!.next',
+            '--glob', '!package-lock.json',
+            '--glob', '!projects/**/node_modules',
+            '--glob', '!build-node-docker/node_modules',
         },
         mappings = {
             i = {
@@ -100,8 +103,12 @@ telescope.setup({
     pickers = {
         find_files = {
             find_command = {
-                'rg', '--hidden', '--files', '--no-ignore', '--glob',
-                '!.git/*', '--glob', '!/node_modules',
+                'rg', '--hidden', '--files', '--no-ignore',
+                '--glob', '!.git/*',
+                '--glob', '!/node_modules',
+                '--glob', '!.next',
+                '--glob', '!projects/**/node_modules',
+                '--glob', '!build-node-docker/node_modules',
             },
         },
     },
