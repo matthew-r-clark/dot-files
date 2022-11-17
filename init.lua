@@ -149,6 +149,9 @@ require('nvim-treesitter.configs').setup({
 })
 
 require('nvim-tree').setup({
+    git = {
+        ignore = false,
+    },
     open_on_setup = true,
     actions = {
         open_file = {
