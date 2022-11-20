@@ -26,14 +26,10 @@ map f <Plug>(easymotion-bd-f)
 " easymotion ignore case on search
 let g:EasyMotion_smartcase = 1
 
-map - :vertical resize -5<CR>
-map = :vertical resize +5<CR>
-map _ :resize -5<CR>
-map + :resize +5<CR>
-" map C-h <C-w>h
-" map C-k <C-w>k
-" map C-j <C-w>j
-" map C-l <C-w>l
+map <M-l> :vertical resize +5<CR>
+map <M-h> :vertical resize -5<CR>
+map <M-j> :resize -5<CR>
+map <M-k> :resize +5<CR>
 
 syntax on
 colorscheme nordfox
