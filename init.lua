@@ -38,6 +38,8 @@ require('packer').startup(function(use)
 
     use 'mg979/vim-visual-multi' -- multi cursor
 
+    use 'christoomey/vim-tmux-navigator' -- smart pane switcher
+
     use { -- comment motion
         'numToStr/Comment.nvim',
         config = function()
@@ -176,6 +178,12 @@ require('nvim-tree').setup({
     },
     view = {
         adaptive_size = true,
+        mappings = {
+            list = {
+                { key = "h", action = "split" },
+                { key = "v", action = "vsplit" },
+            },
+        },
     },
 })
 require('nvim-web-devicons').setup({ default = true })

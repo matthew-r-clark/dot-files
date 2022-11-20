@@ -30,10 +30,10 @@ map - :vertical resize -5<CR>
 map = :vertical resize +5<CR>
 map _ :resize -5<CR>
 map + :resize +5<CR>
-map H <C-w>h
-map K <C-w>k
-map J <C-w>j
-map L <C-w>l
+" map C-h <C-w>h
+" map C-k <C-w>k
+" map C-j <C-w>j
+" map C-l <C-w>l
 
 syntax on
 colorscheme nordfox
@@ -80,8 +80,8 @@ map cit ci<
 map <leader>ev :vsplit 
 map <leader>eh :split 
 map <leader>v <C-w>v
-map <leader>s <C-w>s
-map <leader>qp <C-w>q
+map <leader>h <C-w>s
+map <leader>kp <C-w>q
 
 hi InactiveWindow guibg=#181e2a
 set winhighlight=NormalNC:InactiveWindow
