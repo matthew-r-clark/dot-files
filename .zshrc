@@ -1,12 +1,3 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export EDITOR='nvim'
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
-
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-ENABLE_CORRECTION="true"
-
 plugins=(git nvm)
 
 alias c="clear"
@@ -17,7 +8,7 @@ alias dcr="dc restart"
 alias dcl="dc logs -f"
 alias dcps="clear; dc ps;"
 alias lzd="lazydocker"
-alias n="sudo nvim"
+alias n="nvim"
 
 # alias gbc="git branch -d $(echo `git branch --merged | grep -v $(git branch --show-current)`)"
 alias py="ampy --port /dev/tty.usbmodem401301"
@@ -26,6 +17,7 @@ alias pyp="py put"
 alias pyr="py run"
 alias pyd="py rm"
 alias pyl="py ls"
+alias pyu="~/development/raspi/pyboard/download-file.sh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -113,3 +105,12 @@ export ALIEN_NODE_COLOR=$primary_action_accent_color
 export ALIEN_SECTION_TIME_FG=$background_color
 export ALIEN_SECTION_TIME_BG=$primary_action_color
 export ALIEN_USE_NERD_FONT=1
+
+export PATH=$HOME/bin:/usr/local/bin:/Users/clarkm/.mvn/apache-maven-3.8.6/bin:/$PATH
+export EDITOR='nvim'
+export ZSH="$HOME/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
+
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+ENABLE_CORRECTION="true"
