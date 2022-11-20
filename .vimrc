@@ -64,6 +64,7 @@ map <leader>bwd :w<CR>:bd<CR>
 map <leader>X :x<CR>
 map <leader>bD :bd!<CR>
 map <leader>bad :%bd<CR>
+map <leader>q :q<CR>
 map <leader>Q :q!<CR>
 map <leader>r :source ~/.config/nvim/init.lua<CR>
 map vat va<
