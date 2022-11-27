@@ -1,4 +1,85 @@
-require('packer').startup(function(use)
+global = vim.g
+opt = vim.opt
+hi = vim.api.nvim_set_hl
+exec = vim.api.nvim_exec
+fn = vim.fn
+
+exec([[colorscheme nordfox]], false)
+
+global.loaded = 1
+global.loaded_netrwPlugin = 1
+global.mapleader = ' '
+global.session_autosave = 'no'
+global.tmux_navigator_preserve_zoom = 1
+
+-- ALE {{{
+global.ale_fixers = {-- ale eslint autofix
+    javascript = {
+        'eslint',
+    },
+}
+global.ale_fix_on_save = 1
+global.ale_sign_error = ''
+global.ale_sign_warning = ''
+-- ALE }}}
+
+global.sort_motion_flags = 'ui'
+global.EasyMotion_smartcase = 1 -- easymotion ignore case on search
+
+opt.autoread = true
+opt.ch = 0
+opt.clipboard = 'unnamed'
+opt.colorcolumn = '80'
+opt.compatible = false
+opt.cursorline = true
+opt.dict = 'usr/share/dict/words'
+opt.diffopt = 'internal,filler,closeoff,iwhiteall'
+opt.encoding = 'UTF-8'
+opt.expandtab = true
+opt.fixeol = false
+opt.foldenable = true
+opt.foldmethod = 'marker'
+opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
+opt.ignorecase = true
+opt.lazyredraw = true
+opt.list = true
+opt.listchars = {tab = '›⋅', eol = '↲', space = '⋅'}
+opt.mouse = 'a'
+opt.number = true
+-- opt.relativenumber = true
+opt.ruler = true
+opt.scl = 'yes'
+opt.shiftwidth = 4
+opt.showmatch = true
+opt.smartcase = true
+opt.smartindent = true
+opt.swapfile = false
+opt.tabstop = 4
+opt.termguicolors = true
+opt.undofile = true
+opt.visualbell = true
+opt.wrap = false
+
+local packer = require('packer')
+
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  exec([[packadd packer.nvim]], false)
+end
+
+packer.init({
+   enable = true,
+    threshold = 0,
+    max_jobs = 20,
+    display = {
+        open_fn = function()
+            return require('packer.util').float({ border = 'rounded' })
+        end,
+    },
+})
+
+packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use { -- file explorer
@@ -200,6 +281,7 @@ require('nightfox').setup({
         all = {
             CursorLine = { bg = '#3B4252' },
             CursorColumn = { bg = '#3B4252' },
+            NormalNC = { bg = '#181E2A' },
         },
     },
 })
@@ -236,7 +318,7 @@ require('lualine').setup({
         lualine_a = {
             {
                 'buffers',
-                mode = 2,
+                mode = 2, -- always show tabline
                 show_filename_only = false,
                 buffers_color = {
                     active = { fg = '#2E3440', bg = '#88C0D0' },
@@ -253,11 +335,9 @@ require('lualine').setup({
     },
 })
 
-vim.opt.termguicolors = true
 require('colorizer').setup({'*'})
 
 local map = vim.api.nvim_set_keymap
-vim.g.mapleader = ' '
 map('n', '<leader>1', '<cmd>LualineBuffersJump 1<cr>', {})
 map('n', '<leader>2', '<cmd>LualineBuffersJump 2<cr>', {})
 map('n', '<leader>3', '<cmd>LualineBuffersJump 3<cr>', {})
@@ -279,5 +359,54 @@ map('n', '<leader><leader>8', '<cmd>LualineBuffersJump 18<cr>', {})
 map('n', '<leader><leader>9', '<cmd>LualineBuffersJump 19<cr>', {})
 map('n', '<leader><leader>0', '<cmd>LualineBuffersJump 20<cr>', {})
 
-vim.cmd('source ~/.vim/.vimrc')
-vim.o.showtabline = 2
+-- packer shortcuts {{
+map('n', '<leader><leader>pc', ':PackerCompile<CR>', {})
+map('n', '<leader><leader>pi', ':PackerInstall<CR>', {})
+map('n', '<leader><leader>pu', ':PackerUpdate<CR>', {})
+map('n', '<leader><leader>pC', ':PackerClean<CR>', {})
+-- }}}
+
+-- vim-fugitive show git diff side-by-side {{{
+map('', '<leader>gd', ':Gvdiff<CR>', {})
+map('', '<leader>gb', ':Git blame<CR>', {})
+-- }}}
+
+-- vim resizing {{{
+map('', '<M-l>', ':vertical resize +5<CR>', {})
+map('', '<M-h>', ':vertical resize -5<CR>', {})
+map('', '<M-j>', ':resize -5<CR>', {})
+map('', '<M-k>', ':resize +5<CR>', {})
+-- }}}
+
+map('', '<leader>l', ':ALEToggle<CR>', {})
+map('', '<leader>f', '<Plug>(easymotion-bd-f)', {})
+map('', '<leader>o', ':NvimTreeToggle<CR>', {})
+map('', '<leader>p', ':Telescope find_files<cr>', {})
+map('', '<leader>gf', ':GF?<CR>', {})
+map('', '<leader>/', ':Telescope live_grep<cr> ', {})
+map('', '<leader>w', ':w<CR>', {})
+map('', '<leader>bd', ':bd<CR>', {})
+map('', '<leader>bwd', ':w<CR>:bd<CR>', {})
+map('', '<leader>X', ':x<CR>', {})
+map('', '<leader>bD', ':bd!<CR>', {})
+map('', '<leader>bad', ':%bd<CR>', {})
+map('', '<leader>q', ':q<CR>', {})
+map('', '<leader>Q', ':q!<CR>', {})
+map('', '<leader>r', ':source ~/.config/nvim/init.lua<CR>', {})
+map('', 'vat', 'va<', {})
+map('', 'vit', 'vi<', {})
+map('', 'dat', 'da<', {})
+map('', 'dit', 'di<', {})
+map('', 'cat', 'ca<', {})
+map('', 'cit', 'ci<', {})
+
+-- vim pane split management {{{
+map('', '<leader>ev', ':vsplit ', {})
+map('', '<leader>eh', ':split ', {})
+map('', '<leader>v', '<C-w>v', {})
+map('', '<leader>h', '<C-w>s', {})
+map('', '<leader>kp', '<C-w>q', {})
+-- }}}
+
+hi(0, 'ALEErrorSign', { bg = '#2E3440', fg = '#BF616A' })
+hi(0, 'ALEWarningSign', { bg = '#2E3440', fg = '#EBCB8B' })
