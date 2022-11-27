@@ -26,6 +26,7 @@ global.ale_sign_warning = ''
 global.sort_motion_flags = 'ui'
 global.EasyMotion_smartcase = 1 -- easymotion ignore case on search
 
+-- Options {{{
 opt.autoread = true
 opt.ch = 0
 opt.clipboard = 'unnamed'
@@ -59,7 +60,9 @@ opt.termguicolors = true
 opt.undofile = true
 opt.visualbell = true
 opt.wrap = false
+-- }}}
 
+-- Packer {{{
 local packer = require('packer')
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -143,7 +146,9 @@ packer.startup(function(use)
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
 end)
+-- }}}
 
+-- Plugin Config {{{
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 
@@ -336,6 +341,7 @@ require('lualine').setup({
 })
 
 require('colorizer').setup({'*'})
+-- }}}
 
 local map = vim.api.nvim_set_keymap
 map('n', '<leader>1', '<cmd>LualineBuffersJump 1<cr>', {})
