@@ -114,3 +114,11 @@ source $ZSH/oh-my-zsh.sh
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 ENABLE_CORRECTION="true"
+
+# initialize shell with correct version of node for project if .nvmrc exists, otherwise use default
+NVMRC=.nvmrc
+if [ -f "$NVMRC" ]; then
+    nvm use && clear
+else
+    nvm use default && clear
+fi
