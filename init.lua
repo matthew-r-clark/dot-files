@@ -372,9 +372,10 @@ map('n', '<leader><leader>pu', ':PackerUpdate<CR>', {})
 map('n', '<leader><leader>pC', ':PackerClean<CR>', {})
 -- }}}
 
--- vim-fugitive show git diff side-by-side {{{
-map('', '<leader>gd', ':Gvdiff<CR>', {})
+-- vim-fugitive {{{
+map('', '<leader>gd', ':Gvdiff<CR>', {}) -- side-by-side diff
 map('', '<leader>gb', ':Git blame<CR>', {})
+map('', '<leader>gs', ':Git<CR>', {}) -- git status
 -- }}}
 
 -- vim resizing {{{
