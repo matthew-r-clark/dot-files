@@ -28,7 +28,7 @@ global.EasyMotion_smartcase = 1 -- easymotion ignore case on search
 
 -- Options {{{
 opt.autoread = true
-opt.ch = 0
+opt.ch = 1
 opt.clipboard = 'unnamed'
 opt.colorcolumn = '80'
 opt.compatible = false
