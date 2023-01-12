@@ -122,3 +122,5 @@ if [ -f "$NVMRC" ]; then
 else
     nvm use default && clear
 fi
+
+source /Users/clarkm/.docker/init-zsh.sh || true # Added by Docker Desktop
