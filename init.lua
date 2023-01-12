@@ -27,6 +27,7 @@ global.sort_motion_flags = 'ui'
 global.EasyMotion_smartcase = 1 -- easymotion ignore case on search
 
 -- Options {{{
+opt.autoindent = true
 opt.autoread = true
 opt.ch = 1
 opt.clipboard = 'unnamed'
@@ -40,7 +41,7 @@ opt.expandtab = true
 opt.fixeol = false
 opt.foldenable = true
 opt.foldmethod = 'marker'
-opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
+-- opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 opt.ignorecase = true
 opt.lazyredraw = true
 opt.list = true
@@ -52,8 +53,10 @@ opt.ruler = true
 opt.scl = 'yes'
 opt.shiftwidth = 4
 opt.showmatch = true
+opt.softtabstop = 0
 opt.smartcase = true
 opt.smartindent = true
+opt.smarttab = true
 opt.swapfile = false
 opt.tabstop = 4
 opt.termguicolors = true
