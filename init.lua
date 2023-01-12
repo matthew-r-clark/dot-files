@@ -166,6 +166,8 @@ telescope.setup({
             '--glob', '!package-lock.json',
             '--glob', '!projects/**/node_modules',
             '--glob', '!build-node-docker/node_modules',
+            '--glob', '!build/*',
+            '--glob', '!dist/*',
         },
         mappings = {
             i = {
@@ -197,6 +199,8 @@ telescope.setup({
                 '--glob', '!.next',
                 '--glob', '!projects/**/node_modules',
                 '--glob', '!build-node-docker/node_modules',
+                '--glob', '!build/*',
+                '--glob', '!dist/*',
             },
         },
     },
