@@ -406,7 +406,9 @@ map('', 'dat', 'da<', {})
 map('', 'dit', 'di<', {})
 map('', 'cat', 'ca<', {})
 map('', 'cit', 'ci<', {})
-map('', '<leader>ya', 'ggVGy', {})
+map('', '<leader>ya', 'gg0vGg_y', {})
+map('', '<leader>va', 'ggVGg_', {})
+map('', '<leader>da', 'ggVGd', {})
 
 -- vim pane split management {{{
 map('', '<leader>ev', ':vsplit ', {})
