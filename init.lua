@@ -225,7 +225,7 @@ telescope.setup({
                 mirror = false
             },
             vertical = {
-                mirror = true,
+                mirror = false,
             }
         },
         set_env = {['COLORTERM'] = 'truecolor'},
