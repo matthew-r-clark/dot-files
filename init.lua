@@ -459,8 +459,9 @@ map('', '<leader>da', 'ggVGd', {})
 -- vim pane split management {{{
 map('', '<leader>ev', ':vsplit ', {})
 map('', '<leader>eh', ':split ', {})
-map('', '<leader>v', '<C-w>v', {})
-map('', '<leader>h', '<C-w>s', {})
+map('', '<leader>sv', '<C-w>v', {})
+map('', '<leader>sh', '<C-w>s', {})
+map('', '<leader>s=', '<C-w>=', {})
 map('', '<leader>kp', '<C-w>q', {})
 -- }}}
 
