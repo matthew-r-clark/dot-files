@@ -48,7 +48,7 @@ opt.list = true
 opt.listchars = {tab = '›⋅', eol = '↲', space = '⋅'}
 opt.mouse = 'a'
 opt.number = true
--- opt.relativenumber = true
+opt.relativenumber = true
 opt.ruler = true
 opt.scl = 'yes'
 opt.shiftwidth = 4
@@ -455,6 +455,7 @@ map('', 'cit', 'ci<', {})
 map('', '<leader>ya', 'gg0vGg_y', {})
 map('', '<leader>va', 'ggVGg_', {})
 map('', '<leader>da', 'ggVGd', {})
+map('', '<leader>n', ':set invrelativenumber<CR>', {})
 
 -- vim pane split management {{{
 map('', '<leader>ev', ':vsplit ', {})
