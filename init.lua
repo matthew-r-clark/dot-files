@@ -409,7 +409,7 @@ map('n', '<leader><leader>8', '<cmd>LualineBuffersJump 18<cr>', {})
 map('n', '<leader><leader>9', '<cmd>LualineBuffersJump 19<cr>', {})
 map('n', '<leader><leader>0', '<cmd>LualineBuffersJump 20<cr>', {})
 
--- packer shortcuts {{
+-- packer shortcuts {{{
 map('n', '<leader><leader>pc', ':PackerCompile<CR>', {})
 map('n', '<leader><leader>pi', ':PackerInstall<CR>', {})
 map('n', '<leader><leader>pu', ':PackerUpdate<CR>', {})
