@@ -180,6 +180,10 @@ packer.startup(function(use)
         end,
         run = ':UpdateRemotePlugins',
     }
+
+    use {
+        'vimwiki/vimwiki',
+    }
 end)
 -- }}}
 
@@ -423,10 +427,10 @@ map('', '<leader>gs', ':Git<CR>', {}) -- git status
 -- }}}
 
 -- vim resizing {{{
-map('', '<M-l>', ':vertical resize +5<CR>', {})
-map('', '<M-h>', ':vertical resize -5<CR>', {})
-map('', '<M-j>', ':resize -5<CR>', {})
-map('', '<M-k>', ':resize +5<CR>', {})
+map('', '<M-l>', ':vertical resize +3<CR>', {})
+map('', '<M-h>', ':vertical resize -3<CR>', {})
+map('', '<M-j>', ':resize -1<CR>', {})
+map('', '<M-k>', ':resize +1<CR>', {})
 -- }}}
 
 map('', '<leader>l', ':ALEToggle<CR>', {})
