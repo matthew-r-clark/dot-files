@@ -193,6 +193,10 @@ packer.startup(function(use)
     use {
         'vimwiki/vimwiki',
     }
+
+    use {
+        'mattn/calendar-vim',
+    }
 end)
 -- }}}
 
