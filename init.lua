@@ -11,6 +11,7 @@ global.loaded_netrwPlugin = 1
 global.mapleader = ' '
 global.session_autosave = 'no'
 global.tmux_navigator_preserve_zoom = 1
+local map = vim.api.nvim_set_keymap
 
 -- ALE {{{
 global.ale_fixers = {-- ale eslint autofix
@@ -22,6 +23,14 @@ global.ale_fix_on_save = 1
 global.ale_sign_error = ''
 global.ale_sign_warning = ''
 -- ALE }}}
+
+-- vim-wiki {{{
+global.vimwiki_map_prefix = '<leader>vw'
+global.vimwiki_listsyms = ' ✗•✓'
+map('n', '<leader>vw', '<cmd>VimwikiIndex<cr>', {})
+map('n', '<leader>dw', '<cmd>VimwikiDiaryIndex<cr>', {})
+map('n', '<leader>dwl', '<cmd>VimwikiDiaryGenerateLinks<cr>', {})
+-- vim-wiki }}}
 
 global.sort_motion_flags = 'ui'
 global.EasyMotion_smartcase = 1 -- easymotion ignore case on search
@@ -391,7 +400,6 @@ require('lualine').setup({
 require('colorizer').setup({'*'})
 -- }}}
 
-local map = vim.api.nvim_set_keymap
 map('n', '<leader>1', '<cmd>LualineBuffersJump 1<cr>', {})
 map('n', '<leader>2', '<cmd>LualineBuffersJump 2<cr>', {})
 map('n', '<leader>3', '<cmd>LualineBuffersJump 3<cr>', {})
