@@ -32,7 +32,7 @@ map('n', '<leader>dw', '<cmd>VimwikiDiaryIndex<cr>', {})
 map('n', '<leader>dn', '<cmd>VimwikiMakeDiaryNote<cr>', {})
 map('n', '<leader>dy', '<cmd>VimwikiMakeYesterdayDiaryNote<cr>', {})
 map('n', '<leader>dt', '<cmd>VimwikiMakeTomorrowDiaryNote<cr>', {})
-map('n', '<leader>dr', '<cmd>VimwikiDiaryGenerateLinks<cr>', {})
+map('n', '<leader>dr', '<cmd>VimwikiDiaryGenerateLinks<cr><leader>w', {})
 -- vim-wiki }}}
 
 global.sort_motion_flags = 'ui'
