@@ -387,7 +387,7 @@ require('lualine').setup({
         lualine_a = {
             {
                 'buffers',
-                mode = 2, -- always show tabline
+                mode = 2, -- shows buffer name + buffer index
                 show_filename_only = false,
                 buffers_color = {
                     active = { fg = '#2E3440', bg = '#88C0D0' },
