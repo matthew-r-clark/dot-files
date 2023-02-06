@@ -9,6 +9,8 @@ alias dcl="dc logs -f"
 alias dcps="clear; dc ps;"
 alias lzd="lazydocker"
 alias n="nvim"
+alias rd="export ODY_ENV=true ~/development/od-env/build-node-docker/gendockerfile.sh"
+alias rc="~/development/od-env/build-node-docker/render-consul-template.sh"
 
 # alias gbc="git branch -d $(echo `git branch --merged | grep -v $(git branch --show-current)`)"
 alias py="ampy --port /dev/tty.usbmodem401301"

@@ -6,6 +6,7 @@ fn = vim.fn
 
 exec([[colorscheme nordfox]], false)
 
+-- Options {{{
 global.loaded = 1
 global.loaded_netrwPlugin = 1
 global.mapleader = ' '
@@ -13,7 +14,7 @@ global.session_autosave = 'no'
 global.tmux_navigator_preserve_zoom = 1
 local map = vim.api.nvim_set_keymap
 
--- ALE {{{
+-- ALE
 global.ale_fixers = {-- ale eslint autofix
     javascript = {
         'eslint',
@@ -22,23 +23,22 @@ global.ale_fixers = {-- ale eslint autofix
 global.ale_fix_on_save = 1
 global.ale_sign_error = ''
 global.ale_sign_warning = ''
--- ALE }}}
 
--- vim-wiki {{{
+-- vim-wiki
 global.vimwiki_map_prefix = '<leader>vw'
-global.vimwiki_listsyms = ' ✗•✓'
+global.vimwiki_listsyms = ' ✓'
 map('n', '<leader>vw', '<cmd>VimwikiIndex<cr>', {})
 map('n', '<leader>dw', '<cmd>VimwikiDiaryIndex<cr>', {})
 map('n', '<leader>dn', '<cmd>VimwikiMakeDiaryNote<cr>', {})
 map('n', '<leader>dy', '<cmd>VimwikiMakeYesterdayDiaryNote<cr>', {})
 map('n', '<leader>dt', '<cmd>VimwikiMakeTomorrowDiaryNote<cr>', {})
 map('n', '<leader>dr', '<cmd>VimwikiDiaryGenerateLinks<cr><leader>w', {})
--- vim-wiki }}}
 
+-- easymotion
 global.sort_motion_flags = 'ui'
 global.EasyMotion_smartcase = 1 -- easymotion ignore case on search
 
--- Options {{{
+-- general
 opt.autoindent = true
 opt.autoread = true
 opt.ch = 1
@@ -81,13 +81,14 @@ opt.wrap = false
 local packer = require('packer')
 
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+print(install_path)
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
   exec([[packadd packer.nvim]], false)
 end
 
 packer.init({
-   enable = true,
+    enable = true,
     threshold = 0,
     max_jobs = 20,
     display = {
@@ -99,6 +100,38 @@ packer.init({
 
 packer.startup(function(use)
     use 'wbthomason/packer.nvim'
+
+    use { -- Configurations for Nvim LSP
+        'neovim/nvim-lspconfig',
+        config = function()
+            require('lspconfig')['quick_lint_js'].setup({
+                    on_attach = on_attach,
+            })
+        end
+    }
+
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v1.x',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},             -- Required
+            {'williamboman/mason.nvim'},           -- Optional
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},         -- Required
+            {'hrsh7th/cmp-nvim-lsp'},     -- Required
+            {'hrsh7th/cmp-buffer'},       -- Optional
+            {'hrsh7th/cmp-path'},         -- Optional
+            {'saadparwaiz1/cmp_luasnip'}, -- Optional
+            {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+            -- Snippets
+            {'L3MON4D3/LuaSnip'},             -- Required
+            {'rafamadriz/friendly-snippets'}, -- Optional
+        }
+    }
 
     use { -- file explorer
         'kyazdani42/nvim-tree.lua',
@@ -116,7 +149,7 @@ packer.startup(function(use)
     }
 
     use 'norcalli/nvim-colorizer.lua' -- highlight color codes
-    
+
     use 'christoomey/vim-sort-motion' -- sort bindings
 
     use 'easymotion/vim-easymotion' -- find letter
@@ -126,7 +159,7 @@ packer.startup(function(use)
     use 'sheerun/vim-polyglot' -- vim language packs
 
     use 'yuezk/vim-js' -- syntax highlighting for JS
-    
+
     use 'maxmellon/vim-jsx-pretty' -- React syntax highlighting
 
     use 'tpope/vim-fugitive' -- git
@@ -196,12 +229,15 @@ packer.startup(function(use)
     use {
         'vimwiki/vimwiki',
     }
-
-    use {
-        'mattn/calendar-vim',
-    }
 end)
 -- }}}
+
+exec([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile profile=true
+  augroup end
+]], false)
 
 -- Plugin Config {{{
 local telescope = require('telescope')
@@ -405,28 +441,40 @@ require('lualine').setup({
 })
 
 require('colorizer').setup({'*'})
+
+-- Learn the keybindings, see :help lsp-zero-keybindings
+-- Learn to configure LSP servers, see :help lsp-zero-api-showcase
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
+
+-- (Optional) Configure lua language server for neovim
+lsp.nvim_workspace()
+
+lsp.setup()
 -- }}}
 
-map('n', '<leader>1', '<cmd>LualineBuffersJump 1<cr>', {})
-map('n', '<leader>2', '<cmd>LualineBuffersJump 2<cr>', {})
-map('n', '<leader>3', '<cmd>LualineBuffersJump 3<cr>', {})
-map('n', '<leader>4', '<cmd>LualineBuffersJump 4<cr>', {})
-map('n', '<leader>5', '<cmd>LualineBuffersJump 5<cr>', {})
-map('n', '<leader>6', '<cmd>LualineBuffersJump 6<cr>', {})
-map('n', '<leader>7', '<cmd>LualineBuffersJump 7<cr>', {})
-map('n', '<leader>8', '<cmd>LualineBuffersJump 8<cr>', {})
-map('n', '<leader>9', '<cmd>LualineBuffersJump 9<cr>', {})
-map('n', '<leader>0', '<cmd>LualineBuffersJump 10<cr>', {})
-map('n', '<leader><leader>1', '<cmd>LualineBuffersJump 11<cr>', {})
-map('n', '<leader><leader>2', '<cmd>LualineBuffersJump 12<cr>', {})
-map('n', '<leader><leader>3', '<cmd>LualineBuffersJump 13<cr>', {})
-map('n', '<leader><leader>4', '<cmd>LualineBuffersJump 14<cr>', {})
-map('n', '<leader><leader>5', '<cmd>LualineBuffersJump 15<cr>', {})
-map('n', '<leader><leader>6', '<cmd>LualineBuffersJump 16<cr>', {})
-map('n', '<leader><leader>7', '<cmd>LualineBuffersJump 17<cr>', {})
-map('n', '<leader><leader>8', '<cmd>LualineBuffersJump 18<cr>', {})
-map('n', '<leader><leader>9', '<cmd>LualineBuffersJump 19<cr>', {})
-map('n', '<leader><leader>0', '<cmd>LualineBuffersJump 20<cr>', {})
+-- lualine buffer jump mappings {{{
+map('n', '<leader>1', '<cmd>LualineBuffersJump! 1<cr>', {})
+map('n', '<leader>2', '<cmd>LualineBuffersJump! 2<cr>', {})
+map('n', '<leader>3', '<cmd>LualineBuffersJump! 3<cr>', {})
+map('n', '<leader>4', '<cmd>LualineBuffersJump! 4<cr>', {})
+map('n', '<leader>5', '<cmd>LualineBuffersJump! 5<cr>', {})
+map('n', '<leader>6', '<cmd>LualineBuffersJump! 6<cr>', {})
+map('n', '<leader>7', '<cmd>LualineBuffersJump! 7<cr>', {})
+map('n', '<leader>8', '<cmd>LualineBuffersJump! 8<cr>', {})
+map('n', '<leader>9', '<cmd>LualineBuffersJump! 9<cr>', {})
+map('n', '<leader>0', '<cmd>LualineBuffersJump! 10<cr>', {})
+map('n', '<leader><leader>1', '<cmd>LualineBuffersJump! 11<cr>', {})
+map('n', '<leader><leader>2', '<cmd>LualineBuffersJump! 12<cr>', {})
+map('n', '<leader><leader>3', '<cmd>LualineBuffersJump! 13<cr>', {})
+map('n', '<leader><leader>4', '<cmd>LualineBuffersJump! 14<cr>', {})
+map('n', '<leader><leader>5', '<cmd>LualineBuffersJump! 15<cr>', {})
+map('n', '<leader><leader>6', '<cmd>LualineBuffersJump! 16<cr>', {})
+map('n', '<leader><leader>7', '<cmd>LualineBuffersJump! 17<cr>', {})
+map('n', '<leader><leader>8', '<cmd>LualineBuffersJump! 18<cr>', {})
+map('n', '<leader><leader>9', '<cmd>LualineBuffersJump! 19<cr>', {})
+map('n', '<leader><leader>0', '<cmd>LualineBuffersJump! 20<cr>', {})
+-- }}}
 
 -- packer shortcuts {{{
 map('n', '<leader><leader>pc', ':PackerCompile<CR>', {})
@@ -478,13 +526,49 @@ map('n', '<leader>da', 'ggVGd', {})
 map('n', '<leader>n', ':set invrelativenumber<CR>', {})
 
 -- vim pane split management {{{
-map('', '<leader>ev', ':vsplit ', {})
-map('', '<leader>eh', ':split ', {})
 map('', '<leader>sv', '<C-w>v', {})
 map('', '<leader>sh', '<C-w>s', {})
 map('', '<leader>s=', '<C-w>=', {})
 map('', '<leader>kp', '<C-w>q', {})
 -- }}}
+
+-- -- nvim-lspconfig suggested mappings {{{
+-- -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+-- local opts = { noremap=true, silent=true }
+-- vim.keymap.set('n', '<leader>T', vim.diagnostic.open_float, opts)
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+-- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+--
+-- -- Use an on_attach function to only map the following keys
+-- -- after the language server attaches to the current buffer
+-- local on_attach = function(client, bufnr)
+--     vim.keymap.set('n', '<space>gY', function()
+--         print(bufnr)
+--         print('test')
+--     end, {})
+--     -- Enable completion triggered by <c-x><c-o>
+--     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+--
+--     -- See `:help vim.lsp.*` for documentation on any of the below functions
+--     local bufopts = { noremap=true, silent=true, buffer=bufnr }
+--     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+--     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+--     vim.keymap.set('n', 'gh', vim.lsp.buf.hover, bufopts)
+--     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+--     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+--     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+--     vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+--     vim.keymap.set('n', '<space>wl', function()
+--         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+--     end, bufopts)
+--     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+--     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+--     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+--     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+--     vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+-- end
+-- -- }}}
 
 hi(0, 'ALEErrorSign', { bg = '#2E3440', fg = '#BF616A' })
 hi(0, 'ALEWarningSign', { bg = '#2E3440', fg = '#EBCB8B' })
