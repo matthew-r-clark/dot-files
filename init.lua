@@ -340,7 +340,6 @@ require('nvim-tree').setup({
     git = {
         ignore = false,
     },
-    open_on_setup = true,
     actions = {
         open_file = {
             quit_on_open = true,
@@ -372,6 +371,10 @@ require('nvim-tree').setup({
         },
     },
 })
+local function open_nvim_tree()
+    require('nvim-tree.api').tree.open()
+end
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 require('nvim-web-devicons').setup({ default = true })
 
 require('nightfox').setup({
