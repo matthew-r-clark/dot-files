@@ -26,7 +26,9 @@ global.ale_sign_warning = ''
 
 -- vim-wiki
 global.vimwiki_map_prefix = '<leader>vw'
+global.vimwiki_list = {{ path = '~/vimwiki/' }}
 global.vimwiki_listsyms = ' ✓'
+global.vimwiki_folding = 'list'
 map('n', '<leader>vw', '<cmd>VimwikiIndex<cr>', {})
 map('n', '<leader>dw', '<cmd>VimwikiDiaryIndex<cr>', {})
 map('n', '<leader>dn', '<cmd>VimwikiMakeDiaryNote<cr>', {})
@@ -227,6 +229,10 @@ packer.startup(function(use)
 
     use {
         'vimwiki/vimwiki',
+    }
+
+    use {
+        'mattn/calendar-vim',
     }
 end)
 -- }}}
