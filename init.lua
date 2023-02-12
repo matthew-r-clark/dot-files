@@ -131,7 +131,31 @@ packer.startup(function(use)
             -- Snippets
             {'L3MON4D3/LuaSnip'},             -- Required
             {'rafamadriz/friendly-snippets'}, -- Optional
-        }
+        },
+        config = function()
+            -- Learn the keybindings, see :help lsp-zero-keybindings
+            -- Learn to configure LSP servers, see :help lsp-zero-api-showcase
+            local lsp = require('lsp-zero')
+            lsp.preset('recommended')
+
+            -- (Optional) Configure lua language server for neovim
+            lsp.nvim_workspace()
+
+            lsp.setup()
+
+            require('mason').setup({
+                ensure_installed = {
+                    'tsserver',
+                }
+            })
+
+            local ls = require('luasnip')
+
+            ls.filetype_extend('javascript', { 'javascriptreact' })
+            ls.filetype_extend('javascript', { 'html' })
+            require('luasnip.loaders.from_vscode').lazy_load()
+            -- require('luasnip.loaders.from_lua').load({ paths = '~/.config/nvim/snippets' })
+        end
     }
 
     use { -- file explorer
@@ -188,7 +212,7 @@ packer.startup(function(use)
     use { -- file sorter for telescope
         'nvim-telescope/telescope-fzf-native.nvim',
         run = 'make'
-    }    
+    }
 
     use { -- language parser
         'nvim-treesitter/nvim-treesitter',
@@ -449,16 +473,6 @@ require('lualine').setup({
 })
 
 require('colorizer').setup({'*'})
-
--- Learn the keybindings, see :help lsp-zero-keybindings
--- Learn to configure LSP servers, see :help lsp-zero-api-showcase
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
-
--- (Optional) Configure lua language server for neovim
-lsp.nvim_workspace()
-
-lsp.setup()
 -- }}}
 
 -- lualine buffer jump mappings {{{
