@@ -23,6 +23,8 @@ global.ale_fixers = {-- ale eslint autofix
 global.ale_fix_on_save = 1
 global.ale_sign_error = ''
 global.ale_sign_warning = ''
+hi(0, 'ALEErrorSign', { bg = '#2E3440', fg = '#BF616A' })
+hi(0, 'ALEWarningSign', { bg = '#2E3440', fg = '#EBCB8B' })
 
 -- vim-wiki
 global.vimwiki_map_prefix = '<leader>vw'
@@ -259,7 +261,6 @@ packer.startup(function(use)
         'mattn/calendar-vim',
     }
 end)
--- }}}
 
 exec([[
   augroup packer_user_config
@@ -267,6 +268,7 @@ exec([[
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile profile=true
   augroup end
 ]], false)
+-- }}}
 
 -- Plugin Config {{{
 local telescope = require('telescope')
@@ -518,6 +520,7 @@ map('', '<M-j>', ':resize -1<CR>', {})
 map('', '<M-k>', ':resize +1<CR>', {})
 -- }}}
 
+-- general key mappings {{{
 map('n', '<leader>l', ':ALEToggle<CR>', {})
 map('n', '<leader>f', '<Plug>(easymotion-bd-f)', {})
 map('n', '<leader>o', ':NvimTreeToggle<CR>', {})
@@ -546,6 +549,7 @@ map('n', '<leader>ya', 'gg0vGg_y', {})
 map('n', '<leader>va', 'ggVGg_', {})
 map('n', '<leader>da', 'ggVGd', {})
 map('n', '<leader>n', ':set invrelativenumber<CR>', {})
+-- }}}
 
 -- vim pane split management {{{
 map('', '<leader>sv', '<C-w>v', {})
@@ -553,6 +557,3 @@ map('', '<leader>sh', '<C-w>s', {})
 map('', '<leader>s=', '<C-w>=', {})
 map('', '<leader>kp', '<C-w>q', {})
 -- }}}
-
-hi(0, 'ALEErrorSign', { bg = '#2E3440', fg = '#BF616A' })
-hi(0, 'ALEWarningSign', { bg = '#2E3440', fg = '#EBCB8B' })
