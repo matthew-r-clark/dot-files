@@ -260,6 +260,10 @@ packer.startup(function(use)
     use {
         'mattn/calendar-vim',
     }
+
+    use {
+        'Yggdroot/indentLine'
+    }
 end)
 
 exec([[
