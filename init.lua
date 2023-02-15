@@ -20,7 +20,7 @@ global.ale_fixers = {-- ale eslint autofix
         'eslint',
     },
 }
-global.ale_fix_on_save = 1
+global.ale_fix_on_save = 0
 global.ale_sign_error = ''
 global.ale_sign_warning = ''
 hi(0, 'ALEErrorSign', { bg = '#2E3440', fg = '#BF616A' })
