@@ -1,8 +1,8 @@
-global = vim.g
-opt = vim.opt
-hi = vim.api.nvim_set_hl
-exec = vim.api.nvim_exec
-fn = vim.fn
+local global = vim.g
+local opt = vim.opt
+local hi = vim.api.nvim_set_hl
+local exec = vim.api.nvim_exec
+local fn = vim.fn
 
 exec([[colorscheme nordfox]], false)
 
