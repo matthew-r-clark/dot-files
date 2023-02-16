@@ -57,6 +57,16 @@ opt.expandtab = true
 opt.fixeol = false
 opt.foldenable = true
 opt.foldmethod = 'marker'
+opt.formatoptions = 'crqnj'
+-- {{{ formatoptions descriptions
+--[[
+    c -> auto-wrap comments
+    r -> auto-insert comment leader after hitting <Enter> in insert mode
+    q -> allow formatting of comments with "gq"
+    n -> recognized numbered lists
+    j -> auto-remove comments when joining lines
+]]
+--- }}}
 -- opt.guicursor = 'n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 opt.ignorecase = true
 opt.lazyredraw = true
@@ -77,6 +87,7 @@ opt.swapfile = false
 opt.tabstop = 4
 opt.termguicolors = true
 opt.undofile = true
+opt.textwidth = 80
 opt.visualbell = true
 opt.wrap = false
 -- }}}
@@ -211,7 +222,9 @@ packer.startup(function(use)
     use { -- comment motion
         'numToStr/Comment.nvim',
         config = function()
-            require('Comment').setup()
+            require('Comment').setup({
+                ignore = '^$',
+            })
         end,
     }
 
