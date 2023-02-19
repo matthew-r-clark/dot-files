@@ -115,15 +115,6 @@ packer.init({
 packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    -- use { -- Configurations for Nvim LSP
-    --     'neovim/nvim-lspconfig',
-    --     config = function()
-    --         require('lspconfig')['quick_lint_js'].setup({
-    --                 on_attach = on_attach,
-    --         })
-    --     end
-    -- }
-    --
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
