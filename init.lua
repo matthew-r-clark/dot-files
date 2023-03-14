@@ -28,9 +28,12 @@ hi(0, 'ALEWarningSign', { bg = '#2E3440', fg = '#EBCB8B' })
 
 -- vim-wiki
 global.vimwiki_map_prefix = '<leader>vw'
-global.vimwiki_list = {{ path = '~/vimwiki/' }}
-global.vimwiki_folding = 'list'
+global.vimwiki_list = {{
+    path = '~/vimwiki/',
+    -- rx_todo = vim.regex('TODO|DONE|STARTED|FIXME|FIXED|XXX'),
+}}
 global.vimwiki_listsyms = ' ✓'
+-- global.vimwiki_folding = 'list'
 map('n', '<leader>vw', '<cmd>VimwikiIndex<cr>', {})
 map('n', '<leader>dw', '<cmd>VimwikiDiaryIndex<cr>', {})
 map('n', '<leader>dn', '<cmd>VimwikiMakeDiaryNote<cr>', {})
