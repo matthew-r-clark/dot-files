@@ -14,7 +14,7 @@ alias gendockerfile="~/development/od-env/build-node-docker/gendockerfile.sh"
 alias renderconsul="~/development/od-env/build-node-docker/render-consul-template.sh"
 
 # alias gbc="git branch -d $(echo `git branch --merged | grep -v $(git branch --show-current)`)"
-alias py="ampy --port /dev/tty.usbmodem401301"
+alias py="ampy --port /dev/tty.usbmodem401101"
 alias pyg="py get"
 alias pyp="py put"
 alias pyr="py run"
