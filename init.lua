@@ -326,6 +326,10 @@ packer.startup(function(use)
     use {
         'mattn/calendar-vim',
     }
+
+    use {
+        'tpope/vim-obsession',
+    }
 end)
 
 exec([[
