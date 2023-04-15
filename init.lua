@@ -119,6 +119,19 @@ packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
+        'L3MON4D3/LuaSnip',
+        tag = "v<CurrentMajor>.*",
+        -- run = "make install_jsregexp",
+        config = function ()
+            local ls = require('luasnip')
+            ls.filetype_extend('javascript', { 'javascriptreact' })
+            ls.filetype_extend('javascript', { 'html' })
+            require('luasnip.loaders.from_vscode').lazy_load()
+            require('snippets/index')
+        end
+    }
+
+    use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
         requires = {
@@ -165,12 +178,23 @@ packer.startup(function(use)
                 }
             })
 
+            local cmp = require('cmp')
             local ls = require('luasnip')
 
-            ls.filetype_extend('javascript', { 'javascriptreact' })
-            ls.filetype_extend('javascript', { 'html' })
-            require('luasnip.loaders.from_vscode').lazy_load()
-            -- require('luasnip.loaders.from_lua').load({ paths = '~/.config/nvim/snippets' })
+            cmp.setup({
+                completion = {
+                    autocomplete = true,
+                },
+                snippet = {
+                    expand = function (args)
+                        ls.lsp_expand(args.body)
+                    end
+                },
+                sources = {
+                    { name = 'nvim_lsp' },
+                    { name = 'luasnip', option = { use_show_condition = false } },
+                },
+             })
         end
     }
 
