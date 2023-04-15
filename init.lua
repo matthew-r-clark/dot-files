@@ -32,7 +32,7 @@ global.vimwiki_list = {{
     path = '~/vimwiki/',
     -- rx_todo = vim.regex('TODO|DONE|STARTED|FIXME|FIXED|XXX'),
 }}
-global.vimwiki_listsyms = ' ✓'
+global.vimwiki_listsyms = ' 123456789✓'
 -- global.vimwiki_folding = 'list'
 map('n', '<leader>vw', '<cmd>VimwikiIndex<cr>', {})
 map('n', '<leader>dw', '<cmd>VimwikiDiaryIndex<cr>', {})
