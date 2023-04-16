@@ -7,8 +7,10 @@ end
 local function initialize()
     if session_exists() then
         vim.cmd(':source Session.vim')
+        print('previous session restored')
     else
         vim.cmd(':Obsession')
+        print('new session initialized')
     end
 end
 
