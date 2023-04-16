@@ -25,14 +25,14 @@ packer.startup(function(use)
     use {
         'L3MON4D3/LuaSnip',
         tag = "v<CurrentMajor>.*",
-        -- run = "make install_jsregexp",
+        run = "make install_jsregexp",
         config = function ()
             local ls = require('luasnip')
             ls.filetype_extend('javascript', { 'javascriptreact' })
             ls.filetype_extend('javascript', { 'html' })
             require('luasnip.loaders.from_vscode').lazy_load()
             require('snippets/index')
-        end
+        end,
     }
 
     use {
@@ -451,4 +451,4 @@ require('lualine').setup({
 
 require('colorizer').setup({'*'})
 
-vim.defer_fn(require('vim-obsession.initialize'), 500)
+vim.defer_fn(require('vim-obsession.initialize'), 1000)
