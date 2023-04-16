@@ -626,3 +626,5 @@ map('', '<leader>sh', '<C-w>s', {})
 map('', '<leader>s=', '<C-w>=', {})
 map('', '<leader>kp', '<C-w>q', {})
 -- }}}
+
+vim.defer_fn(require('vim-obsession.initialize'), 1000)
