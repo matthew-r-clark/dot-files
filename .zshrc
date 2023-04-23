@@ -8,10 +8,11 @@ alias dcr="dc restart"
 alias dcl="dc logs -f"
 alias dcps="clear; dc ps;"
 alias lzd="lazydocker"
-alias n="nvim"
+alias n="nvim +\"silent! :source Session.vim\""
 export ODY_ENV=true
 alias gendockerfile="~/development/od-env/build-node-docker/gendockerfile.sh"
 alias renderconsul="~/development/od-env/build-node-docker/render-consul-template.sh"
+alias nvimlogs="tail -n 1000 -f logger.txt"
 
 # alias gbc="git branch -d $(echo `git branch --merged | grep -v $(git branch --show-current)`)"
 alias py="ampy --port /dev/tty.usbmodem401101"
