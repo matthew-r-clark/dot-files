@@ -449,5 +449,3 @@ require('lualine').setup({
 })
 
 require('colorizer').setup({'*'})
-
-vim.defer_fn(require('vim-obsession.initialize'), 1000)
