@@ -57,7 +57,7 @@ packer.startup(function(use)
         config = get_config('lsp-zero'),
     }
 
-    use({ 'jayp0521/mason-null-ls.nvim' })                                              -- Mason/null-ls auto installer
+    use({ 'jayp0521/mason-null-ls.nvim' })  -- Mason/null-ls auto installer
 
     use ({
         'jose-elias-alvarez/null-ls.nvim',
@@ -97,28 +97,6 @@ packer.startup(function(use)
         config = get_config('nvim-colorizer'),
     }
 
-    use 'christoomey/vim-sort-motion' -- sort bindings
-
-    use 'easymotion/vim-easymotion' -- find letter
-
-    use 'w0rp/ale' -- prettier
-
-    use 'sheerun/vim-polyglot' -- vim language packs
-
-    use 'yuezk/vim-js' -- syntax highlighting for JS
-
-    use 'maxmellon/vim-jsx-pretty' -- React syntax highlighting
-
-    use 'tpope/vim-fugitive' -- git
-
-    use 'tpope/vim-surround' -- modify surround chars
-
-    use 'airblade/vim-gitgutter' -- show git diff in side column
-
-    use 'mg979/vim-visual-multi' -- multi cursor
-
-    use 'christoomey/vim-tmux-navigator' -- smart pane switcher
-
     use { -- comment motion
         'numToStr/Comment.nvim',
         config = get_config('Comment'),
@@ -147,17 +125,20 @@ packer.startup(function(use)
         run = ':UpdateRemotePlugins',
     }
 
-    use {
-        'vimwiki/vimwiki',
-    }
-
-    use {
-        'mattn/calendar-vim',
-    }
-
-    use {
-        'tpope/vim-obsession',
-    }
+    use 'airblade/vim-gitgutter' -- show git diff in side column
+    use 'christoomey/vim-sort-motion' -- sort bindings
+    use 'christoomey/vim-tmux-navigator' -- smart pane switcher
+    use 'easymotion/vim-easymotion' -- find letter
+    use 'mattn/calendar-vim' -- calendar for vimwiki
+    use 'maxmellon/vim-jsx-pretty' -- React syntax highlighting
+    use 'mg979/vim-visual-multi' -- multi cursor
+    use 'sheerun/vim-polyglot' -- vim language packs
+    use 'tpope/vim-fugitive' -- git
+    use 'tpope/vim-obsession' -- session management
+    use 'tpope/vim-surround' -- modify surround chars
+    use 'vimwiki/vimwiki' -- notes
+    use 'w0rp/ale' -- prettier
+    use 'yuezk/vim-js' -- syntax highlighting for JS
 end)
 
 exec([[
