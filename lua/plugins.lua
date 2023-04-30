@@ -265,6 +265,7 @@ telescope.setup({
             '--glob', '!build-node-docker/node_modules',
             '--glob', '!build/*',
             '--glob', '!dist/*',
+            '--glob', '!Session.vim',
         },
         mappings = {
             i = {
