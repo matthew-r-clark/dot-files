@@ -372,8 +372,6 @@ require('nvim-tree').setup({
         adaptive_size = true,
         mappings = {
             list = {
-                { key = "h", action = "split" },
-                { key = "v", action = "vsplit" },
             },
         },
     },
