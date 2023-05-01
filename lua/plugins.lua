@@ -125,6 +125,11 @@ packer.startup(function(use)
         run = ':UpdateRemotePlugins',
     }
 
+    use {
+        'windwp/nvim-autopairs',
+        config = get_config('nvim-autopairs'),
+    }
+
     use 'airblade/vim-gitgutter' -- show git diff in side column
     use 'christoomey/vim-sort-motion' -- sort bindings
     use 'christoomey/vim-tmux-navigator' -- smart pane switcher
