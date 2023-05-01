@@ -9,7 +9,6 @@ end
 
 local function open_nvim_tree()
     local current_buffer = vim.api.nvim_get_current_buf();
-    print(buf_empty(current_buffer))
 
     if (not buf_modified(current_buffer) and buf_empty(current_buffer)) then
         require('nvim-tree.api').tree.open()
