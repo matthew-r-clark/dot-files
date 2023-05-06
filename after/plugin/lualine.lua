@@ -20,3 +20,24 @@ map('n', '<leader><leader>7', '<cmd>LualineBuffersJump! 17<cr>', {})
 map('n', '<leader><leader>8', '<cmd>LualineBuffersJump! 18<cr>', {})
 map('n', '<leader><leader>9', '<cmd>LualineBuffersJump! 19<cr>', {})
 map('n', '<leader><leader>0', '<cmd>LualineBuffersJump! 20<cr>', {})
+
+local function update_tabline_max_length()
+    require('lualine').setup({
+        tabline = {
+            lualine_a = {
+                {
+                    'buffers',
+                    mode = 2, -- shows buffer name + buffer index
+                    show_filename_only = false,
+                    buffers_color = {
+                        active = { fg = '#2E3440', bg = '#88C0D0' },
+                        inactive = { fg = '#2E3440', bg = '#4C566A' },
+                    },
+                    max_length = vim.o.columns,
+                },
+            },
+        },
+    })
+end
+
+vim.api.nvim_create_autocmd({ "VimResized" }, { callback = update_tabline_max_length })
