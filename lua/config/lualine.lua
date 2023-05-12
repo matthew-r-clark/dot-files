@@ -11,8 +11,8 @@ require('lualine').setup({
             {
                 'filename',
                 color = {
-                    fg = '#2E3440',
-                    bg = vim.bo.modified and '#88C0D0' or '#4C566A',
+                    fg = '#D8DEE9',
+                    bg = '#4C566A',
                 },
                 path = 3,
                 shorting_target = 10,
@@ -20,8 +20,10 @@ require('lualine').setup({
         },
         lualine_x = {
             {
-                'filetype',
-                icon_only = true,
+                'branch',
+                color = {
+                    fg = '#D8DEE9',
+                },
             },
         },
         lualine_y = {},
