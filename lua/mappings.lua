@@ -2,7 +2,6 @@ local map = vim.api.nvim_set_keymap
 
 -- general
 map('', '<C-f>', ':LspZeroFormat<CR>', {})
-map('n', '<leader>l', ':ALEToggle<CR>', {})
 map('n', '<leader>f', '<Plug>(easymotion-bd-f)', {})
 map('n', '<leader>o', ':NvimTreeToggle<CR>', {})
 map('n', '<leader>p', ':Telescope find_files<cr>', {})
