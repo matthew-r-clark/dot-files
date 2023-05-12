@@ -26,14 +26,14 @@ packer.init({
 packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    use {
+    use { -- lua snippets
         'L3MON4D3/LuaSnip',
         tag = "v<CurrentMajor>.*",
         run = "make install_jsregexp",
         config = get_config('LuaSnip'),
     }
 
-    use {
+    use { -- LSP boilerplate
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
         requires = {
@@ -59,7 +59,7 @@ packer.startup(function(use)
 
     use({ 'jayp0521/mason-null-ls.nvim' })  -- Mason/null-ls auto installer
 
-    use ({
+    use ({ -- helps with setting up LSP sources
         'jose-elias-alvarez/null-ls.nvim',
         requires = {
             'nvim-lua/plenary.nvim',
@@ -81,13 +81,13 @@ packer.startup(function(use)
         config = get_config('nightfox'),
     }
 
-    use {
-        'nvim-lualine/lualine.nvim', -- vim status line theme
+    use { -- vim status line theme
+        'nvim-lualine/lualine.nvim',
         config = get_config('lualine'),
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     }
 
-    use {
+    use { -- devicons
         'kyazdani42/nvim-web-devicons',
         config = get_config('nvim-web-devicons'),
     }
@@ -119,13 +119,13 @@ packer.startup(function(use)
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
 
-    use {
+    use { -- autocomplete menu for vim commands
         'gelguy/wilder.nvim',
         config = get_config('wilder'),
         run = ':UpdateRemotePlugins',
     }
 
-    use {
+    use { -- autopair surround characters
         'windwp/nvim-autopairs',
         config = get_config('nvim-autopairs'),
     }
