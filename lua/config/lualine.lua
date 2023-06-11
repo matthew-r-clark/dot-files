@@ -22,29 +22,9 @@ require('lualine').setup({
             {
                 'branch',
                 color = {
-                    fg = '#D8DEE9',
                 },
             },
         },
         lualine_y = {},
-    },
-    tabline = {
-        lualine_a = {
-            {
-                'buffers',
-                mode = 2, -- shows buffer name + buffer index
-                show_filename_only = false,
-                buffers_color = {
-                    active = { fg = '#2E3440', bg = '#88C0D0' },
-                    inactive = { fg = '#2E3440', bg = '#4C566A' },
-                },
-                max_length = vim.o.columns,
-            },
-        },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
     },
 })

@@ -130,6 +130,15 @@ packer.startup(function(use)
         config = get_config('nvim-autopairs'),
     }
 
+    use { -- buffer tabs
+        'romgrk/barbar.nvim',
+        requires = {
+            'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+            'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+        },
+        config = get_config('barbar'),
+    }
+
     use 'airblade/vim-gitgutter' -- show git diff in side column
     use 'christoomey/vim-sort-motion' -- sort bindings
     use 'christoomey/vim-tmux-navigator' -- smart pane switcher
