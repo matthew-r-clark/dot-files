@@ -151,7 +151,6 @@ packer.startup(function(use)
     use 'tpope/vim-obsession' -- session management
     use 'tpope/vim-surround' -- modify surround chars
     use 'vimwiki/vimwiki' -- notes
-    use 'w0rp/ale' -- prettier
     use 'yuezk/vim-js' -- syntax highlighting for JS
 end)
 

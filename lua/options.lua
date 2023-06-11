@@ -12,18 +12,6 @@ global.mapleader = ' '
 global.session_autosave = 'no'
 global.tmux_navigator_preserve_zoom = 1
 
--- ALE
-global.ale_fixers = {-- ale eslint autofix
-    javascript = {
-        'eslint',
-    },
-}
-global.ale_fix_on_save = 0
-global.ale_sign_error = ''
-global.ale_sign_warning = ''
-hi(0, 'ALEErrorSign', { bg = '#2E3440', fg = '#BF616A' })
-hi(0, 'ALEWarningSign', { bg = '#2E3440', fg = '#EBCB8B' })
-
 -- vim-wiki
 global.vimwiki_map_prefix = '<leader>vw'
 global.vimwiki_list = {{
