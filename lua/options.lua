@@ -79,3 +79,6 @@ opt.undofile = true
 opt.textwidth = 80
 opt.visualbell = true
 opt.wrap = false
+
+hi(0, 'Normal', {bg='NONE'})
+hi(0, 'NormalNC', {bg='#181E2A'})

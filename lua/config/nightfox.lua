@@ -10,7 +10,6 @@ require('nightfox').setup({
         all = {
             CursorLine = { bg = '#3B4252' },
             CursorColumn = { bg = '#3B4252' },
-            NormalNC = { bg = '#181E2A' },
         },
     },
 })
