@@ -22,6 +22,7 @@ require('lualine').setup({
             {
                 'branch',
                 color = {
+                    fg = '#B48EAD',
                 },
             },
         },
