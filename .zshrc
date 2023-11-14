@@ -9,6 +9,7 @@ alias dcl="dc logs -f"
 alias dcps="clear; dc ps;"
 alias lzd="lazydocker"
 alias n="nvim +\"silent! :source Session.vim\""
+alias vw="nvim ~/vimwiki/index.wiki"
 export ODY_ENV=true
 alias gendockerfile="~/development/od-env/build-node-docker/gendockerfile.sh"
 alias renderconsul="~/development/od-env/build-node-docker/render-consul-template.sh"
