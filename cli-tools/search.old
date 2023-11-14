@@ -1,0 +1,15 @@
+function search() {
+    rg $1
+}
+
+function replace() {
+    rg $1 -l | xargs sed -i '' -E -e "s|${1}|${2}|g"
+}
+
+function isearch() {
+    rg -i $1
+}
+
+function ireplace() {
+    rg -i $1 -l | xargs sed -i '' -E -e "s|${1}|${2}|gI"
+}
