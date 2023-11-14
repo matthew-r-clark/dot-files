@@ -116,6 +116,10 @@ export EDITOR='nvim'
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 ENABLE_CORRECTION="true"
