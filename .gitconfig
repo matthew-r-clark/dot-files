@@ -1,0 +1,7 @@
+[user]
+	email = matthew.clark@taillight.com
+	name = Matthew Clark
+[pull]
+	rebase = true
+[core]
+	excludesFile = ~/.gitignore
