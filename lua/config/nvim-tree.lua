@@ -16,6 +16,7 @@ require('nvim-tree').setup({
         update_root = true,
         -- ignore_list = [],
     },
+    sync_root_with_cwd = false,
     renderer = {
         icons = {
             show = {
