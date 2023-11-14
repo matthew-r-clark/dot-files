@@ -136,3 +136,5 @@ source /Users/clarkm/.docker/init-zsh.sh || true # Added by Docker Desktop
 
 CUSTOM_CLI_TOOLS_PATH=$HOME/dot-files/cli-tools
 export PATH=$PATH:$CUSTOM_CLI_TOOLS_PATH
+
+export DOTFILE_DIR=/Users/clarkm/dot-files
