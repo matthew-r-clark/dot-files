@@ -139,6 +139,11 @@ packer.startup(function(use)
         config = get_config('barbar'),
     }
 
+    use { -- notes
+        'vimwiki/vimwiki',
+        config = get_config('vimwiki'),
+    }
+
     use 'airblade/vim-gitgutter' -- show git diff in side column
     use 'christoomey/vim-sort-motion' -- sort bindings
     use 'christoomey/vim-tmux-navigator' -- smart pane switcher
@@ -150,7 +155,6 @@ packer.startup(function(use)
     use 'tpope/vim-fugitive' -- git
     use 'tpope/vim-obsession' -- session management
     use 'tpope/vim-surround' -- modify surround chars
-    use 'vimwiki/vimwiki' -- notes
     use 'yuezk/vim-js' -- syntax highlighting for JS
 end)
 
