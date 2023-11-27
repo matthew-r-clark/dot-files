@@ -10,8 +10,7 @@ local function auto_backup()
     file_read_handle:close()
 
     if not last_updated or os.time() - last_updated > AUTO_BACKUP_DELAY then
-      os.execute('echo "\n$(date):" >> ~/.vimwiki-auto-backup-log')
-      os.execute('~/dot-files/scripts/vimwiki-backup.sh >> ~/.vimwiki-auto-backup-log')
+      os.execute('~/dot-files/scripts/vimwiki-backup.sh')
       local file_write_handle = assert(io.open(BACKUP_FILEPATH, 'w'))
       file_write_handle:write(os.time())
       file_write_handle:close()

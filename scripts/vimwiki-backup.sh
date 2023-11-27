@@ -7,8 +7,9 @@ STAGED_CHANGES=$(git diff --staged)
 
 if [ -z "$STAGED_CHANGES" ]
 then
-    echo "No changes, skipping backup"
+    echo "\n$(date): No changes, skipping backup" >> ~/.vimwiki-auto-backup-log &> /dev/null
 else
-    git commit -m "automatic backup on $(date)"
-    git push
+    echo "\n" >> ~/.vimwiki-auto-backup-log &> /dev/null
+    git commit -m "$(date): Automatic backup" >> ~/.vimwiki-auto-backup-log &> /dev/null
+    git push >> ~/.vimwiki-auto-backup-log &> /dev/null
 fi
