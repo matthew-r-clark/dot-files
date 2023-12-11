@@ -1,6 +1,5 @@
 local fn = vim.fn
 local exec = vim.api.nvim_exec
-local packer = require('packer')
 
 local get_config = function(name)
     return string.format('require("config/%s")', name)
@@ -12,6 +11,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   exec([[packadd packer.nvim]], false)
 end
 
+local packer = require('packer')
 packer.init({
     enable = true,
     threshold = 0,
