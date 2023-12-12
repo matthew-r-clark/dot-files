@@ -1,10 +1,7 @@
 local global = vim.g
 local opt = vim.opt
 local hi = vim.api.nvim_set_hl
-local exec = vim.api.nvim_exec
 local map = vim.api.nvim_set_keymap
-
-exec([[colorscheme nordfox]], false)
 
 global.loaded = 1
 global.loaded_netrwPlugin = 1
