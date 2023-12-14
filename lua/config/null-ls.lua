@@ -1,6 +1,6 @@
 local null_ls = require('null-ls')
 
-null_ls.setup({
+null_ls.init({
     sources = {
         null_ls.builtins.code_actions.refactoring,
         null_ls.builtins.code_actions.proselint,

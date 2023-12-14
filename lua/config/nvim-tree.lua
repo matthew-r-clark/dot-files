@@ -1,4 +1,4 @@
-require('nvim-tree').setup({
+require('nvim-tree').init({
     git = {
         ignore = false,
     },

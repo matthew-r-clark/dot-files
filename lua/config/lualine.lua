@@ -1,4 +1,4 @@
-require('lualine').setup({
+require('lualine').init({
     options = {
         theme = 'nord',
         section_separators = { left = '', right = '' },

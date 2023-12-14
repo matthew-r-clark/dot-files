@@ -1,4 +1,4 @@
-require('barbar').setup({
+require('barbar').init({
     icons = {
         buffer_index = true,
         button = '',

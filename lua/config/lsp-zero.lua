@@ -6,7 +6,7 @@ lsp.preset('recommended')
 -- (Optional) Configure lua language server for neovim
 lsp.nvim_workspace()
 
-lsp.setup()
+lsp.init()
 
 vim.diagnostic.config({
     virtual_text = true,
@@ -17,7 +17,7 @@ vim.diagnostic.config({
     float = true,
 })
 
-require('mason').setup({
+require('mason').init({
     ensure_installed = {
         'tsserver',
     }
@@ -26,7 +26,7 @@ require('mason').setup({
 local cmp = require('cmp')
 local ls = require('luasnip')
 
-cmp.setup({
+cmp.init({
     completion = {
         -- autocomplete = true,
     },

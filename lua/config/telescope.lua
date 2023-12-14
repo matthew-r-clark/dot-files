@@ -3,7 +3,7 @@ local actions = require('telescope.actions')
 
 telescope.load_extension('fzf')
 
-telescope.setup({
+telescope.init({
     defaults = {
         vimgrep_arguments = { -- live_grep()
              'rg', '--follow', '--color=never', '--no-heading',

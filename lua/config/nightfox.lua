@@ -1,4 +1,4 @@
-require('nightfox').setup({
+require('nightfox').init({
     options = {
         transparent = true,
         dim_inactive = true,
