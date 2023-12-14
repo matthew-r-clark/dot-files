@@ -28,7 +28,7 @@ packer.startup(function(use)
 
     use { -- lua snippets
         'L3MON4D3/LuaSnip',
-        tag = "v<CurrentMajor>.*",
+        version = "v<CurrentMajor>.*",
         build = "make install_jsregexp",
         config = get_config('LuaSnip'),
     }
@@ -73,7 +73,7 @@ packer.startup(function(use)
         dependencies = {
             'kyazdani42/nvim-web-devicons', -- optional, for file icons
         },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+        version = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
     use { -- vim syntax theme (Nord)
@@ -103,7 +103,7 @@ packer.startup(function(use)
     }
 
     use { -- fuzzy finder
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', version = '0.1.0',
         config = get_config('telescope'),
         dependencies = { {'nvim-lua/plenary.nvim'} }
     }
