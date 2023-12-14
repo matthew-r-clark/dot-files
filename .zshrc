@@ -132,8 +132,6 @@ else
     nvm use default && clear
 fi
 
-source $HOME/.docker/init-zsh.sh || true # Added by Docker Desktop
-
 CUSTOM_CLI_TOOLS_PATH=$HOME/dot-files/cli-tools
 export PATH=$PATH:$CUSTOM_CLI_TOOLS_PATH
 
