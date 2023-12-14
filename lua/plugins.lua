@@ -84,7 +84,7 @@ packer.startup(function(use)
     use { -- vim status line theme
         'nvim-lualine/lualine.nvim',
         config = get_config('lualine'),
-        dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
+        dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true },
     }
 
     use { -- devicons
