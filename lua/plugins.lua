@@ -36,7 +36,7 @@ packer.startup(function(use)
     use { -- LSP boilerplate
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
-        requires = {
+        dependencies = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required
             {'williamboman/mason.nvim'},           -- Optional
@@ -61,7 +61,7 @@ packer.startup(function(use)
 
     use ({ -- helps with setting up LSP sources
         'jose-elias-alvarez/null-ls.nvim',
-        requires = {
+        dependencies = {
             'nvim-lua/plenary.nvim',
         },
         config = get_config('null-ls'),
@@ -70,7 +70,7 @@ packer.startup(function(use)
     use { -- file explorer
         'kyazdani42/nvim-tree.lua',
         config = get_config('nvim-tree'),
-        requires = {
+        dependencies = {
             'kyazdani42/nvim-web-devicons', -- optional, for file icons
         },
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
@@ -84,7 +84,7 @@ packer.startup(function(use)
     use { -- vim status line theme
         'nvim-lualine/lualine.nvim',
         config = get_config('lualine'),
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
     }
 
     use { -- devicons
@@ -105,7 +105,7 @@ packer.startup(function(use)
     use { -- fuzzy finder
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         config = get_config('telescope'),
-        requires = { {'nvim-lua/plenary.nvim'} }
+        dependencies = { {'nvim-lua/plenary.nvim'} }
     }
 
     use { -- file sorter for telescope
@@ -132,7 +132,7 @@ packer.startup(function(use)
 
     use { -- buffer tabs
         'romgrk/barbar.nvim',
-        requires = {
+        dependencies = {
             'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
             'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
         },
