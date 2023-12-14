@@ -2,3 +2,4 @@
 **/Session.vim
 logger.txt
 .vimwiki_last_backup_time
+.DS_Store
