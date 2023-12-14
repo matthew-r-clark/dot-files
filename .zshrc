@@ -42,7 +42,7 @@ source ~/alien/alien.zsh
 
 export ALIEN_SECTIONS_LEFT=(
     exit
-    user
+    # user
     path
     vcs_branch:async
     vcs_status:async
