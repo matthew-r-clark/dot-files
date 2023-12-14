@@ -29,7 +29,7 @@ packer.startup(function(use)
     use { -- lua snippets
         'L3MON4D3/LuaSnip',
         tag = "v<CurrentMajor>.*",
-        run = "make install_jsregexp",
+        build = "make install_jsregexp",
         config = get_config('LuaSnip'),
     }
 
@@ -110,19 +110,19 @@ packer.startup(function(use)
 
     use { -- file sorter for telescope
         'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'make'
+        build = 'make'
     }
 
     use { -- language parser
         'nvim-treesitter/nvim-treesitter',
         config = get_config('nvim-treesitter'),
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+        build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
 
     use { -- autocomplete menu for vim commands
         'gelguy/wilder.nvim',
         config = get_config('wilder'),
-        run = ':UpdateRemotePlugins',
+        build = ':UpdateRemotePlugins',
     }
 
     use { -- autopair surround characters
