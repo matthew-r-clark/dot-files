@@ -5,35 +5,15 @@ local get_config = function(name)
     return string.format('require("config/%s")', name)
 end
 
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-  exec([[packadd packer.nvim]], false)
-end
-
-local packer = require('packer')
-packer.init({
-    enable = true,
-    threshold = 0,
-    max_jobs = 20,
-    display = {
-        open_fn = function()
-            return require('packer.util').float({ border = 'rounded' })
-        end,
-    },
-})
-
-packer.startup(function(use)
-    use 'wbthomason/packer.nvim'
-
-    use { -- lua snippets
+local plugins = {
+    { -- lua snippets
         'L3MON4D3/LuaSnip',
         version = "v<CurrentMajor>.*",
         build = "make install_jsregexp",
         config = get_config('LuaSnip'),
-    }
+    },
 
-    use { -- LSP boilerplate
+    { -- LSP boilerplate
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
         dependencies = {
@@ -55,108 +35,110 @@ packer.startup(function(use)
             {'rafamadriz/friendly-snippets'}, -- Optional
         },
         config = get_config('lsp-zero'),
-    }
+    },
 
-    use({ 'jayp0521/mason-null-ls.nvim' })  -- Mason/null-ls auto installer
+    { 'jayp0521/mason-null-ls.nvim' },  -- Mason/null-ls auto installer
 
-    use ({ -- helps with setting up LSP sources
+    { -- helps with setting up LSP sources
         'jose-elias-alvarez/null-ls.nvim',
         dependencies = {
             'nvim-lua/plenary.nvim',
         },
         config = get_config('null-ls'),
-    })
+    },
 
-    use { -- file explorer
+    { -- file explorer
         'kyazdani42/nvim-tree.lua',
         config = get_config('nvim-tree'),
         dependencies = {
             'kyazdani42/nvim-web-devicons', -- optional, for file icons
         },
         version = 'nightly' -- optional, updated every week. (see issue #1193)
-    }
+    },
 
-    use { -- vim syntax theme (Nord)
+    { -- vim syntax theme (Nord)
         'EdenEast/nightfox.nvim',
         config = get_config('nightfox'),
-    }
+    },
 
-    use { -- vim status line theme
+    { -- vim status line theme
         'nvim-lualine/lualine.nvim',
         config = get_config('lualine'),
         dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true },
-    }
+    },
 
-    use { -- devicons
+    { -- devicons
         'kyazdani42/nvim-web-devicons',
         config = get_config('nvim-web-devicons'),
-    }
+    },
 
-    use { -- highlight color codes
+    { -- highlight color codes
         'norcalli/nvim-colorizer.lua',
         config = get_config('nvim-colorizer'),
-    }
+    },
 
-    use { -- comment motion
+    { -- comment motion
         'numToStr/Comment.nvim',
         config = get_config('Comment'),
-    }
+    },
 
-    use { -- fuzzy finder
+    { -- fuzzy finder
         'nvim-telescope/telescope.nvim', version = '0.1.0',
         config = get_config('telescope'),
         dependencies = { {'nvim-lua/plenary.nvim'} }
-    }
+    },
 
-    use { -- file sorter for telescope
+    { -- file sorter for telescope
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make'
-    }
+    },
 
-    use { -- language parser
+    { -- language parser
         'nvim-treesitter/nvim-treesitter',
         config = get_config('nvim-treesitter'),
         build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    }
+    },
 
-    use { -- autocomplete menu for vim commands
+    { -- autocomplete menu for vim commands
         'gelguy/wilder.nvim',
         config = get_config('wilder'),
         build = ':UpdateRemotePlugins',
-    }
+    },
 
-    use { -- autopair surround characters
+    { -- autopair surround characters
         'windwp/nvim-autopairs',
         config = get_config('nvim-autopairs'),
-    }
+    },
 
-    use { -- buffer tabs
+    { -- buffer tabs
         'romgrk/barbar.nvim',
         dependencies = {
             'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
             'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
         },
         config = get_config('barbar'),
-    }
+    },
 
-    use { -- notes
+    { -- notes
         'vimwiki/vimwiki',
         config = get_config('vimwiki'),
-    }
+    },
 
-    use 'airblade/vim-gitgutter' -- show git diff in side column
-    use 'christoomey/vim-sort-motion' -- sort bindings
-    use 'christoomey/vim-tmux-navigator' -- smart pane switcher
-    use 'easymotion/vim-easymotion' -- find letter
-    use 'mattn/calendar-vim' -- calendar for vimwiki
-    use 'maxmellon/vim-jsx-pretty' -- React syntax highlighting
-    use 'mg979/vim-visual-multi' -- multi cursor
-    use 'sheerun/vim-polyglot' -- vim language packs
-    use 'tpope/vim-fugitive' -- git
-    use 'tpope/vim-obsession' -- session management
-    use 'tpope/vim-surround' -- modify surround chars
-    use 'yuezk/vim-js' -- syntax highlighting for JS
-end)
+    { 'airblade/vim-gitgutter' }, -- show git diff in side column
+    { 'christoomey/vim-sort-motion' }, -- sort bindings
+    { 'christoomey/vim-tmux-navigator' }, -- smart pane switcher
+    { 'easymotion/vim-easymotion' }, -- find letter
+    { 'mattn/calendar-vim' }, -- calendar for vimwiki
+    { 'maxmellon/vim-jsx-pretty' }, -- React syntax highlighting
+    { 'mg979/vim-visual-multi' }, -- multi cursor
+    { 'sheerun/vim-polyglot' }, -- vim language packs
+    { 'tpope/vim-fugitive' }, -- git
+    { 'tpope/vim-obsession' }, -- session management
+    { 'tpope/vim-surround' }, -- modify surround chars
+    { 'yuezk/vim-js' }, -- syntax highlighting for JS
+}
+
+require("lazy").setup(plugins, opts)
 
 exec([[
   augroup packer_user_config
