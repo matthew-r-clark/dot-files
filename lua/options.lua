@@ -5,7 +5,6 @@ local map = vim.api.nvim_set_keymap
 
 global.loaded = 1
 global.loaded_netrwPlugin = 1
-global.mapleader = ' '
 global.session_autosave = 'no'
 global.tmux_navigator_preserve_zoom = 1
 
