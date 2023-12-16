@@ -40,13 +40,6 @@ return {
     --     -- config = get_config('null-ls'),
     -- },
 
-    -- { -- vim status line theme
-    --     'nvim-lualine/lualine.nvim',
-    --     -- config = get_config('lualine'),
-    --     dependencies = {
-    --         { 'kyazdani42/nvim-web-devicons', lazy = true },
-    --     },
-    -- },
 
     -- { -- devicons
     --     'kyazdani42/nvim-web-devicons',
