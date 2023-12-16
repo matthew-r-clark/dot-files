@@ -53,11 +53,6 @@ return {
     --     -- config = get_config('nvim-web-devicons'),
     -- },
 
-    -- { -- highlight color codes
-    --     'norcalli/nvim-colorizer.lua',
-    --     -- config = get_config('nvim-colorizer'),
-    -- },
-
     -- { -- autocomplete menu for vim commands
     --     'gelguy/wilder.nvim',
     --     -- config = get_config('wilder'),

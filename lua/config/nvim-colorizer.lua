@@ -1,1 +1,0 @@
-require('colorizer').init({'*'})
