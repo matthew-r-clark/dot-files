@@ -94,7 +94,6 @@ return {
     { 'maxmellon/vim-jsx-pretty' }, -- React syntax highlighting
     { 'mg979/vim-visual-multi' }, -- multi cursor
     { 'sheerun/vim-polyglot' }, -- vim language packs
-    { 'tpope/vim-obsession' }, -- session management
     { 'tpope/vim-surround' }, -- modify surround chars
     { 'yuezk/vim-js' }, -- syntax highlighting for JS
 }
