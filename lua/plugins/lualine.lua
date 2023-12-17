@@ -1,7 +1,7 @@
 return { -- vim status line theme
     'nvim-lualine/lualine.nvim',
     dependencies = {
-        { 'kyazdani42/nvim-web-devicons', lazy = true },
+        { 'nvim-tree/nvim-web-devicons', lazy = true },
     },
     opts = {
         options = {
