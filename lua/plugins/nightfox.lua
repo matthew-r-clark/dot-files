@@ -2,8 +2,10 @@ return { -- vim syntax theme (Nord)
     'EdenEast/nightfox.nvim',
     lazy = false,
     priority = 1000,
-    config = function()
-        require('nightfox').setup({
+    opts = function(_, default_opts)
+        vim.cmd(':colorscheme nordfox')
+
+        local custom_opts = {
             options = {
                 transparent = true,
                 dim_inactive = true,
@@ -17,8 +19,8 @@ return { -- vim syntax theme (Nord)
                     CursorColumn = { bg = '#3B4252' },
                 },
             },
-        })
+        }
 
-        vim.cmd(':colorscheme nordfox')
+        return merge_tables(default_opts, custom_opts)
     end
 }
