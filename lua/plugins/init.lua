@@ -52,11 +52,6 @@ return {
     --     build = ':UpdateRemotePlugins',
     -- },
 
-    -- { -- autopair surround characters
-    --     'windwp/nvim-autopairs',
-    --     -- config = get_config('nvim-autopairs'),
-    -- },
-
     { 'airblade/vim-gitgutter' }, -- show git diff in side column
     { 'christoomey/vim-sort-motion' }, -- sort bindings
     { 'christoomey/vim-tmux-navigator' }, -- smart pane switcher
