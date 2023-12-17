@@ -1,6 +1,6 @@
 return { -- comment motion
     'numToStr/Comment.nvim',
-    config = {
+    opts = {
         ignore = '^$',
     },
 }
