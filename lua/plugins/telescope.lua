@@ -4,16 +4,19 @@ return { -- fuzzy finder
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    config = function()
+    opts = function(_, default_opts)
+        map('n', '<leader>p', ':Telescope find_files<cr>', {})
+        map('n', '<leader>/', ':Telescope live_grep<cr>', {})
+
         local telescope = require('telescope')
         local actions = require('telescope.actions')
 
         telescope.load_extension('fzf')
 
-        telescope.setup({
+        local custom_opts = {
             defaults = {
                 vimgrep_arguments = { -- live_grep()
-                     'rg', '--follow', '--color=never', '--no-heading',
+                    'rg', '--follow', '--color=never', '--no-heading',
                     '--with-filename', '--line-number', '--column', '--smart-case',
                     '--hidden', '--no-ignore',
                     '--glob', '!.git/*',
@@ -66,9 +69,8 @@ return { -- fuzzy finder
                     },
                 },
             },
-        })
+        }
 
-        map('n', '<leader>p', ':Telescope find_files<cr>', {})
-        map('n', '<leader>/', ':Telescope live_grep<cr>', {})
-    end
+        return merge_tables(default_opts, custom_opts)
+    end,
 }
