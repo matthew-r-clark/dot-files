@@ -1,9 +1,11 @@
+local language_servers = require('setup/constants').language_servers
+
 return { -- LSP
     'neovim/nvim-lspconfig',
     cmd = 'LspInfo',
-    event = {'BufReadPre', 'BufNewFile'},
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-        {'hrsh7th/cmp-nvim-lsp'},
+        'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
         -- This is where all the LSP shenanigans will live
@@ -13,11 +15,12 @@ return { -- LSP
         lsp_zero.on_attach(function(client, bufnr)
             -- see :help lsp-zero-keybindings
             -- to learn the available actions
-            lsp_zero.default_keymaps({buffer = bufnr})
+            lsp_zero.default_keymaps({ buffer = bufnr })
         end)
 
         -- (Optional) Configure lua language server for neovim
-        local lua_opts = lsp_zero.nvim_lua_ls()
-        require('lspconfig').lua_ls.setup(lua_opts)
+        -- local lua_opts = lsp_zero.nvim_lua_ls()
+        -- require('lspconfig').lua_ls.setup(lua_opts)
+        lsp_zero.setup_servers(language_servers)
     end
 }

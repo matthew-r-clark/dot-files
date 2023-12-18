@@ -1,16 +1,10 @@
+local language_servers = require('setup/constants').language_servers
+
 return {
     "williamboman/mason-lspconfig.nvim",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-        ensure_installed = {
-            'bashls',
-            'eslint',
-            'html',
-            'jsonls',
-            'lua_ls',
-            'tsserver',
-            'yamlls',
-        },
+        ensure_installed = language_servers,
         automatic_installation = true,
     },
     dependencies = {
