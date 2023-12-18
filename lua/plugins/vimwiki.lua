@@ -1,12 +1,22 @@
+local autocmd = vim.api.nvim_create_autocmd
+local expand = vim.fn.expand
 local global = vim.g
 local map = vim.api.nvim_set_keymap
-local autocmd = vim.api.nvim_create_autocmd
 
 return { -- notes
     'vimwiki/vimwiki',
+    init = function()
+        global.vimwiki_map_prefix = '<leader>vw'
+        global.vimwiki_list = {{
+            path = expand('$HOME/vimwiki/'),
+            -- rx_todo = vim.regex('TODO|DONE|STARTED|FIXME|FIXED|XXX'),
+        }}
+        global.vimwiki_listsyms = ' 123456789✓'
+        -- global.vimwiki_folding = 'list'
+    end,
     config = function()
         local AUTO_BACKUP_DELAY = 15 * 60 -- 15 minutes
-        local BACKUP_FILEPATH = vim.fn.expand('$HOME/dot-files/.vimwiki_last_backup_time')
+        local BACKUP_FILEPATH = expand('$HOME/dot-files/.vimwiki_last_backup_time')
 
         local function auto_backup()
           local current_filename = vim.fn.expand('%')
@@ -26,14 +36,6 @@ return { -- notes
         end
 
         autocmd({ 'BufWritePost' }, { callback = auto_backup })
-
-        global.vimwiki_map_prefix = '<leader>vw'
-        global.vimwiki_list = {{
-            path = '~/vimwiki/',
-            -- rx_todo = vim.regex('TODO|DONE|STARTED|FIXME|FIXED|XXX'),
-        }}
-        global.vimwiki_listsyms = ' 123456789✓'
-        -- global.vimwiki_folding = 'list'
 
         map('n', '<leader>vw', '<cmd>VimwikiIndex<cr>', {})
         map('n', '<leader>dw', '<cmd>VimwikiDiaryIndex<cr>', {})
