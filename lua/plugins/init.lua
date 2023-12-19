@@ -1,11 +1,4 @@
 return {
-
-    -- { -- autocomplete menu for vim commands
-    --     'gelguy/wilder.nvim',
-    --     -- config = get_config('wilder'),
-    --     build = ':UpdateRemotePlugins',
-    -- },
-
     { 'airblade/vim-gitgutter' }, -- show git diff in side column
     { 'christoomey/vim-sort-motion' }, -- sort bindings
     { 'christoomey/vim-tmux-navigator' }, -- smart pane switcher
