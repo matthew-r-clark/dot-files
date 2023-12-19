@@ -9,7 +9,7 @@ return { -- buffer tabs
 
         local custom_opts = {
             icons = {
-                buffer_index = true,
+                buffer_index = false,
                 button = '',
                 separator = {left = '▌', right = ''},
                 inactive = {
