@@ -69,6 +69,13 @@ return { -- fuzzy finder
                     },
                 },
             },
+            extensions = {
+                file_browser = {
+                    follow_symlinks = true,
+                    hidden = { file_browser = true, folder_browser = true },
+                    no_ignore = true,
+                },
+            },
         }
 
         return merge_tables(default_opts, custom_opts)
