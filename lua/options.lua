@@ -51,4 +51,4 @@ opt.visualbell = true
 opt.wrap = false
 
 hi(0, 'Normal', {bg='NONE'})
-hi(0, 'NormalNC', {bg='#181E2A'})
+hi(0, 'NormalNC', {bg='#181E2A'}) -- should match terminal background color
