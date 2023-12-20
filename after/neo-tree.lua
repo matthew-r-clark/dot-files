@@ -11,7 +11,7 @@ local function open_nvim_tree()
     local current_buffer = vim.api.nvim_get_current_buf();
 
     if (not buf_modified(current_buffer) and buf_empty(current_buffer)) then
-        require('nvim-tree.api').tree.open()
+        vim.cmd(':Neotree')
     end
 end
 

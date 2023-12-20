@@ -1,31 +1,25 @@
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
 
--- general
-map('', '<C-f>', ':LspZeroFormat<CR>', {})
-map('n', '<leader>f', '<Plug>(easymotion-bd-f)', {})
-map('n', '<leader>o', ':NvimTreeToggle<CR>', {})
-map('n', '<leader>p', ':Telescope find_files<cr>', {})
-map('n', '<leader>gf', ':GF?<CR>', {})
-map('n', '<leader>/', ':Telescope live_grep<cr>', {})
-map('n', '<leader>w', ':w<CR>', {})
-map('n', '<leader>aw', ':wa<CR>', {})
-map('n', '<leader>bd', ':bd<CR>', {})
-map('n', '<leader>bwd', ':w<CR>:bd<CR>', {})
-map('n', '<leader>X', ':x<CR>', {})
-map('n', '<leader>bD', ':bd!<CR>', {})
+-- delete all buffers
 map('n', '<leader>bad', ':%bd<CR>', {})
-map('n', '<leader>q', ':q<CR>', {})
-map('n', '<leader>Q', ':q!<CR>', {})
+
+-- resourece nvim config
 map('n', '<leader>r', ':source ~/.config/nvim/init.lua<CR>', {})
+
+-- motions for angle brackets
 map('n', 'vat', 'va<', {})
 map('n', 'vit', 'vi<', {})
 map('n', 'dat', 'da<', {})
 map('n', 'dit', 'di<', {})
 map('n', 'cat', 'ca<', {})
 map('n', 'cit', 'ci<', {})
+
+-- yank, select, and delete all
 map('n', '<leader>ya', 'gg0vGg_y', {})
 map('n', '<leader>va', 'ggVGg_', {})
 map('n', '<leader>da', 'ggVGd', {})
+
+-- toggle relative line numbering
 map('n', '<leader>n', ':set invrelativenumber<CR>', {})
 
 -- vim resizing

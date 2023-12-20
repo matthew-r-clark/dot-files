@@ -5,24 +5,8 @@ local map = vim.api.nvim_set_keymap
 
 global.loaded = 1
 global.loaded_netrwPlugin = 1
-global.mapleader = ' '
 global.session_autosave = 'no'
 global.tmux_navigator_preserve_zoom = 1
-
--- vim-wiki
-global.vimwiki_map_prefix = '<leader>vw'
-global.vimwiki_list = {{
-    path = '~/vimwiki/',
-    -- rx_todo = vim.regex('TODO|DONE|STARTED|FIXME|FIXED|XXX'),
-}}
-global.vimwiki_listsyms = ' 123456789✓'
--- global.vimwiki_folding = 'list'
-map('n', '<leader>vw', '<cmd>VimwikiIndex<cr>', {})
-map('n', '<leader>dw', '<cmd>VimwikiDiaryIndex<cr>', {})
-map('n', '<leader>dn', '<cmd>VimwikiMakeDiaryNote<cr>', {})
-map('n', '<leader>dy', '<cmd>VimwikiMakeYesterdayDiaryNote<cr>', {})
-map('n', '<leader>dt', '<cmd>VimwikiMakeTomorrowDiaryNote<cr>', {})
-map('n', '<leader>dr', '<cmd>VimwikiDiaryGenerateLinks<cr><leader>w', {})
 
 -- easymotion
 global.sort_motion_flags = 'ui'

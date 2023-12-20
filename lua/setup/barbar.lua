@@ -1,30 +1,3 @@
-require('barbar').setup({
-    icons = {
-        buffer_index = true,
-        button = '',
-        separator = {left = '▌', right = ''},
-        inactive = {
-            separator = {left = '▏', right = ''}
-        },
-        visible = {
-            separator = {left = '▏', right = ''}
-        },
-        diagnostics = {
-            [vim.diagnostic.severity.ERROR] = {enabled = true, icon = '✘'},
-            [vim.diagnostic.severity.WARN] = {enabled = true, icon = '▲'},
-        },
-        gitsigns = {
-            added = {enabled = true, icon = '+'},
-            changed = {enabled = true, icon = '~'},
-            deleted = {enabled = true, icon = '-'},
-        },
-        filetype = {
-            enabled = true,
-            custom_colors = true,
-        },
-    },
-})
-
 local function hi(group, options)
     vim.api.nvim_set_hl(0, group, options)
 end
