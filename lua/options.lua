@@ -1,7 +1,6 @@
 local global = vim.g
 local opt = vim.opt
 local hi = vim.api.nvim_set_hl
-local map = vim.api.nvim_set_keymap
 
 global.loaded = 1
 global.loaded_netrwPlugin = 1
