@@ -18,7 +18,7 @@ return { -- Autocompletion
         -- And you can configure cmp even more, if you want to.
         local cmp = require('cmp')
         local cmp_action = lsp_zero.cmp_action()
-        local luasnip = require('luasnip')
+        local snippy = require('snippy')
 
         cmp.setup({
             formatting = lsp_zero.cmp_format(),
@@ -37,8 +37,6 @@ return { -- Autocompletion
                 ['<Tab>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
                     -- elseif has_words_before() then
                     --     cmp.complete()
                     else
@@ -48,8 +46,6 @@ return { -- Autocompletion
                 ['<S-Tab>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
-                    -- elseif luasnip.jumpable(-1) then
-                    --     luasnip.jump(-1)
                     else
                         fallback()
                     end
