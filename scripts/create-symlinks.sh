@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 DOTFILE_DIR="$HOME/dot-files"
 

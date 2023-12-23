@@ -12,8 +12,10 @@ return { -- helps with setting up LSP sources
                 null_ls.builtins.code_actions.proselint,
                 null_ls.builtins.code_actions.eslint_d,
                 null_ls.builtins.code_actions.cspell,
+                null_ls.builtins.code_actions.shellcheck,
                 -- null_ls.builtins.diagnostics.cspell,
                 null_ls.builtins.diagnostics.eslint_d,
+                null_ls.builtins.diagnostics.shellcheck,
                 null_ls.builtins.formatting.prettierd,
                 null_ls.builtins.hover.printenv,
             }

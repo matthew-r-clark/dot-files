@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 GIT_HOOKS_DIR="$PWD/.git/hooks/"
 SOURCE_FILE_PATH="$HOME/development/od-env/projects/api/.git/hooks/prepare-commit-msg"
