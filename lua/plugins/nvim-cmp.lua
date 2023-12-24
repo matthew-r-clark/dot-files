@@ -8,7 +8,7 @@ return { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
-        'L3MON4D3/LuaSnip',
+        'dcampos/nvim-snippy',
     },
     config = function()
         -- Here is where you configure the autocompletion settings.
@@ -17,8 +17,8 @@ return { -- Autocompletion
 
         -- And you can configure cmp even more, if you want to.
         local cmp = require('cmp')
-        local cmp_action = lsp_zero.cmp_action()
-        local snippy = require('snippy')
+        -- local cmp_action = lsp_zero.cmp_action()
+        -- local snippy = require('snippy')
 
         cmp.setup({
             formatting = lsp_zero.cmp_format(),
