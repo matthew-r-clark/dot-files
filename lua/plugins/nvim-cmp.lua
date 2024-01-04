@@ -48,7 +48,16 @@ return { -- Autocompletion
                         fallback()
                     end
                 end, {'i', 'c', 's'}),
-            })
+            }),
+            snippet = {
+                expand = function(args)
+                    require 'snippy'.expand_snippet(args.body)
+                end
+            },
+            sources = cmp.config.sources({
+                { name = 'nvim_lsp' },
+                { name = 'snippy' },
+            }),
         })
     end
 }
