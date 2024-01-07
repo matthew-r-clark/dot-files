@@ -3,16 +3,16 @@ local map = vim.api.nvim_set_keymap
 return { -- fuzzy finder
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope-fzf-native.nvim',
+    },
     init = function ()
         map('n', '<leader>p', ':Telescope find_files<cr>', {})
         map('n', '<leader>/', ':Telescope live_grep<cr>', {})
     end,
     opts = function(_, default_opts)
-        local telescope = require('telescope')
         local actions = require('telescope.actions')
-
-        telescope.load_extension('fzf')
 
         local custom_opts = {
             defaults = {
