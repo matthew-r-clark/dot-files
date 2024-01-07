@@ -1,4 +1,4 @@
-local language_servers = require('setup/constants').language_servers
+local language_servers = require('constants').language_servers
 
 return { -- LSP
     'neovim/nvim-lspconfig',
