@@ -11,10 +11,10 @@ return { -- fuzzy finder
         map('n', '<leader>p', ':Telescope find_files<cr>', {})
         map('n', '<leader>/', ':Telescope live_grep<cr>', {})
     end,
-    opts = function(_, default_opts)
+    opts = function()
         local actions = require('telescope.actions')
 
-        local custom_opts = {
+        require('telescope').setup({
             defaults = {
                 vimgrep_arguments = { -- live_grep()
                     'rg', '--follow', '--color=never', '--no-heading',
@@ -77,8 +77,6 @@ return { -- fuzzy finder
                     no_ignore = true,
                 },
             },
-        }
-
-        return MERGE_TABLES(default_opts, custom_opts)
+        })
     end,
 }
