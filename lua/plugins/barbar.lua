@@ -34,7 +34,7 @@ return { -- buffer tabs
             },
         }
 
-        return merge_tables(default_opts, custom_opts)
+        return MERGE_TABLES(default_opts, custom_opts)
     end,
     init = function()
         local map = vim.api.nvim_set_keymap

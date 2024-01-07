@@ -1,8 +1,8 @@
-merge_tables = function (default, custom)
+MERGE_TABLES = function (default, custom)
   local merged = {}
   for k, v in pairs(default) do
     if type(v) == 'table' then
-      merged[k] = merge_tables(v, custom[k])
+      merged[k] = MERGE_TABLES(v, custom[k])
     else
       merged[k] = custom[k] or v
     end

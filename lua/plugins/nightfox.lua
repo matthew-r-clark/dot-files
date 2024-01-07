@@ -21,6 +21,6 @@ return { -- vim syntax theme (Nord)
             },
         }
 
-        return merge_tables(default_opts, custom_opts)
+        return MERGE_TABLES(default_opts, custom_opts)
     end
 }
