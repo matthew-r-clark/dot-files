@@ -4,38 +4,6 @@ return { -- buffer tabs
         'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
         'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
-    opts = function(_plugin, default_opts)
-        require('setup/barbar')
-
-        local custom_opts = {
-            icons = {
-                buffer_index = false,
-                button = '',
-                separator = {left = '▌', right = ''},
-                inactive = {
-                    separator = {left = '▏', right = ''}
-                },
-                visible = {
-                    separator = {left = '▏', right = ''}
-                },
-                diagnostics = {
-                    [vim.diagnostic.severity.ERROR] = {enabled = true, icon = '✘'},
-                    [vim.diagnostic.severity.WARN] = {enabled = true, icon = '▲'},
-                },
-                gitsigns = {
-                    added = {enabled = true, icon = '+'},
-                    changed = {enabled = true, icon = '~'},
-                    deleted = {enabled = true, icon = '-'},
-                },
-                filetype = {
-                    enabled = true,
-                    custom_colors = true,
-                },
-            },
-        }
-
-        return MERGE_TABLES(default_opts, custom_opts)
-    end,
     init = function()
         local map = vim.api.nvim_set_keymap
 
@@ -66,5 +34,39 @@ return { -- buffer tabs
           end,
           {bang = true, complete = 'file', desc = 'Save barbar with :mksession', nargs = '?'}
         )
+
+        local session_group = vim.api.nvim_create_augroup('Setup', { clear = true })
+        vim.api.nvim_create_autocmd({ 'VimEnter' }, {
+          callback = function()
+              require('setup.barbar')
+          end,
+          group = session_group,
+        })
     end,
+    opts = {
+        icons = {
+            buffer_index = false,
+            button = '',
+            separator = {left = '▌', right = ''},
+            inactive = {
+                separator = {left = '▏', right = ''}
+            },
+            visible = {
+                separator = {left = '▏', right = ''}
+            },
+            diagnostics = {
+                [vim.diagnostic.severity.ERROR] = {enabled = true, icon = '✘'},
+                [vim.diagnostic.severity.WARN] = {enabled = true, icon = '▲'},
+            },
+            gitsigns = {
+                added = {enabled = true, icon = '+'},
+                changed = {enabled = true, icon = '~'},
+                deleted = {enabled = true, icon = '-'},
+            },
+            filetype = {
+                enabled = true,
+                custom_colors = true,
+            },
+        },
+    },
 }
