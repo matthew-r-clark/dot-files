@@ -11,7 +11,7 @@ return { -- notes
             path = expand('$HOME/vimwiki/'),
             -- rx_todo = vim.regex('TODO|DONE|STARTED|FIXME|FIXED|XXX'),
         }}
-        global.vimwiki_listsyms = ' 123456789✓'
+        global.vimwiki_listsyms = ' ✓'
         -- global.vimwiki_folding = 'list'
     end,
     config = function()
