@@ -28,7 +28,6 @@ opt.foldenable = true
 opt.foldmethod = 'marker'
 opt.formatoptions = 'crqnj' -- https://neovim.io/doc/user/change.html#fo-table
 opt.ignorecase = true
-opt.lazyredraw = true
 opt.list = true
 opt.listchars = {tab = '›⋅', eol = '↲', space = '⋅'}
 opt.mouse = 'a'
