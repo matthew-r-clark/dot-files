@@ -37,15 +37,15 @@ opt.ruler = true
 opt.scl = 'yes'
 opt.shiftwidth = 4
 opt.showmatch = true
-opt.softtabstop = 0
 opt.smartcase = true
 opt.smartindent = true
 opt.smarttab = true
+opt.softtabstop = 0
 opt.swapfile = false
 opt.tabstop = 4
 opt.termguicolors = true
-opt.undofile = true
 opt.textwidth = 80
+opt.undofile = true
 opt.visualbell = true
 opt.wrap = false
 
