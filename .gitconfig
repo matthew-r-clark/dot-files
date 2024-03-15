@@ -5,3 +5,5 @@
 	rebase = true
 [core]
 	excludesFile = ~/.gitignore
+[rerere]
+	enabled = true
