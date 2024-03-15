@@ -7,3 +7,5 @@
 	excludesFile = ~/.gitignore
 [rerere]
 	enabled = true
+[merge]
+    conflictstyle = zdiff3
