@@ -4,17 +4,30 @@ return { -- fuzzy finder
     'nvim-telescope/telescope.nvim',
     tag = '0.1.5',
     dependencies = {
-        'nvim-lua/plenary.nvim',
-        'nvim-telescope/telescope-fzf-native.nvim',
+        { 'nvim-lua/plenary.nvim' },
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            build = 'make',
+        },
+        { 'nvim-telescope/telescope-file-browser.nvim' },
+        { 'nvim-telescope/telescope-node-modules.nvim' },
+        { 'debugloop/telescope-undo.nvim' },
     },
     init = function ()
-        map('n', '<leader>p', ':Telescope find_files<cr>', {})
-        map('n', '<leader>/', ':Telescope live_grep<cr>', {})
+        map('n', '<leader>tp', ':Telescope find_files<cr>', { desc = 'find files' })
+        map('n', '<leader>to', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', { desc = 'file browser' })
+        map('n', '<leader>t/', ':Telescope live_grep<cr>', { desc = 'global search' })
+        map('n', '<leader>td', ':Telescope diagnostics<cr>', { desc = 'diagnostics' })
+        map('n', '<leader>tb', ':Telescope buffers<cr>', { desc = 'buffers' })
+        map('n', '<leader>tm', ':Telescope notify<cr>', { desc = 'messages' })
+        map('n', '<leader>tu', ':Telescope undo<cr>', { desc = 'undo' })
+        map('n', '<leader>tn', ':Telescope node_modules list<cr>', { desc = 'node_modules' })
     end,
     opts = function()
-        local actions = require('telescope.actions')
+        local telescope = require('telescope')
+        local actions = require('telescope.actions');
 
-        require('telescope').setup({
+        telescope.setup({
             defaults = {
                 vimgrep_arguments = { -- live_grep()
                     'rg', '--follow', '--color=never', '--no-heading',
@@ -78,5 +91,10 @@ return { -- fuzzy finder
                 },
             },
         })
+
+        telescope.load_extension('file_browser')
+        telescope.load_extension('fzf')
+        telescope.load_extension('node_modules')
+        telescope.load_extension('undo')
     end,
 }
