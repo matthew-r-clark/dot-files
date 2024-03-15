@@ -1,7 +1,7 @@
 return {
     language_servers = {
         'bashls',
-        'eslint_d',
+        'eslint',
         'html',
         'jsonls',
         'lua_ls',
