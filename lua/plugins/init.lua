@@ -9,5 +9,5 @@ return {
     { 'sheerun/vim-polyglot' }, -- vim language packs
     { 'tpope/vim-surround' }, -- modify surround chars
     { 'yuezk/vim-js' }, -- syntax highlighting for JS
-    { 'dcampos/cmp-snippy' } -- autocomplete snippets
+    { 'dcampos/cmp-snippy' }, -- autocomplete snippets
 }
