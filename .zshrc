@@ -112,7 +112,7 @@ export ALIEN_SECTION_TIME_FG=$background_color
 export ALIEN_SECTION_TIME_BG=$primary_action_color
 export ALIEN_USE_NERD_FONT=1
 
-export PATH=$HOME/bin:/usr/local/bin:/$HOME/.mvn/apache-maven-3.8.6/bin:/$PATH
+export PATH=$HOME/.pyenv/shims:$HOME/bin:/usr/local/bin:/$HOME/.mvn/apache-maven-3.8.6/bin:/$PATH
 export EDITOR='nvim'
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
