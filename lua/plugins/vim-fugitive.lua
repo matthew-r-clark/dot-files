@@ -3,8 +3,8 @@ return {
     config = function()
         local map = vim.api.nvim_set_keymap
 
-        map('', '<leader>gd', ':Gvdiff<CR>', {}) -- side-by-side diff
-        map('', '<leader>gb', ':Git blame<CR>', {})
-        map('', '<leader>gs', ':Git<CR>', {}) -- git status
+        map('', '<leader>gd', ':Gvdiff<CR>', { desc = 'git diff' })
+        map('', '<leader>gb', ':Git blame<CR>', { desc = 'git blame' })
+        map('', '<leader>gs', ':Git<CR>', { desc = 'git status'})
     end
 }
