@@ -1,7 +1,7 @@
 local language_servers = require('constants').language_servers
 
 local tsserver_config = function ()
-    require('lspconfig').tsserver.setup({ -- to disable type checking in js
+    require('lspconfig').ts_ls.setup({ -- to disable type checking in js
         on_init = function (client)       -- files, add a .jsconfig.json
             local utils = require('nvim-lsp-ts-utils')
             utils.setup({
