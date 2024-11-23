@@ -39,7 +39,7 @@ if [ ! -f ~/alien/alien.zsh ]; then
     cd $TEMP_DIR 
 fi
 
-source ~/alien/alien.zsh
+source "$HOME/alien/alien.zsh"
 
 export ALIEN_SECTIONS_LEFT=(
     exit
