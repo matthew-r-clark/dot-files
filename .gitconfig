@@ -5,6 +5,7 @@
 	rebase = true
 [core]
 	excludesFile = ~/.gitignore
+    ignoreCase = true
     ; https://manpages.ubuntu.com/manpages/noble/man1/delta.1.html
     pager = delta
 [rerere]
