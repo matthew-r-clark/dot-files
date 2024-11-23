@@ -42,6 +42,7 @@ return { -- fuzzy finder
                     '--glob', '!build/*',
                     '--glob', '!dist/*',
                     '--glob', '!Session.vim',
+                    '--glob', '!.eslintcache',
                 },
                 mappings = {
                     i = {
