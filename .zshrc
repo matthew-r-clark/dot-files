@@ -129,6 +129,17 @@ CUSTOM_CLI_TOOLS_PATH=$HOME/dot-files/cli-tools
 export PATH=$PATH:$CUSTOM_CLI_TOOLS_PATH
 
 export DOTFILE_DIR=$HOME/dot-files
+
+# brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # nodenv
 eval "$(nodenv init -)"
 
+# rbenv
+eval "$(rbenv init - zsh)"
+
+# https://reactnative.dev/docs/environment-setup#cocoapods
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
