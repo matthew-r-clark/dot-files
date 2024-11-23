@@ -123,8 +123,6 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 ENABLE_CORRECTION="true"
 
-# fi
-
 CUSTOM_CLI_TOOLS_PATH=$HOME/dot-files/cli-tools
 export PATH=$PATH:$CUSTOM_CLI_TOOLS_PATH
 
