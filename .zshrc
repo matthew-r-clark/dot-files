@@ -120,6 +120,7 @@ source $ZSH/oh-my-zsh.sh
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export DELTA_PAGER='less -+X -+F --mouse'
 
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 

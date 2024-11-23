@@ -5,7 +5,47 @@
 	rebase = true
 [core]
 	excludesFile = ~/.gitignore
+    ; https://manpages.ubuntu.com/manpages/noble/man1/delta.1.html
+    pager = delta
 [rerere]
 	enabled = true
 [merge]
-    conflictstyle = zdiff3
+    conflictstyle = diff3
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    features = custom-theme
+    navigate = true
+    line-numbers = true
+    side-by-side = true
+[diff]
+    colorMoved = default
+[pager]
+    diff = delta
+    log = delta
+    show = delta
+
+; theme
+[delta "custom-theme"]
+    commit-style = raw
+    commit-decoration-style = bold box ul
+    dark = true
+    file-decoration-style = "#EBCB8B" ul ol
+    file-modified-label = modified:
+    file-style = "#EBCB8B"
+    hunk-header-decoration-style = "#88C0D0" box
+    hunk-header-style = line-number syntax
+    line-numbers-left-style = "#022b45"
+    line-numbers-minus-style = "#80002a"
+    line-numbers-plus-style = "#345915"
+    line-numbers-right-style = "#022b45"
+    line-numbers-zero-style = "#999999"
+    minus-emph-style = bold "#80002a" "#BF616A"
+    minus-style = bold "#D8DEE9" "#80002a"
+    plus-emph-style = bold "#2b5c02" "#A3BE8C"
+    plus-style = bold "#D8DEE9" "#2b5c02"
+    syntax-theme = Nord
+    ; map-styles = bold purple => bold #B48EAD, bold cyan => syntax #88C0D0
+    map-styles = bold purple => bold blue, bold cyan => syntax blue
+    line-numbers-left-format = "┊{nm:>4}│"
+    line-numbers-right-format = "┊{np:>4}│"
