@@ -123,15 +123,12 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 ENABLE_CORRECTION="true"
 
-# initialize shell with correct version of node for project if .nvmrc exists, otherwise use default
-NVMRC=.nvmrc
-if [ -f "$NVMRC" ]; then
-    nvm use && clear
-else
-    nvm use default && clear
-fi
+# fi
 
 CUSTOM_CLI_TOOLS_PATH=$HOME/dot-files/cli-tools
 export PATH=$PATH:$CUSTOM_CLI_TOOLS_PATH
 
 export DOTFILE_DIR=$HOME/dot-files
+# nodenv
+eval "$(nodenv init -)"
+
