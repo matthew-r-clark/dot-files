@@ -1,6 +1,8 @@
 [user]
 	email = matthew.clark@taillight.com
 	name = Matthew Clark
+[push]
+    autoSetupRemote = true
 [pull]
 	rebase = true
 [core]
