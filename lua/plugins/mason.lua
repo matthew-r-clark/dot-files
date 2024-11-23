@@ -68,13 +68,21 @@ return {
         },
     },
     dependencies = {
-        "williamboman/mason.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        build = ":MasonUpdate",
-        keys = {
-            { "<leader>lI", "<cmd>Mason<CR>", desc = "Opens Mason" },
+        {
+            "williamboman/mason.nvim",
+            event = { "BufReadPre", "BufNewFile" },
+            build = ":MasonUpdate",
+            keys = {
+                { "<leader>lI", "<cmd>Mason<CR>", desc = "Opens Mason" },
+            },
+            cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonUpdate", "MasonLog" },
+            opts = {},
         },
-        cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonUpdate", "MasonLog" },
-        opts = {}
+        { -- LSP typescript utilities
+            'jose-elias-alvarez/nvim-lsp-ts-utils',
+            dependencies = {
+                'nvim-lua/plenary.nvim',
+            },
+        },
     },
 }
