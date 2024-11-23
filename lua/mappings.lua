@@ -31,5 +31,4 @@ map('', '<M-k>', ':resize +1<CR>', {})
 -- vim pane split management
 map('', '<leader>sv', '<C-w>v', {})
 map('', '<leader>sh', '<C-w>s', {})
-map('', '<leader>s=', '<C-w>=', {})
-map('', '<leader>kp', '<C-w>q', {})
+map('', '<leader>se', '<C-w>=', {})
