@@ -37,11 +37,11 @@ return { -- notes
 
         autocmd({ 'BufWritePost' }, { callback = auto_backup })
 
-        map('n', '<leader>vw', '<cmd>VimwikiIndex<cr>', {})
-        map('n', '<leader>dw', '<cmd>VimwikiDiaryIndex<cr>', {})
-        map('n', '<leader>dn', '<cmd>VimwikiMakeDiaryNote<cr>', {})
-        map('n', '<leader>dy', '<cmd>VimwikiMakeYesterdayDiaryNote<cr>', {})
-        map('n', '<leader>dt', '<cmd>VimwikiMakeTomorrowDiaryNote<cr>', {})
-        map('n', '<leader>dr', '<cmd>VimwikiDiaryGenerateLinks<cr><cmd>w<cr>', {})
+        map('n', '<leader>vw', '<cmd>VimwikiIndex<cr>', { desc = 'notes index' })
+        map('n', '<leader>dw', '<cmd>VimwikiDiaryIndex<cr>', { desc = 'diary index' })
+        map('n', '<leader>dn', '<cmd>VimwikiMakeDiaryNote<cr>', { desc = 'diary note - today' })
+        map('n', '<leader>dy', '<cmd>VimwikiMakeYesterdayDiaryNote<cr>', { desc = 'diary note - yesterday' })
+        map('n', '<leader>dt', '<cmd>VimwikiMakeTomorrowDiaryNote<cr>', { desc = 'diary note - tomorrow' })
+        map('n', '<leader>dr', '<cmd>VimwikiDiaryGenerateLinks<cr><cmd>w<cr>', { desc = 'generate diary links and save' })
     end
 }
