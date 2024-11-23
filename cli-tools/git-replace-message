@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Check if at least two arguments are provided
+if [ "$#" -lt 2 ]; then
+  echo "Usage: $0 OLD_STRING NEW_STRING [RANGE]"
+  exit 1
+fi
+
+# Assign arguments to variables
+OLD_STRING="$1"
+NEW_STRING="$2"
+RANGE="${3:-HEAD}"
+
+# Create a temporary file for the replacement pattern
+REPLACE_FILE=$(mktemp)
+echo "[${OLD_STRING}]==>[${NEW_STRING}]" > "$REPLACE_FILE"
+
+# Run git-filter-repo with the --replace-message option
+git filter-repo --refs "$RANGE" --replace-message "$REPLACE_FILE" --force
+
+# Remove the temporary file
+rm "$REPLACE_FILE"
