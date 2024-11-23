@@ -22,6 +22,7 @@ return { -- fuzzy finder
         map('n', '<leader>tm', ':Telescope notify<cr>', { desc = 'messages' })
         map('n', '<leader>tu', ':Telescope undo<cr>', { desc = 'undo' })
         map('n', '<leader>tn', ':Telescope node_modules list<cr>', { desc = 'node_modules' })
+        map('n', '<leader>tg', ':Telescope git_status<cr>', { desc = 'git status' })
     end,
     opts = function()
         local telescope = require('telescope')
