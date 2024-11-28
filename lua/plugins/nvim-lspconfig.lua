@@ -6,6 +6,7 @@ return { -- LSP
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
         'hrsh7th/cmp-nvim-lsp',
+        'VonHeikemen/lsp-zero.nvim',
     },
     config = function()
         -- This is where all the LSP shenanigans will live
