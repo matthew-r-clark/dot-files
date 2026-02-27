@@ -142,3 +142,6 @@ eval "$(rbenv init - zsh)"
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+
+# add claude to path
+export PATH=$HOME/.local/bin:$PATH
