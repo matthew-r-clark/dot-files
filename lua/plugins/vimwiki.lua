@@ -11,7 +11,7 @@ return { -- notes
             path = expand('$HOME/vimwiki/'),
             -- rx_todo = vim.regex('TODO|DONE|STARTED|FIXME|FIXED|XXX'),
         }}
-        global.vimwiki_listsyms = ' ✓'
+        global.vimwiki_listsyms = ' ~✓'
         -- global.vimwiki_folding = 'list'
     end,
     config = function()
@@ -43,5 +43,7 @@ return { -- notes
         map('n', '<leader>dy', '<cmd>VimwikiMakeYesterdayDiaryNote<cr>', { desc = 'diary note - yesterday' })
         map('n', '<leader>dt', '<cmd>VimwikiMakeTomorrowDiaryNote<cr>', { desc = 'diary note - tomorrow' })
         map('n', '<leader>dr', '<cmd>VimwikiDiaryGenerateLinks<cr><cmd>w<cr>', { desc = 'generate diary links and save' })
+        map('n', '<leader>li', '<cmd>VimwikiIncrementListItem<cr>', { desc = 'increment checkbox state' })
+        map('n', '<leader>ld', '<cmd>VimwikiDecrementListItem<cr>', { desc = 'decrement checkbox state' })
     end
 }
