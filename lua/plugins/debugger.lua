@@ -22,27 +22,27 @@ return {
             end,
             desc = 'Debug: Start/Continue',
         },
-        -- {
-        --     '<F1>',
-        --     function()
-        --         require('dap').step_into()
-        --     end,
-        --     desc = 'Debug: Step Into',
-        -- },
-        -- {
-        --     '<F2>',
-        --     function()
-        --         require('dap').step_over()
-        --     end,
-        --     desc = 'Debug: Step Over',
-        -- },
-        -- {
-        --     '<F3>',
-        --     function()
-        --         require('dap').step_out()
-        --     end,
-        --     desc = 'Debug: Step Out',
-        -- },
+        {
+            '<F1>',
+            function()
+                require('dap').step_into()
+            end,
+            desc = 'Debug: Step Into',
+        },
+        {
+            '<F2>',
+            function()
+                require('dap').step_over()
+            end,
+            desc = 'Debug: Step Over',
+        },
+        {
+            '<F3>',
+            function()
+                require('dap').step_out()
+            end,
+            desc = 'Debug: Step Out',
+        },
         {
             '<leader>b',
             function()
@@ -57,21 +57,64 @@ return {
             end,
             desc = 'Debug: Open REPL',
         },
-        -- {
-        --     '<leader>B',
-        --     function()
-        --         require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
-        --     end,
-        --     desc = 'Debug: Set Breakpoint',
-        -- },
-        -- -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-        -- {
-        --     '<F7>',
-        --     function()
-        --         require('dapui').toggle()
-        --     end,
-        --     desc = 'Debug: See last session result.',
-        -- },
+        {
+            '<leader>dt',
+            function()
+                require('dap').terminate()
+            end,
+            desc = 'Debug: Terminate Session',
+        },
+        {
+            '<leader>de',
+            function()
+                require('dapui').eval()
+            end,
+            mode = { 'n', 'v' },
+            desc = 'Debug: Evaluate Expression',
+        },
+        {
+            '<leader>dc',
+            function()
+                require('dap').run_to_cursor()
+            end,
+            desc = 'Debug: Run to Cursor',
+        },
+        {
+            '<leader>dl',
+            function()
+                require('dap').run_last()
+            end,
+            desc = 'Debug: Run Last',
+        },
+        {
+            '<leader>dx',
+            function()
+                require('dap').clear_breakpoints()
+            end,
+            desc = 'Debug: Clear All Breakpoints',
+        },
+        {
+            '<leader>dp',
+            function()
+                require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
+            end,
+            desc = 'Debug: Set Log Point',
+        },
+        {
+            '<leader>B',
+            function()
+                require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+            end,
+            desc = 'Debug: Set Breakpoint',
+        },
+        -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+        {
+            '<F7>',
+            function()
+                require('dapui').toggle()
+            end,
+            desc = 'Debug: See last session result.',
+        },
     },
     config = function()
         local dap = require('dap')
@@ -176,8 +219,6 @@ return {
                     name = 'Docker: attach to node (subscriptions api)',
                     remoteRoot = '/app/src',
                     localRoot = '${workspaceFolder}/src',
-                    -- processId = require('dap.utils').pick_process,
-                    -- cwd = '${workspaceFolder}/app',
                     restart = true,
                     skipFiles = { '${workspaceFolder}/node_modules/**/*.js' },
 

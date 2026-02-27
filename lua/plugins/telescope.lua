@@ -44,6 +44,7 @@ return { -- fuzzy finder
                     '--glob', '!dist/*',
                     '--glob', '!Session.vim',
                     '--glob', '!.eslintcache',
+                    '--glob', '!/coverage',
                 },
                 mappings = {
                     i = {
