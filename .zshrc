@@ -11,8 +11,8 @@ alias lzd="lazydocker"
 alias n="nvim +\"silent! :source Session.vim\""
 alias vw="nvim ~/vimwiki/index.wiki"
 export ODY_ENV=true
-alias gendockerfile="~/development/od-env/build-node-docker/gendockerfile.sh"
-alias renderconsul="~/development/od-env/build-node-docker/render-consul-template.sh"
+alias gendockerfile="~/development/taillight/od-env/build-node-docker/gendockerfile.sh"
+alias renderconsul="~/development/taillight/od-env/build-node-docker/render-consul-template.sh"
 alias nvimlogs="tail -n 1000 -f logger.txt"
 alias rg="rg --hidden -g '!.git'"
 
