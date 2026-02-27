@@ -50,6 +50,13 @@ return {
             end,
             desc = 'Debug: Toggle Breakpoint',
         },
+        {
+            '<leader>dr',
+            function()
+                require('dap').repl.open()
+            end,
+            desc = 'Debug: Open REPL',
+        },
         -- {
         --     '<leader>B',
         --     function()
