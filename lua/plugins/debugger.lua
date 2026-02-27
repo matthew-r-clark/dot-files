@@ -221,16 +221,18 @@ return {
                     localRoot = '${workspaceFolder}/src',
                     restart = true,
                     skipFiles = { '${workspaceFolder}/node_modules/**/*.js' },
-
-                    -- name = 'Attach to node process',
-                    -- type = 'pwa-node',
-                    -- request = 'attach',
-                    -- rootPath = '${workspaceFolder}/src',
-                    -- processId = require('dap.utils').pick_process,
-                    -- sourceMaps = true,
-                    -- resolveSourceMapLocations = { '${workspaceFolder}/**', '!**/node_modules/**' },
-                    -- skipFiles = { '${workspaceFolder}/node_modules/**/*.js' },
-                }
+                },
+                {
+                    type = 'pwa-node',
+                    address = 'localhost',
+                    port = 9229,
+                    request = 'attach',
+                    name = 'Docker: attach to node (orders api)',
+                    remoteRoot = '/app',
+                    localRoot = '${workspaceFolder}',
+                    restart = true,
+                    skipFiles = { '${workspaceFolder}/node_modules/**/*.js' },
+                },
             }
         end
 
