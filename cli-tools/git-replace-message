@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Usage:
+# git-replace-message {string to match} {replacement string} {start commit}..{end commit}
+#
+# ex: git-replace-message BNC-3021 BNC-3054 HEAD~2..HEAD
+
 # Check if at least two arguments are provided
 if [ "$#" -lt 2 ]; then
   echo "Usage: $0 OLD_STRING NEW_STRING [RANGE]"
