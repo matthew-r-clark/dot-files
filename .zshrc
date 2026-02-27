@@ -1,7 +1,8 @@
 plugins=(git nvm)
 
 alias c="clear"
-alias dc="docker-compose"
+alias docker-compose="docker compose"
+alias dc="docker compose"
 alias dcu="dc up -d"
 alias dcd="dc down"
 alias dcr="dc restart"
