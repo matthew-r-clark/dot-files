@@ -1,0 +1,14 @@
+snippet today Today's date
+	`strftime('%A %m/%d/%y')`
+
+	- [ ] ${1}
+
+snippet yesterday Yesterday's date
+	`strftime('%A %m/%d/%y', localtime() - 86400)`
+
+	- [ ] ${1}
+
+snippet tomorrow Tomorrow's date
+	`strftime('%A %m/%d/%y', localtime() + 86400)`
+
+	- [ ] ${1}

@@ -1,0 +1,13 @@
+snippet uef useEffect
+	useEffect(() => {
+		${1}
+	}, [${2}]);
+
+snippet uefc useEffect with cleanup
+	useEffect(() => {
+		${1}
+
+		return () => {
+			${2}
+		};
+	}, [${3}]);
