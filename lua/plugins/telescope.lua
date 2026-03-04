@@ -52,6 +52,8 @@ return { -- fuzzy finder
                         ['<esc>'] = actions.close,
                         ['<Tab>'] = actions.move_selection_next,
                         ['<S-Tab>'] = actions.move_selection_previous,
+                        ['<S-Down>'] = actions.cycle_history_next,
+                        ['<S-Up>'] = actions.cycle_history_prev,
                     }
                 },
                 prompt_prefix = ' ',
