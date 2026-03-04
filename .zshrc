@@ -148,3 +148,4 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # add claude to path
 export PATH=$HOME/.local/bin:$PATH
+export COLORTERM=truecolor
