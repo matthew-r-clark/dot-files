@@ -11,3 +11,4 @@ ln -sfF ${DOTFILE_DIR}/.gitconfig ${HOME}/.gitconfig
 ln -sfF ${DOTFILE_DIR}/.gitignore ${HOME}/.gitignore
 ln -sfF ${DOTFILE_DIR}/.tmux.conf ${HOME}/.tmux.conf
 ln -sfF ${DOTFILE_DIR}/.zshrc ${HOME}/.zshrc
+ln -sfF ${DOTFILE_DIR}/ghostty ${HOME}/.config/ghostty
