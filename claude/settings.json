@@ -1,0 +1,8 @@
+{
+    "model": "opusplan",
+    "apiKeyHelper": "~/.claude/custom/get_key.sh",
+    "statusLine": {
+        "type": "command",
+        "command": "bash ~/.claude/custom/statusline-command.sh"
+    }
+}

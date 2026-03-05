@@ -12,3 +12,5 @@ ln -sfF ${DOTFILE_DIR}/.gitignore ${HOME}/.gitignore
 ln -sfF ${DOTFILE_DIR}/.tmux.conf ${HOME}/.tmux.conf
 ln -sfF ${DOTFILE_DIR}/.zshrc ${HOME}/.zshrc
 ln -sfF ${DOTFILE_DIR}/ghostty ${HOME}/.config/ghostty
+ln -sfF ${DOTFILE_DIR}/claude/settings.json ${HOME}/.claude/settings.json
+ln -sfF ${DOTFILE_DIR}/claude/custom ${HOME}/.claude/custom
