@@ -151,9 +151,3 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # add claude to path
 export PATH=$HOME/.local/bin:$PATH
-
-# MCP server tokens (stored in macOS Keychain via ~/dot-files/claude/custom/create_key.sh)
-JIRA_API_TOKEN=$(security find-generic-password -a "$USER" -s "jira-api-token" -w 2>/dev/null)
-BITBUCKET_API_TOKEN=$(security find-generic-password -a "$USER" -s "bitbucket-api-token" -w 2>/dev/null)
-export JIRA_API_TOKEN
-export BITBUCKET_API_TOKEN
