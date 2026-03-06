@@ -80,5 +80,4 @@ if [ -n "$duration_ms" ]; then
 fi
 
 printf "%s%s%s %s\n" "$model_info" "$ctx_info" "$cost_info" "$time_info"
-printf "${CYAN}%s${RESET}\n" "$short_cwd"
-[ -n "$git_info" ] && printf "%s\n" "$git_info"
+printf "${CYAN}%s${RESET}%s\n" "$short_cwd" "$git_info"
