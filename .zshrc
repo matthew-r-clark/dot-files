@@ -1,4 +1,19 @@
+# disables "appears unused" warning for file
+# shellcheck disable=SC2034
+
+# adds git aliases for oh-my-zsh, must be before sourcing oh-my-zsh script
 plugins=(git nvm)
+
+# extend oh-my-zsh alias gsts (git stash show --patch) to include untracked files
+alias gstv="gsts -u"
+
+export ZSH="$HOME/.oh-my-zsh"
+# shellcheck source=/Users/matthew.clark/.oh-my-zsh/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
+
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+export ODY_ENV=true
 
 alias c="clear"
 alias docker-compose="docker compose"
@@ -11,7 +26,6 @@ alias dcps="clear; dc ps;"
 alias lzd="lazydocker"
 alias n="nvim +\"silent! :source Session.vim\""
 alias vw="nvim ~/vimwiki/index.wiki"
-export ODY_ENV=true
 alias gendockerfile="~/development/taillight/od-env/build-node-docker/gendockerfile.sh"
 alias renderconsul="~/development/taillight/od-env/build-node-docker/render-consul-template.sh"
 alias nvimlogs="tail -n 1000 -f logger.txt"
@@ -26,23 +40,17 @@ alias pyd="py rm"
 alias pyl="py ls"
 alias pyu="~/development/raspi/pyboard/download-file.sh"
 
-# extend oh-my-zsh alias gsts (git stash show --patch) to include untracked files
-alias gstv="gsts -u"
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 # Install Alien if not found
 if [ ! -f ~/alien/alien.zsh ]; then
     TEMP_DIR=$PWD
-    cd ~
+    cd ~ || exit
     git clone https://github.com/eendroroy/alien.git
-    cd alien
+    cd alien || exit
     git submodule update --init --recursive
-    cd $TEMP_DIR 
+    cd "$TEMP_DIR" || exit
 fi
 
+# shellcheck source=/Users/matthew.clark/alien/alien.zsh
 source "$HOME/alien/alien.zsh"
 
 export ALIEN_SECTIONS_LEFT=(
@@ -118,14 +126,9 @@ export ALIEN_USE_NERD_FONT=1
 
 export PATH=$HOME/.pyenv/shims:$HOME/bin:/usr/local/bin:/$HOME/.mvn/apache-maven-3.8.6/bin:/$PATH
 export EDITOR='nvim'
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
+export COLORTERM=truecolor
 
 export DELTA_PAGER='less -+X -+F --mouse'
-
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-ENABLE_CORRECTION="true"
 
 CUSTOM_CLI_TOOLS_PATH=$HOME/dot-files/cli-tools
 export PATH=$PATH:$CUSTOM_CLI_TOOLS_PATH
@@ -148,4 +151,9 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # add claude to path
 export PATH=$HOME/.local/bin:$PATH
-export COLORTERM=truecolor
+
+# MCP server tokens (stored in macOS Keychain via ~/dot-files/claude/custom/create_key.sh)
+JIRA_API_TOKEN=$(security find-generic-password -a "$USER" -s "jira-api-token" -w 2>/dev/null)
+BITBUCKET_API_TOKEN=$(security find-generic-password -a "$USER" -s "bitbucket-api-token" -w 2>/dev/null)
+export JIRA_API_TOKEN
+export BITBUCKET_API_TOKEN
