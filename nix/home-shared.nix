@@ -52,6 +52,14 @@
         "${config.home.homeDirectory}/dot-files/ghostty";
   };
 
+  home.packages = with pkgs; [
+    ripgrep
+    fd
+    git
+    delta
+    httpie
+  ];
+
   # lazy-lock.json must stay writable for lazy.nvim plugin updates.
   # Create a direct (non-store) symlink via activation instead of home.file.
   home.activation.nvimLazyLock = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

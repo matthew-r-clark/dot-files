@@ -7,7 +7,6 @@
   # Packages — Phase 4: migrate from Homebrew one tool at a time.
   # Uncomment each line after: brew uninstall <tool> --ignore-dependencies
   # ---------------------------------------------------------------------------
-  # home.packages = with pkgs; [
 
   # Notes from Claude on migrating nvim and tmux:
   # tmux 3.5a → 3.6a — minor bump, very low risk. Fine to migrate.
@@ -16,14 +15,11 @@
   # defaults and some deprecated APIs). I'd hold off on migrating neovim until you've had a chance to test it separately with nix run nixpkgs#neovim.
 
   # So my suggestion: migrate tmux now, skip neovim for later.
+
+  home.packages = with pkgs; [
   #   # Core CLI
   #   neovim
   #   tmux
-  #   ripgrep
-  #   fd
-  #   git
-  #   delta
-  #   httpie
   #   tree-sitter
 
   #   # Formatters / linters
@@ -45,7 +41,7 @@
   #   # macOS-only: Docker & containers
   #   docker-client
   #   docker-compose
-  #   lazydocker
+    lazydocker
 
   #   # macOS-only: work infra
   #   redis
@@ -59,7 +55,7 @@
   #   # macOS-only: mobile dev
   #   cocoapods
   #   xcodes
-  # ];
+  ];
 
   # ---------------------------------------------------------------------------
   # Phase 3: macOS-specific shell additions.
