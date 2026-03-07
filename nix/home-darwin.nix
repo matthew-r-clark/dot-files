@@ -8,6 +8,14 @@
   # Uncomment each line after: brew uninstall <tool> --ignore-dependencies
   # ---------------------------------------------------------------------------
   # home.packages = with pkgs; [
+
+  # Notes from Claude on migrating nvim and tmux:
+  # tmux 3.5a → 3.6a — minor bump, very low risk. Fine to migrate.
+
+  # neovim 0.10.3 → 0.11.6 — that's a significant jump across a major minor version. Neovim 0.11 introduced some breaking changes (notably around vim.lsp
+  # defaults and some deprecated APIs). I'd hold off on migrating neovim until you've had a chance to test it separately with nix run nixpkgs#neovim.
+
+  # So my suggestion: migrate tmux now, skip neovim for later.
   #   # Core CLI
   #   neovim
   #   tmux
