@@ -89,6 +89,7 @@
     git
     delta
     httpie
+    posting
 
     #   # Formatters / linters
     #   prettierd
