@@ -213,7 +213,7 @@ return {
                 -- },
                 {
                     type = 'pwa-node',
-                    address = 'localhost',
+                    address = '127.0.0.1',
                     port = 9228,
                     request = 'attach',
                     name = 'Docker: attach to node (subscriptions api)',
