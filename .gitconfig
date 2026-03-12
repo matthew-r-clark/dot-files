@@ -21,6 +21,7 @@
     navigate = true
     line-numbers = true
     side-by-side = true
+    pager = less -R
 [diff]
     colorMoved = default
 [pager]
