@@ -2,7 +2,7 @@ return { -- code navigation
   'folke/flash.nvim',
   event = 'VeryLazy',
   keys = {
-    { '<leader>f', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end, desc = 'Flash search' },
+    { '<leader>F', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end, desc = 'Flash search' },
     -- learn how these work before enabling:
     -- { 'F', mode = { 'n', 'x', 'o' }, function() require('flash').treesitter() end, desc = 'Flash select' },
     -- { 'r', mode = 'o', function() require('flash').remote() end, desc = 'Remote Flash' },
