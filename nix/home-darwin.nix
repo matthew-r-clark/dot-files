@@ -3,6 +3,12 @@
   home.username = "matthew.clark";
   home.homeDirectory = "/Users/matthew.clark";
 
+  home.file = {
+    "Library/Application Support/lazygit/config.yml".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/lazygit/config.yml";
+  };
+
   home.packages = with pkgs; [
   #   docker-client
   #   docker-compose
