@@ -26,6 +26,7 @@ alias renderconsul="~/development/taillight/od-env/build-node-docker/render-cons
 
 # git
 # alias gbc="git branch -d $(echo `git branch --merged | grep -v $(git branch --show-current)`)"
+alias lzg="lazygit"
 
 # ampy
 alias py="ampy --port /dev/tty.usbmodem401101"
