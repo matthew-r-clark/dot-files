@@ -25,8 +25,18 @@ BLUE=$'\033[38;5;67m'
 ORANGE=$'\033[38;5;173m'
 GRAY=$'\033[38;5;102m'
 
-# Shorten home directory to ~
+# Shorten home directory to ~, then truncate intermediate components to first char
 short_cwd="${cwd/#$HOME/~}"
+# Fish-style path truncation: abbreviate all but the last path component to 1 char
+short_cwd=$(python3 -c "
+import sys
+p = sys.argv[1]
+parts = p.split('/')
+if len(parts) > 1:
+    print('/'.join(c[0] if i < len(parts) - 1 and c not in ('', '~') else c for i, c in enumerate(parts)))
+else:
+    print(p)
+" "$short_cwd")
 
 # Git branch and status (skip optional locks)
 git_info=""
