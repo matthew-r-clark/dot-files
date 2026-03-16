@@ -91,6 +91,7 @@
     httpie
     posting
 
+    neovim
     cargo
 
     #   # Formatters / linters
