@@ -8,18 +8,21 @@ local function session_exists()
     return false
 end
 
-local function setup()
-    if session_exists() then
-        -- restore session if nvim was opened with no file arguments
-        if vim.fn.argc() == 0 then
-            vim.cmd('source Session.vim')
-        end
-    else
-        vim.cmd(':Obsession')
-    end
-end
-
 return {
     'tpope/vim-obsession', -- session management
-    config = setup,
+    config = function()
+        vim.api.nvim_create_autocmd('VimEnter', {
+            nested = true,
+            callback = function()
+                if session_exists() then
+                    -- restore session if nvim was opened with no file arguments
+                    if vim.fn.argc() == 0 then
+                        vim.cmd('source Session.vim')
+                    end
+                else
+                    vim.cmd(':Obsession')
+                end
+            end,
+        })
+    end,
 }
