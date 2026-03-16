@@ -61,7 +61,7 @@ return {
         automatic_installation = true,
         handlers = {
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-            tsserver = tsserver_config,
+            ts_ls = tsserver_config,
             bashls = bashls_config,
             lua_ls = lua_ls_config,
             eslint = eslint_config,
