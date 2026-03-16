@@ -1,5 +1,5 @@
 return { -- helps with setting up LSP sources
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
     dependencies = {
         'nvim-lua/plenary.nvim',
     },
