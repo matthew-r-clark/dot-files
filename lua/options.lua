@@ -49,5 +49,7 @@ opt.undofile = true
 opt.visualbell = true
 opt.wrap = false
 
+vim.diagnostic.config({ virtual_text = true })
+
 hi(0, 'Normal', {bg='NONE'})
 hi(0, 'WinSeparator', {fg='#181E2A', bg='#181E2A'})

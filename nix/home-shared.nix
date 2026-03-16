@@ -91,6 +91,8 @@
     httpie
     posting
 
+    cargo
+
     #   # Formatters / linters
     #   prettierd
     #   # quick-lint-js  # check availability in nixpkgs
