@@ -10,4 +10,5 @@ return {
     { 'tpope/vim-surround' }, -- modify surround chars
     { 'yuezk/vim-js' }, -- syntax highlighting for JS
     { 'dcampos/cmp-snippy' }, -- autocomplete snippets
+    { 'stevearc/dressing.nvim', opts = {} }, -- better vim.ui.select and vim.ui.input
 }
