@@ -91,7 +91,7 @@
     lazygit
     posting
 
-    # tmux
+    tmux
     neovim
     cargo
     #   nodenv
