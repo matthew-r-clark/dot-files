@@ -158,6 +158,16 @@ return {
                     disconnect = '⏏',
                 },
             },
+            layouts = {
+                {
+                    elements = {
+                        { id = 'repl', size = 0.7 },
+                        { id = 'breakpoints', size = 0.3 },
+                    },
+                    position = 'bottom',
+                    size = 15,
+                },
+            },
         }
 
         -- Change breakpoint icons
