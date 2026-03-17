@@ -158,6 +158,16 @@ return {
                     disconnect = '⏏',
                 },
             },
+            layouts = {
+                {
+                    elements = {
+                        { id = 'repl', size = 0.7 },
+                        { id = 'breakpoints', size = 0.3 },
+                    },
+                    position = 'bottom',
+                    size = 15,
+                },
+            },
         }
 
         -- Change breakpoint icons
@@ -224,7 +234,7 @@ return {
                 },
                 {
                     type = 'pwa-node',
-                    address = 'localhost',
+                    address = '127.0.0.1',
                     port = 9229,
                     request = 'attach',
                     name = 'Docker: attach to node (orders api)',
