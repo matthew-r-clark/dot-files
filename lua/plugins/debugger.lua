@@ -224,7 +224,7 @@ return {
                 },
                 {
                     type = 'pwa-node',
-                    address = 'localhost',
+                    address = '127.0.0.1',
                     port = 9229,
                     request = 'attach',
                     name = 'Docker: attach to node (orders api)',
