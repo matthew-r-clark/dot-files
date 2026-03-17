@@ -25,10 +25,8 @@
   #   idb-companion
 
 
-  # # full list from running `brew list --installed-on-request`
+  # # other apps from running `brew list --installed-on-request`
   # aria2
-  # btop
-  # cocoapods
   # deno
   # dnsmasq
   # edencommon
@@ -39,28 +37,18 @@
   # git-who
   # idb-companion
   # jq
-  # lazygit
   # librist
   # libyaml
   # mas
   # meson
-  # neovim
   # node-build
-  # nodenv
-  # openjdk@11
-  # openjdk@17
   # parallel
   # postgresql@14
-  # pyenv
   # python@3.12
-  # rbenv
-  # scrcpy
   # stripe
-  # tmux
   # uv
   # wangle
   # watchman
-  # xcodes
   ];
 
   # ---------------------------------------------------------------------------

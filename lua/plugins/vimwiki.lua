@@ -37,6 +37,14 @@ return { -- notes
 
         autocmd({ 'BufWritePost' }, { callback = auto_backup })
 
+        autocmd('FileType', {
+            pattern = 'vimwiki',
+            callback = function()
+                vim.opt_local.list = true
+                vim.opt_local.expandtab = true
+            end,
+        })
+
         map('n', '<leader>vw', '<cmd>VimwikiIndex<cr>', { desc = 'notes index' })
         map('n', '<leader>dw', '<cmd>VimwikiDiaryIndex<cr>', { desc = 'diary index' })
         map('n', '<leader>dn', '<cmd>VimwikiMakeDiaryNote<cr>', { desc = 'diary note - today' })

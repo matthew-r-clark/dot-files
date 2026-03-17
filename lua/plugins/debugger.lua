@@ -236,7 +236,6 @@ return {
             }
         end
 
-        -- require('dap.ext.vscode').json_decode = require'json5'.parse
-        -- require('dap.ext.vscode').load_launchjs()
+        require('dap.ext.vscode').json_decode = require('json5').parse
     end,
 }

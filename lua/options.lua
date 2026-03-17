@@ -49,5 +49,23 @@ opt.undofile = true
 opt.visualbell = true
 opt.wrap = false
 
+vim.diagnostic.config({ virtual_text = true })
+
+vim.api.nvim_create_autocmd('BufWinEnter', {
+    callback = function()
+        if vim.bo.buftype == '' then
+            vim.wo.number = true
+            vim.wo.relativenumber = true
+            vim.wo.cursorline = true
+            vim.wo.colorcolumn = '80'
+            vim.wo.wrap = false
+            vim.wo.list = true
+            vim.wo.foldenable = true
+            vim.wo.foldmethod = 'marker'
+            vim.wo.signcolumn = 'yes'
+        end
+    end,
+})
+
 hi(0, 'Normal', {bg='NONE'})
 hi(0, 'WinSeparator', {fg='#181E2A', bg='#181E2A'})

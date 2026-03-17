@@ -52,7 +52,15 @@ map('n', '<leader>va', 'ggVGg_', {})
 map('n', '<leader>da', 'ggVGd', {})
 
 -- toggle relative line numbering
-map('n', '<leader>n', ':set invrelativenumber<CR>', {})
+map('n', '<leader>n', function()
+    if vim.wo.relativenumber then
+        vim.wo.relativenumber = false
+        vim.wo.number = true
+    else
+        vim.wo.relativenumber = true
+        vim.wo.number = true
+    end
+end, {})
 
 -- vim resizing
 map('', '<M-l>', ':vertical resize +3<CR>', {})

@@ -75,6 +75,36 @@ local function set_highlight_groups()
     hl('BufferAlternateTarget', inactiveError)
     hl('BufferAlternateERROR', inactiveError)
     hl('BufferAlternateWARN', inactiveWarning)
+
+    hl('BufferDefaultCurrentWARN', visibleWarning)
+    hl('BufferDefaultVisibleWARN', visibleWarning)
+    hl('BufferDefaultInactiveWARN', inactiveWarning)
+
+    hl('BufferDefaultCurrentERROR', visibleError)
+    hl('BufferDefaultVisibleERROR', visibleError)
+    hl('BufferDefaultInactiveERROR', inactiveError)
+
+    local currentChanged  = {bg='#2E3440', fg='#EBCB8B'}
+    local currentAdded    = {bg='#2E3440', fg='#A3BE8C'}
+    local currentDeleted  = {bg='#2E3440', fg='#BF616A'}
+    local inactiveChanged = {bg='#4C566A', fg='#EBCB8B'}
+    local inactiveAdded   = {bg='#4C566A', fg='#A3BE8C'}
+    local inactiveDeleted = {bg='#4C566A', fg='#BF616A'}
+
+    for _, prefix in ipairs({'Buffer', 'BufferDefault'}) do
+        hl(prefix .. 'CurrentCHANGED',   currentChanged)
+        hl(prefix .. 'CurrentADDED',     currentAdded)
+        hl(prefix .. 'CurrentDELETED',   currentDeleted)
+        hl(prefix .. 'VisibleCHANGED',   currentChanged)
+        hl(prefix .. 'VisibleADDED',     currentAdded)
+        hl(prefix .. 'VisibleDELETED',   currentDeleted)
+        hl(prefix .. 'InactiveCHANGED',  inactiveChanged)
+        hl(prefix .. 'InactiveADDED',    inactiveAdded)
+        hl(prefix .. 'InactiveDELETED',  inactiveDeleted)
+        hl(prefix .. 'AlternateCHANGED', inactiveChanged)
+        hl(prefix .. 'AlternateADDED',   inactiveAdded)
+        hl(prefix .. 'AlternateDELETED', inactiveDeleted)
+    end
 end
 
 local function set_autocmds()
@@ -106,6 +136,10 @@ return { -- buffer tabs
     init = function()
         create_keymaps()
         set_autocmds()
+    end,
+    config = function(_, opts)
+        require('barbar').setup(opts)
+        vim.schedule(set_highlight_groups)
     end,
     opts = {
         icons = {
