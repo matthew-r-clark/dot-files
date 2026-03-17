@@ -81,18 +81,22 @@
   #   deprecated vim.api calls that were removed.
 
   home.packages = with pkgs; [
-    # neovim
-    # tmux
-    # tree-sitter
+    btop
     ripgrep
     fd
     git
     delta
     httpie
+    scrcpy
+    lazygit
     posting
 
+    # tmux
     neovim
     cargo
+    #   nodenv
+    #   rbenv
+    #   pyenv
 
     #   # Formatters / linters
     #   prettierd
@@ -102,9 +106,6 @@
     #   lua
     #   luajit
     #   luarocks
-    #   nodenv
-    #   rbenv
-    #   pyenv
 
     #   # QMK keyboard tools (shared with Linux)
     #   qmk
