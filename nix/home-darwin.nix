@@ -8,6 +8,10 @@
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/lazygit/config.yml";
 
+    ".claude/CLAUDE.md".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/claude/CLAUDE.md";
+
     ".claude/skills".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/claude/skills";
