@@ -7,6 +7,10 @@
     "Library/Application Support/lazygit/config.yml".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/lazygit/config.yml";
+
+    ".claude/skills".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/claude/skills";
   };
 
   home.packages = with pkgs; [
