@@ -36,7 +36,7 @@ return { -- vim status line theme
                         color = {
                             fg = '#D8DEE9',
                         },
-                        path = 3,
+                        path = 1,
                         shorting_target = 10,
                     },
                 },
