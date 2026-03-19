@@ -17,6 +17,18 @@ return { -- vim status line theme
                 disabled_filetypes = { 'NvimTree' },
             },
             sections = {
+                lualine_a = {},
+                lualine_b = {},
+                lualine_c = {},
+                lualine_x = {},
+                lualine_y = {},
+                lualine_z = {},
+            },
+            inactive_sections = {
+                lualine_c = {},
+            },
+            winbar = {
+                lualine_a = { 'mode' },
                 lualine_b = {},
                 lualine_c = {
                     {
@@ -37,8 +49,9 @@ return { -- vim status line theme
                     },
                 },
                 lualine_y = {},
+                lualine_z = { 'location' },
             },
-            inactive_sections = {
+            inactive_winbar = {
                 lualine_c = {
                     {
                         'filename',
@@ -50,6 +63,24 @@ return { -- vim status line theme
                     },
                 },
             },
+        })
+
+        vim.opt.ruler = false
+
+        vim.api.nvim_create_autocmd('VimEnter', {
+            callback = function()
+                -- Full-width winbar background
+                vim.api.nvim_set_hl(0, 'WinBar', { bg = '#242935' })
+                vim.api.nvim_set_hl(0, 'WinBarNC', { bg = '#383e4a' })
+                -- Transparent statusline
+                -- vim.api.nvim_set_hl(0, 'StatusLine', { link = 'Normal' })
+                -- vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'NormalNC' })
+                vim.api.nvim_set_hl(0, 'StatusLine', { bg = '#181E2A', fg = '#181E2A' })
+                vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = '#181E2A', fg = '#181E2A' })
+                for _, mode in ipairs({ 'normal', 'insert', 'visual', 'replace', 'command', 'inactive' }) do
+                    vim.api.nvim_set_hl(0, 'lualine_c_' .. mode, { bg = 'NONE' })
+                end
+            end,
         })
     end,
 }
