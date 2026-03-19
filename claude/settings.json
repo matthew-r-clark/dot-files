@@ -1,7 +1,8 @@
 {
-    "model": "opusplan",
-    "statusLine": {
-        "type": "command",
-        "command": "bash ~/.claude/custom/statusline-command.sh"
-    }
+  "model": "opusplan",
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/custom/statusline-command.sh"
+  },
+  "voiceEnabled": true
 }
