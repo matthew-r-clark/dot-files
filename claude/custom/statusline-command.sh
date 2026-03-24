@@ -76,18 +76,67 @@ if [ -n "$model" ]; then
     model_info="${DIM}[${model}]${RESET}"
 fi
 
+# Usage limit status (Claude.ai subscription limits)
+limit_info=""
+five_pct=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+five_reset=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
+week_pct=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
+week_reset=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
+# Convert a resets_at epoch-ms value to a human-readable "in Xd / Xh / Xm" string
+fmt_reset() {
+    local reset_ts="$1"
+    local now_s reset_s diff_s
+    now_s=$(date +%s)
+    reset_s=${reset_ts%%.*}
+    diff_s=$(( reset_s - now_s ))
+    if [ "$diff_s" -le 0 ]; then
+        echo "now"
+    elif [ "$diff_s" -ge 86400 ]; then
+        echo "↻$(( diff_s / 86400 ))d"
+    elif [ "$diff_s" -ge 3600 ]; then
+        echo "↻$(( diff_s / 3600 ))h"
+    else
+        echo "↻$(( diff_s / 60 ))m"
+    fi
+}
+
+limit_parts=""
+if [ -n "$five_pct" ]; then
+    five_int=$(printf '%.0f' "$five_pct")
+    five_reset_fmt=""
+    [ -n "$five_reset" ] && five_reset_fmt="|$(fmt_reset "$five_reset")"
+    if [ "$five_int" -ge 80 ] 2>/dev/null; then
+        limit_parts="${RED}5h:${five_int}%${GRAY}${five_reset_fmt}${RESET}"
+    else
+        limit_parts="${GREEN}5h:${five_int}%${GRAY}${five_reset_fmt}${RESET}"
+    fi
+fi
+if [ -n "$week_pct" ]; then
+    week_int=$(printf '%.0f' "$week_pct")
+    week_reset_fmt=""
+    [ -n "$week_reset" ] && week_reset_fmt="|$(fmt_reset "$week_reset")"
+    if [ "$week_int" -ge 80 ] 2>/dev/null; then
+        week_seg="${RED}7d:${week_int}%${GRAY}${week_reset_fmt}${RESET}"
+    else
+        week_seg="${GREEN}7d:${week_int}%${GRAY}${week_reset_fmt}${RESET}"
+    fi
+    [ -n "$limit_parts" ] && limit_parts="${limit_parts} ${week_seg}" || limit_parts="$week_seg"
+fi
+[ -n "$limit_parts" ] && limit_info="${limit_parts}"
+
 # Session duration
 time_info=""
 if [ -n "$duration_ms" ]; then
     duration_s=$((duration_ms / 1000))
     hours=$((duration_s / 3600))
     mins=$(( (duration_s % 3600) / 60 ))
-    secs=$((duration_s % 60))
-    duration_fmt="${secs}s"
+    # secs=$((duration_s % 60))
+    # duration_fmt="${secs}s"
+    duration_fmt=""
     [ "$mins" -gt 0 ] && duration_fmt="${mins}m ${duration_fmt}"
     [ "$hours" -gt 0 ] && duration_fmt="${hours}h ${duration_fmt}"
     time_info="${GRAY}${duration_fmt}${RESET}"
 fi
 
-printf "%s%s%s %s\n" "$model_info" "$ctx_info" "$cost_info" "$time_info"
+printf "%s%s%s%s %s\n" "$time_info" "$model_info" "$ctx_info" "$cost_info" "$limit_info"
 printf "${CYAN}%s${RESET}%s\n" "$short_cwd" "$git_info"
