@@ -82,43 +82,65 @@ five_pct=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empt
 five_reset=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
 week_pct=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
 week_reset=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
-# Convert a resets_at epoch-ms value to a human-readable "in Xd / Xh / Xm" string
-fmt_reset() {
-    local reset_ts="$1"
-    local now_s reset_s diff_s
+# Convert a resets_at epoch seconds value to a short absolute time string
+# fmt_reset_time: "1p", "11a", "12p" etc.
+fmt_reset_time() {
+    local reset_ts="${1%%.*}"
+    local now_s diff_s
     now_s=$(date +%s)
-    reset_s=${reset_ts%%.*}
-    diff_s=$(( reset_s - now_s ))
+    diff_s=$(( reset_ts - now_s ))
     if [ "$diff_s" -le 0 ]; then
         echo "now"
-    elif [ "$diff_s" -ge 86400 ]; then
-        echo "↻$(( diff_s / 86400 ))d"
-    elif [ "$diff_s" -ge 3600 ]; then
-        echo "↻$(( diff_s / 3600 ))h"
-    else
-        echo "↻$(( diff_s / 60 ))m"
+        return
     fi
+    local hour ampm
+    hour=$(date -r "$reset_ts" +%I 2>/dev/null || date -d "@$reset_ts" +%I 2>/dev/null)
+    ampm=$(date -r "$reset_ts" +%p 2>/dev/null || date -d "@$reset_ts" +%p 2>/dev/null)
+    hour=$(echo "$hour" | sed 's/^0//')
+    ampm=$(echo "$ampm" | tr '[:upper:]' '[:lower:]' | sed 's/am/a/;s/pm/p/')
+    echo "${hour}${ampm}"
+}
+
+# fmt_reset_weektime: "Th@10a", "Mo@2p" etc.
+fmt_reset_weektime() {
+    local reset_ts="${1%%.*}"
+    local now_s diff_s
+    now_s=$(date +%s)
+    diff_s=$(( reset_ts - now_s ))
+    if [ "$diff_s" -le 0 ]; then
+        echo "now"
+        return
+    fi
+    local day hour ampm
+    day=$(date -r "$reset_ts" +%a 2>/dev/null || date -d "@$reset_ts" +%a 2>/dev/null)
+    # Shorten to 2 chars: "Mon" -> "Mo", "Thu" -> "Th" etc.
+    day="${day:0:2}"
+    hour=$(date -r "$reset_ts" +%I 2>/dev/null || date -d "@$reset_ts" +%I 2>/dev/null)
+    ampm=$(date -r "$reset_ts" +%p 2>/dev/null || date -d "@$reset_ts" +%p 2>/dev/null)
+    hour=$(echo "$hour" | sed 's/^0//')
+    ampm=$(echo "$ampm" | tr '[:upper:]' '[:lower:]' | sed 's/am/a/;s/pm/p/')
+    echo "${day}${hour}${ampm}"
 }
 
 limit_parts=""
 if [ -n "$five_pct" ]; then
     five_int=$(printf '%.0f' "$five_pct")
     five_reset_fmt=""
-    [ -n "$five_reset" ] && five_reset_fmt="|$(fmt_reset "$five_reset")"
+    [ -n "$five_reset" ] && five_reset_fmt="$(fmt_reset_time "$five_reset")"
     if [ "$five_int" -ge 80 ] 2>/dev/null; then
-        limit_parts="${RED}5h:${five_int}%${GRAY}${five_reset_fmt}${RESET}"
+        limit_parts="${GRAY}5h[${RED}${five_int}%${GRAY}]${five_reset_fmt}${RESET}"
     else
-        limit_parts="${GREEN}5h:${five_int}%${GRAY}${five_reset_fmt}${RESET}"
+        limit_parts="${GRAY}5h[${GREEN}${five_int}%${GRAY}]${five_reset_fmt}${RESET}"
     fi
 fi
 if [ -n "$week_pct" ]; then
     week_int=$(printf '%.0f' "$week_pct")
     week_reset_fmt=""
-    [ -n "$week_reset" ] && week_reset_fmt="|$(fmt_reset "$week_reset")"
+    [ -n "$week_reset" ] && week_reset_fmt="$(fmt_reset_weektime "$week_reset")"
     if [ "$week_int" -ge 80 ] 2>/dev/null; then
-        week_seg="${RED}7d:${week_int}%${GRAY}${week_reset_fmt}${RESET}"
+        week_seg="${GRAY}7d[${RED}${week_int}%${GRAY}]${week_reset_fmt}${RESET}"
     else
-        week_seg="${GREEN}7d:${week_int}%${GRAY}${week_reset_fmt}${RESET}"
+        week_seg="${GRAY}7d[${GREEN}${week_int}%${GRAY}]${week_reset_fmt}${RESET}"
     fi
     [ -n "$limit_parts" ] && limit_parts="${limit_parts} ${week_seg}" || limit_parts="$week_seg"
 fi
