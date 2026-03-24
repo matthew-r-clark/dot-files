@@ -37,7 +37,8 @@ export ALIEN_SECTIONS_RIGHT=(
 
 # Color definitions (https://www.nordtheme.com/docs/colors-and-palettes)
 # Polar Night (dark gray)
-background_color="#2E3440" # nord0, darkest
+background_color="#181E2A" # darker than nord0, used for inactive panes
+inactive_background_color="#2E3440" # nord0, darkest
 elevated_background_color="#3B4252" # nord1 (also good for border, drop shadow, etc)
 selection_color="#434C5E" # nord2
 guide_marker_color="#4C566A" # nord3, lightest
