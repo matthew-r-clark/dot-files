@@ -1,35 +1,35 @@
 snippet today Today's date
-	`strftime('%A %m/%d/%y')`
+	= `strftime('%A %m/%d/%y')` =
 
-	= Notes =
+	== Notes ==
 	* ${1}
 
-	= To Do List =
+	== To Do List ==
 	- [ ] ${2}
 
-	= Other =
+	== Other ==
 	- [ ] ${3}
 
 snippet yesterday Yesterday's date
-	`strftime('%A %m/%d/%y', localtime() - 86400)`
+	= `strftime('%A %m/%d/%y', localtime() - 86400)` =
 
-	= Notes =
+	== Notes ==
 	* ${1}
 
-	= To Do List =
+	== To Do List ==
 	- [ ] ${2}
 
-	= Other =
+	== Other ==
 	- [ ] ${3}
 
 snippet tomorrow Tomorrow's date
-	`strftime('%A %m/%d/%y', localtime() + 86400)`
+	= `strftime('%A %m/%d/%y', localtime() + 86400)` =
 
-	= Notes =
+	== Notes ==
 	* ${1}
 
-	= To Do List =
+	== To Do List ==
 	- [ ] ${2}
 
-	= Other =
+	== Other ==
 	- [ ] ${3}
