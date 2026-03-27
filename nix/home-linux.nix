@@ -13,8 +13,9 @@
   # Packages — add Linux-specific tools here as needed.
   # Cross-platform tools go in home-shared.nix instead.
   # ---------------------------------------------------------------------------
-  # home.packages = with pkgs; [
-  # ];
+  home.packages = with pkgs; [
+      ghostty
+  ];
 
   # ---------------------------------------------------------------------------
   # Linux-specific shell config (Phase 3+)

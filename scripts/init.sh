@@ -26,16 +26,6 @@ if [ "$OS" = "Darwin" ]; then
         sudo nix --extra-experimental-features 'nix-command flakes' \
             run nix-darwin -- switch --flake ~/dot-files
     fi
-
-    # install ghostty
-    if [ ! -d "/Applications/Ghostty.app" ]; then
-        curl -L -o /tmp/ghostty.dmg "https://release.files.ghostty.org/1.3.1/Ghostty.dmg"
-        hdiutil attach /tmp/ghostty.dmg -nobrowse -quiet
-        cp -R /Volumes/Ghostty/App.app /Applications/
-        hdiutil detach /Volumes/Ghostty -quiet
-        rm /tmp/ghostty.dmg
-    fi
-
 elif [ "$OS" = "Linux" ]; then
     # install nix
     if command -v home-manager &>/dev/null; then
@@ -45,11 +35,6 @@ elif [ "$OS" = "Linux" ]; then
         echo "Bootstrapping home-manager..."
         nix --extra-experimental-features 'nix-command flakes' \
             run home-manager -- switch --flake ~/dot-files
-    fi
-
-    # install ghostty
-    if ! command -v ghostty &>/dev/null; then
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
     fi
 else
     echo "Unsupported OS: $OS"
