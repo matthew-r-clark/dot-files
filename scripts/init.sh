@@ -27,12 +27,15 @@ if [ "$OS" = "Darwin" ]; then
             run nix-darwin -- switch --flake ~/dot-files
     fi
 
-    # install homebrew
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-    # consider moving to a brewfile
     # install ghostty
-    brew install --cask ghostty
+    if [ ! -d "/Applications/Ghostty.app" ]; then
+        curl -L -o /tmp/ghostty.dmg "https://release.files.ghostty.org/1.3.1/Ghostty.dmg"
+        hdiutil attach /tmp/ghostty.dmg -nobrowse -quiet
+        cp -R /Volumes/Ghostty/App.app /Applications/
+        hdiutil detach /Volumes/Ghostty -quiet
+        rm /tmp/ghostty.dmg
+    fi
+
 elif [ "$OS" = "Linux" ]; then
     # install nix
     if command -v home-manager &>/dev/null; then
@@ -45,7 +48,9 @@ elif [ "$OS" = "Linux" ]; then
     fi
 
     # install ghostty
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+    if ! command -v ghostty &>/dev/null; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+    fi
 else
     echo "Unsupported OS: $OS"
     exit 1
