@@ -17,6 +17,7 @@ if ! command -v nix &>/dev/null; then
 fi
 
 if [ "$OS" = "Darwin" ]; then
+    # install nix
     if command -v darwin-rebuild &>/dev/null; then
         echo "Running darwin-rebuild switch..."
         darwin-rebuild switch --flake ~/dot-files
@@ -25,7 +26,15 @@ if [ "$OS" = "Darwin" ]; then
         sudo nix --extra-experimental-features 'nix-command flakes' \
             run nix-darwin -- switch --flake ~/dot-files
     fi
+
+    # install homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # consider moving to a brewfile
+    # install ghostty
+    brew install --cask ghostty
 elif [ "$OS" = "Linux" ]; then
+    # install nix
     if command -v home-manager &>/dev/null; then
         echo "Running home-manager switch..."
         home-manager switch --flake ~/dot-files
@@ -34,6 +43,9 @@ elif [ "$OS" = "Linux" ]; then
         nix --extra-experimental-features 'nix-command flakes' \
             run home-manager -- switch --flake ~/dot-files
     fi
+
+    # install ghostty
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
 else
     echo "Unsupported OS: $OS"
     exit 1
