@@ -3,20 +3,21 @@
   # home.stateVersion — do not change after first activation
   home.stateVersion = "24.05";
 
-  imports = [ ./modules/symlinks.nix ];
+  imports = [
+    ./modules/symlinks.nix
+    ./modules/git.nix
+    ./modules/tmux.nix
+  ];
 
   home.packages = with pkgs; [
     # --- shells & editors ---
     zsh
-    tmux
     neovim
 
     # --- CLI utilities ---
     btop
     ripgrep
     fd
-    git
-    delta
     httpie
     scrcpy
     lazygit

@@ -6,18 +6,6 @@
   # without requiring a rebuild.
   # ---------------------------------------------------------------------------
   home.file = {
-    ".tmux.conf".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/.tmux.conf";
-
-    ".gitconfig".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/.gitconfig";
-
-    ".gitignore".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/.gitignore";
-
     ".zshrc".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/.zshrc";
