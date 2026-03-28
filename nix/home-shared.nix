@@ -32,6 +32,14 @@
     ".claude/custom".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/claude/custom";
+
+    ".claude/CLAUDE.md".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/claude/CLAUDE.md";
+
+    ".claude/skills".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/claude/skills";
   };
 
   xdg.configFile = {
@@ -53,6 +61,10 @@
   };
 
   home.packages = with pkgs; [
+    zsh
+    tmux
+    neovim
+
     btop
     ripgrep
     fd
@@ -62,22 +74,18 @@
     scrcpy
     lazygit
     posting
+    dnsmasq
 
-    tmux
-    neovim
+    nodenv
+    rbenv
+    pyenv
     cargo
-    #   nodenv
-    #   rbenv
-    #   pyenv
+    lua
+    luajit
+    luarocks
 
-    #   # Formatters / linters
-    #   prettierd
-    #   # quick-lint-js  # check availability in nixpkgs
-
-    #   # Languages
-    #   lua
-    #   luajit
-    #   luarocks
+    prettierd
+    quick-lint-js
 
     #   # QMK keyboard tools (shared with Linux)
     #   qmk
