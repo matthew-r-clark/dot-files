@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, ... }:
 {
   # ---------------------------------------------------------------------------
   # Dotfile symlinks
@@ -28,26 +28,8 @@
   };
 
   xdg.configFile = {
-    "nvim/init.lua".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/init.lua";
-
-    "nvim/lua".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/lua";
-
-    "nvim/snippets".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/snippets";
-
     "ghostty".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/ghostty";
   };
-
-  # lazy-lock.json must stay writable for lazy.nvim plugin updates.
-  # A direct (non-store) symlink is used so lazy.nvim can overwrite it.
-  home.activation.nvimLazyLock = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    ln -sf "$HOME/dot-files/lua/lazy-lock.json" "$HOME/.config/nvim/lazy-lock.json"
-  '';
 }

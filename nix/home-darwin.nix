@@ -3,12 +3,6 @@
   home.username = "matthew.clark";
   home.homeDirectory = "/Users/matthew.clark";
 
-  home.file = {
-    "Library/Application Support/lazygit/config.yml".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/lazygit/config.yml";
-  };
-
   home.activation.ghosttyApp = lib.hm.dag.entryAfter ["writeBoundary"] ''
     run mkdir -p "$HOME/Applications"
     # The nix store is read-only (555/444), so the existing copy must be unlocked before rm can delete it.

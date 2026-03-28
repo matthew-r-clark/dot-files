@@ -7,12 +7,14 @@
     ./modules/symlinks.nix
     ./modules/git.nix
     ./modules/tmux.nix
+    ./modules/neovim.nix
   ];
+
+  programs.lazygit.enable = true;
 
   home.packages = with pkgs; [
     # --- shells & editors ---
     zsh
-    neovim
 
     # --- CLI utilities ---
     btop
@@ -20,7 +22,6 @@
     fd
     httpie
     scrcpy
-    lazygit
     posting
     dnsmasq
 
