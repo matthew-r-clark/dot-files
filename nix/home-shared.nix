@@ -31,8 +31,7 @@
 
     # --- language runtimes ---
     cargo
-    lua
-    luajit
+    luajit  # provides lua binary; conflicts with pkgs.lua
     luarocks
 
     # --- formatters & linters ---
