@@ -23,45 +23,35 @@
   '';
 
   home.packages = with pkgs; [
+    # --- terminal ---
+    ghostty-bin
+
+    # --- containers ---
     docker
     docker-compose
     lazydocker
-    ghostty-bin
 
+    # --- macOS utilities ---
     rectangle
     redis
     stripe-cli
     imagemagick
-  #   graphicsmagick
-  #   ghostscript # PostScript and PDF interpreter
+    #   graphicsmagick
+    #   ghostscript # PostScript and PDF interpreter
 
-  #   # mobile dev
-  #   cocoapods
-  #   xcodes
-  #   idb-companion
+    # --- mobile dev (uncomment when needed) ---
+    #   cocoapods
+    #   xcodes
+    #   idb-companion
 
-
-  # # other apps from running `brew list --installed-on-request`
-  # aria2
-  # deno
-  # edencommon
-  # fb303
-  # ffmpeg
-  # fizz
-  # folly
-  # git-who
-  # idb-companion
-  # jq
-  # librist
-  # libyaml
-  # mas
-  # meson
-  # node-build
-  # parallel
-  # postgresql@14
-  # python@3.12
-  # uv
-  # wangle
-  # watchman
+    # --- not yet migrated from brew (uncomment + test each) ---
+    #   aria2
+    #   deno
+    #   ffmpeg
+    #   jq
+    #   postgresql # was postgresql@14
+    #   python312  # was python@3.12
+    #   uv
+    #   watchman
   ];
 }
