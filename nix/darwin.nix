@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./modules/macos-defaults.nix
+  ];
+
   # Match the existing nixbld GID from the Determinate Systems Nix installer
   ids.gids.nixbld = 350;
 
@@ -12,6 +16,9 @@
     interval = { Weekday = 0; Hour = 2; Minute = 0; }; # Sunday 2am
     options = "--delete-older-than 30d";
   };
+
+  # Required for user-scoped system.defaults (Dock, Finder, NSGlobalDomain, etc.)
+  system.primaryUser = "matthew.clark";
 
   # Declare the user so home-manager can infer home.homeDirectory
   users.users."matthew.clark" = {
