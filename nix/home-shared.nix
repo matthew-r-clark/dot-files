@@ -30,6 +30,7 @@
     btop
     ripgrep
     fd
+    jq
     httpie
     scrcpy
     posting

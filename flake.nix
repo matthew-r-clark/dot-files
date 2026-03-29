@@ -15,7 +15,10 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }: {
+  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
+  let
+    pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+  in {
     # macOS: nix-darwin + home-manager
     # First activation: nix run nix-darwin -- switch --flake ~/dot-files
     # Subsequent:       darwin-rebuild switch --flake ~/dot-files
@@ -32,6 +35,18 @@
             imports = [ ./nix/home-shared.nix ./nix/home-darwin.nix ];
           };
         }
+      ];
+    };
+
+    # `nix fmt` — format all .nix files
+    formatter.aarch64-darwin = pkgs.alejandra;
+
+    # `nix develop` — shell for working on the dotfiles themselves
+    devShells.aarch64-darwin.default = pkgs.mkShell {
+      packages = [
+        pkgs.alejandra  # nix formatter
+        pkgs.statix     # nix linter (anti-pattern detection)
+        pkgs.deadnix    # find unused nix code
       ];
     };
 
