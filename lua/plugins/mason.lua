@@ -42,6 +42,7 @@ return {
 
         require('lspconfig').html.setup({})
         require('lspconfig').jsonls.setup({})
+        require('lspconfig').nil_ls.setup({})
         require('lspconfig').yamlls.setup({})
 
         require('lspconfig').eslint.setup({

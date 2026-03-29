@@ -5,6 +5,7 @@ return {
         'html',
         'jsonls',
         'lua_ls',
+        'nil_ls',
         'ts_ls',
         'yamlls',
     }
