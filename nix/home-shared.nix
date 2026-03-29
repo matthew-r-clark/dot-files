@@ -8,6 +8,7 @@
     ./modules/git.nix
     ./modules/tmux.nix
     ./modules/neovim.nix
+    ./modules/starship.nix
   ];
 
   programs.lazygit.enable = true;
