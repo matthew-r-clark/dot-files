@@ -11,6 +11,10 @@
       ghostty
   ];
 
+  programs.zsh.shellAliases = {
+    nix-update = "cd $DOTFILE_DIR && nix flake update && home-manager switch --flake .";
+  };
+
   # ---------------------------------------------------------------------------
   # Linux-specific shell config (Phase 3+)
   # ---------------------------------------------------------------------------

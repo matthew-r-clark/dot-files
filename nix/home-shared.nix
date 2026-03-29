@@ -23,9 +23,6 @@
   };
 
   home.packages = with pkgs; [
-    # --- shells & editors ---
-    zsh
-
     # --- CLI utilities ---
     btop
     ripgrep

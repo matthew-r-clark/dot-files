@@ -10,6 +10,9 @@
   # Enable flakes and new CLI
   nix.settings.experimental-features = "nix-command flakes";
 
+  # Deduplicate identical files in the store via hardlinks
+  nix.settings.auto-optimise-store = true;
+
   # Periodic garbage collection to prevent /nix/store bloat
   nix.gc = {
     automatic = true;

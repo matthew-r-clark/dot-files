@@ -3,6 +3,10 @@
   home.username = "matthew.clark";
   home.homeDirectory = "/Users/matthew.clark";
 
+  programs.zsh.shellAliases = {
+    nix-update = "cd $DOTFILE_DIR && nix flake update && sudo darwin-rebuild switch --flake .";
+  };
+
   home.activation.ghosttyApp = lib.hm.dag.entryAfter ["writeBoundary"] ''
     run mkdir -p "$HOME/Applications"
     # The nix store is read-only (555/444), so the existing copy must be unlocked before rm can delete it.
