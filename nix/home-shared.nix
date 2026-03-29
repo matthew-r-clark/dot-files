@@ -31,7 +31,6 @@
     httpie
     scrcpy
     posting
-    dnsmasq
 
     # --- language version managers ---
     nodenv
