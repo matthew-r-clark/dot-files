@@ -6,10 +6,6 @@
   # without requiring a rebuild.
   # ---------------------------------------------------------------------------
   home.file = {
-    ".zshrc".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/.zshrc";
-
     ".claude/settings.json".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/claude/settings.json";

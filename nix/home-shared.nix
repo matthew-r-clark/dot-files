@@ -5,6 +5,7 @@
 
   imports = [
     ./modules/symlinks.nix
+    ./modules/zsh.nix
     ./modules/git.nix
     ./modules/tmux.nix
     ./modules/neovim.nix
@@ -12,6 +13,14 @@
   ];
 
   programs.lazygit.enable = true;
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    # Use fd for file listing: faster, respects .gitignore, shows hidden files
+    defaultCommand = "fd --type f --hidden --exclude .git";
+    defaultOptions = [ "--height 40%" "--border" ];
+  };
 
   home.packages = with pkgs; [
     # --- shells & editors ---
