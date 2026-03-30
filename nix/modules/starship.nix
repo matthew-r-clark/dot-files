@@ -1,18 +1,18 @@
 { ... }:
 let
   # Nord color palette — kept in sync with tmux.nix
-  nordActiveBackground = "#181E2A";
+  nordActiveBackground   = "#181E2A";
   nordInactiveBackground = "#2E3440";
-  nordElevatedBackground     = "#3B4252";
-  nordSelection     = "#434C5E";
-  nordMarker     = "#4C566A";
-  nordSubtext     = "#D8DEE9";
-  nordText     = "#E5E9F0";
-  nordAccent     = "#8FBCBB";
-  nordPrimary     = "#88C0D0";
-  nordError    = "#BF616A";
-  nordWarning    = "#EBCB8B";
-  nordSuccess    = "#A3BE8C";
+  nordElevatedBackground = "#3B4252";
+  nordSelection          = "#434C5E";
+  nordMarker             = "#4C566A";
+  nordSubtext            = "#D8DEE9";
+  nordText               = "#E5E9F0";
+  nordAccent             = "#8FBCBB";
+  nordPrimary            = "#88C0D0";
+  nordError              = "#BF616A";
+  nordWarning            = "#EBCB8B";
+  nordSuccess            = "#A3BE8C";
 
   # Powerline separator glyphs (Nerd Fonts Private Use Area, U+E0B0 / U+E0B2)
   pl  = "";  # solid right-pointing arrow — between left blocks
@@ -93,16 +93,27 @@ in
       # ---------------------------------------------------------------------------
       add_newline = false;
 
-      format = "(fg:${nordMarker})$directory[${pl}](fg:${nordMarker} bg:${nordSelection})$git_branch[${pl}](fg:${nordSelection} bg:${nordElevatedBackground})$git_status[${pl}](fg:${nordElevatedBackground}) $hostname$status$python$nodejs$lua$fill[${plL}](fg:${nordPrimary})$cmd_duration$time\n$character";
+      format =
+        # First line
+          "(fg:${nordMarker})$directory"
+        + "[${pl}](fg:${nordMarker} bg:${nordSelection})$git_branch"
+        + "[${pl}](fg:${nordSelection} bg:${nordElevatedBackground})$git_status"
+        + "[${pl}](fg:${nordElevatedBackground} bg:${nordPrimary})$python$nodejs$lua"
+        + "[${pl}](fg:${nordPrimary})$fill"
+        + "[${plL}](fg:${nordSelection})$cmd_duration"
+        + "[${plL}](fg:${nordMarker} bg:${nordSelection})$time"
+        # Second line
+        + "\n$hostname$status$character";
 
       # ---------------------------------------------------------------------------
       # Line 1 — left blocks
       # ---------------------------------------------------------------------------
       directory = {
-        style                    = "bg:${nordMarker} fg:${nordPrimary}";
-        format                   = "[ $path ]($style)";
-        truncate_to_repo         = false;
+        style                     = "bg:${nordMarker} fg:${nordPrimary}";
+        format                    = "[ $path ]($style)";
+        truncate_to_repo          = true;
         fish_style_pwd_dir_length = 1;
+        read_only                 = "";
       };
 
       git_branch = {
@@ -112,11 +123,11 @@ in
       };
 
       git_status = {
-        style    = "bg:${nordElevatedBackground} fg:${nordPrimary}";
-        format   = "[ ($stashed$ahead_behind$staged$modified$untracked$deleted$renamed)]($style)";
-        ahead    = "[$count ](bg:${nordElevatedBackground} fg:${nordPrimary})";
-        behind   = "[$count ](bg:${nordElevatedBackground} fg:${nordPrimary})";
-        diverged = "[$ahead_count$behind_count ](bg:${nordElevatedBackground} fg:${nordPrimary})";
+        style     = "bg:${nordElevatedBackground} fg:${nordPrimary}";
+        format    = "[ ($stashed$ahead_behind$staged$modified$untracked$deleted$renamed)]($style)";
+        ahead     = "[$count ](bg:${nordElevatedBackground} fg:${nordPrimary})";
+        behind    = "[$count ](bg:${nordElevatedBackground} fg:${nordPrimary})";
+        diverged  = "[$ahead_count$behind_count ](bg:${nordElevatedBackground} fg:${nordPrimary})";
         stashed   = "[@$count ](bg:${nordElevatedBackground} fg:${nordPrimary})";
         staged    = "[●$count ](fg:${nordSuccess} bg:${nordElevatedBackground})";
         modified  = "[●$count ](fg:${nordWarning} bg:${nordElevatedBackground})";
@@ -131,16 +142,15 @@ in
       # Line 1 — right (after $fill)
       # ---------------------------------------------------------------------------
 
-      # NEW: show duration for commands that took more than 2 seconds
       cmd_duration = {
-        style    = "fg:${nordWarning}";
-        format   = "[ ⏱$duration ]($style)";
-        min_time = 2000;
+        style    = "bg:${nordSelection} fg:${nordPrimary}";
+        format   = "[  $duration ]($style)";
+        min_time = 0;
       };
 
       time = {
         disabled    = false;
-        style       = "bg:${nordPrimary} fg:${nordActiveBackground}";
+        style       = "bg:${nordMarker} fg:${nordPrimary}";
         format      = "[ $time ]($style)";
         time_format = "%H:%M:%S";
       };
@@ -149,10 +159,33 @@ in
       # Line 2
       # ---------------------------------------------------------------------------
 
+      # Show virtualenv name when active (matches alien's venv section)
+      python = {
+        style             = "fg:${nordInactiveBackground} bg:${nordPrimary}";
+        format            = "[ $symbol $virtualenv ]($style)";
+        symbol            = "";
+        detect_extensions = [];
+        detect_files      = [];
+        detect_folders    = [];
+      };
+
+      # Node version — matches alien's ALIEN_VERSIONS_PROMPT='NODE'
+      nodejs = {
+        style  = "fg:${nordInactiveBackground} bg:${nordPrimary}";
+        format = "[ $symbol $version ]($style)";
+        symbol = "";
+      };
+
+      lua = {
+        style  = "fg:${nordInactiveBackground} bg:${nordPrimary}";
+        format = "[ $symbol $version ]($style)";
+        symbol = "󰢱";
+      };
+
       # Show user@host only when connected via SSH (matches alien's ssh section)
       hostname = {
         ssh_only = true;
-        style    = "fg:${nordText}";
+        style    = "fg:${nordPrimary}";
         format   = "[$hostname ]($style)";
         trim_at  = "";
       };
@@ -160,37 +193,14 @@ in
       # Show exit code when non-zero (alien's exit section)
       status = {
         disabled = false;
-        style    = "fg:${nordSubtext}";
+        style    = "fg:${nordPrimary}";
         format   = "[$status ]($style)";
-      };
-
-      # Show virtualenv name when active (matches alien's venv section)
-      python = {
-        style            = "fg:${nordPrimary}";
-        format           = "[$symbol $virtualenv ]($style)";
-        symbol           = "";
-        detect_extensions = [];
-        detect_files     = [];
-        detect_folders   = [];
-      };
-
-      # Node version — matches alien's ALIEN_VERSIONS_PROMPT='NODE'
-      nodejs = {
-        style  = "fg:${nordPrimary}";
-        format = "[$symbol $version ]($style)";
-        symbol = "";
-      };
-
-      lua = {
-        style  = "fg:${nordPrimary}";
-        format = "[$symbol $version ]($style)";
-        symbol = "󰢱";
       };
 
       # Prompt character — color reflects last exit status (replaces alien's exit + prompt sections)
       character = {
-        success_symbol = "[❯](fg:${nordPrimary})";
-        error_symbol   = "[❯](fg:${nordError})";
+        success_symbol = "[󰅂](fg:${nordPrimary})";
+        error_symbol   = "[󰅂](fg:${nordError})";
       };
     };
   };
