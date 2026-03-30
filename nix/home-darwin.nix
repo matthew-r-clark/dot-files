@@ -22,7 +22,7 @@
 
   home.packages = with pkgs; [
     # --- fonts ---
-    inconsolata-nerdfont
+    nerd-fonts.inconsolata
 
     # --- terminal ---
     ghostty-bin

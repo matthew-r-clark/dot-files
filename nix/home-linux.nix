@@ -10,7 +10,7 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    inconsolata-nerdfont
+    nerd-fonts.inconsolata
     ghostty
   ];
 
