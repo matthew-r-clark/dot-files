@@ -32,8 +32,8 @@ map('n', '<leader>lg', function()
     })
 end, {})
 
--- delete all buffers
-map('n', '<leader>bad', ':%bd<CR>', {})
+-- buffers: delete all but current
+map('n', '<leader>bca', ':BufferCloseAllButCurrent<CR>', {})
 
 -- resourece nvim config
 map('n', '<leader>rs', ':source ~/.config/nvim/init.lua<CR>', {})
