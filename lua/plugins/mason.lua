@@ -42,7 +42,7 @@ return {
 
         vim.lsp.config('eslint', {
             settings = {
-                codeActions = {
+                codeAction = {
                     disableRuleComment = {
                         enable = true,
                         location = 'sameLine',
