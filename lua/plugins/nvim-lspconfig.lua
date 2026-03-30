@@ -1,24 +1,28 @@
-local language_servers = require('constants').language_servers
-
 return { -- LSP
     'neovim/nvim-lspconfig',
     cmd = 'LspInfo',
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
         'hrsh7th/cmp-nvim-lsp',
-        'VonHeikemen/lsp-zero.nvim',
     },
     config = function()
-        -- This is where all the LSP shenanigans will live
-        local lsp_zero = require('lsp-zero')
-        lsp_zero.extend_lspconfig()
+        -- Broadcast nvim-cmp capabilities to all servers
+        vim.lsp.config('*', {
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
+        })
 
-        lsp_zero.on_attach(function(client, bufnr)
-            -- see :help lsp-zero-keybindings
-            -- to learn the available actions
-            lsp_zero.default_keymaps({ buffer = bufnr })
-        end)
-
-        -- server setup is handled in mason.lua
-    end
+        -- nvim 0.11 sets K, gd, gD, gi, gr, [d, ]d automatically on attach.
+        -- Only set the non-defaults here.
+        vim.api.nvim_create_autocmd('LspAttach', {
+            callback = function(args)
+                local map = vim.keymap.set
+                local opts = { buffer = args.buf }
+                map('n', 'go',   vim.lsp.buf.type_definition, opts)
+                map('n', 'gs',   vim.lsp.buf.signature_help,  opts)
+                map('n', '<F2>', vim.lsp.buf.rename,           opts)
+                map('n', '<F4>', vim.lsp.buf.code_action,      opts)
+                map('n', 'gl',   vim.diagnostic.open_float,   opts)
+            end,
+        })
+    end,
 }

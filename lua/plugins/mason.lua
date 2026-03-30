@@ -6,10 +6,10 @@ return {
     config = function()
         require('mason-lspconfig').setup({
             ensure_installed = language_servers,
-            automatic_installation = true,
+            automatic_enable = true,
         })
 
-        require('lspconfig').ts_ls.setup({
+        vim.lsp.config('ts_ls', {
             handlers = {
                 ['textDocument/publishDiagnostics'] = function(_, result, ctx, config)
                     local filtered = {}
@@ -26,11 +26,11 @@ return {
             },
         })
 
-        require('lspconfig').bashls.setup({
+        vim.lsp.config('bashls', {
             filetypes = { 'sh', 'bash', 'zsh' },
         })
 
-        require('lspconfig').lua_ls.setup({
+        vim.lsp.config('lua_ls', {
             settings = {
                 Lua = {
                     diagnostics = {
@@ -40,12 +40,7 @@ return {
             },
         })
 
-        require('lspconfig').html.setup({})
-        require('lspconfig').jsonls.setup({})
-        require('lspconfig').nil_ls.setup({})
-        require('lspconfig').yamlls.setup({})
-
-        require('lspconfig').eslint.setup({
+        vim.lsp.config('eslint', {
             settings = {
                 codeActions = {
                     disableRuleComment = {
