@@ -193,7 +193,7 @@ in
       # Show exit code when non-zero (alien's exit section)
       status = {
         disabled = false;
-        style    = "fg:${nordPrimary}";
+        style    = "fg:${nordError}";
         format   = "[$status ]($style)";
       };
 
