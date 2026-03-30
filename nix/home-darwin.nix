@@ -21,6 +21,9 @@
   '';
 
   home.packages = with pkgs; [
+    # --- fonts ---
+    inconsolata-nerdfont
+
     # --- terminal ---
     ghostty-bin
 

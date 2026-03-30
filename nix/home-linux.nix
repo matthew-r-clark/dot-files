@@ -7,8 +7,11 @@
   # Packages — add Linux-specific tools here as needed.
   # Cross-platform tools go in home-shared.nix instead.
   # ---------------------------------------------------------------------------
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
-      ghostty
+    inconsolata-nerdfont
+    ghostty
   ];
 
   programs.zsh.shellAliases = {
