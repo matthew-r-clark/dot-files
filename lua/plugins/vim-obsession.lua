@@ -17,7 +17,7 @@ return {
                 if session_exists() then
                     -- restore session if nvim was opened with no file arguments
                     if vim.fn.argc() == 0 then
-                        vim.cmd('source Session.vim')
+                        vim.cmd('silent! source Session.vim')
                     end
                 else
                     vim.cmd(':Obsession')

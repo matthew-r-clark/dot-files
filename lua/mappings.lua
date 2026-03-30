@@ -36,7 +36,7 @@ end, {})
 map('n', '<leader>bad', ':%bd<CR>', {})
 
 -- resourece nvim config
-map('n', '<leader>r', ':source ~/.config/nvim/init.lua<CR>', {})
+map('n', '<leader>rs', ':source ~/.config/nvim/init.lua<CR>', {})
 
 -- motions for angle brackets
 map('n', 'vat', 'va<', {})
