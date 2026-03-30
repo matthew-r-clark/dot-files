@@ -15,7 +15,7 @@ return { -- formatting
         format_on_save = function(bufnr)
             local eslint_fts = { javascript = true, javascriptreact = true, typescript = true, typescriptreact = true }
             if eslint_fts[vim.bo[bufnr].filetype] then
-                return { lsp_fallback = true }
+                return { lsp_fallback = true, timeout_ms = 5000 }
             end
         end,
         formatters_by_ft = {
