@@ -22,6 +22,9 @@
       core.ignoreCase = true;
       rerere.enabled = true;
       merge.conflictstyle = "diff3";
+      diff.colorMoved = "default";
+      merge.tool = "nvimdiff2";
+      mergetool.keepBackup = false;
       pager = {
         diff = "delta";
         log  = "delta";
