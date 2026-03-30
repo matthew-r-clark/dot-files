@@ -12,7 +12,15 @@
     ./modules/starship.nix
   ];
 
-  programs.lazygit.enable = true;
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui.theme = {
+        selectedLineBgColor  = [ "#434C5E" ];
+        selectedRangeBgColor = [ "#434C5E" ];
+      };
+    };
+  };
 
   programs.fzf = {
     enable = true;
