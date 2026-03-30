@@ -25,9 +25,7 @@
 
     oh-my-zsh = {
       enable  = true;
-      # NOTE: "nvm" plugin listed here to match prior config, but nodenv is the
-      # active node version manager. Consider removing "nvm" if unused.
-      plugins = [ "git" "nvm" ];
+      plugins = [ "git" ];
     };
 
     shellAliases = {
