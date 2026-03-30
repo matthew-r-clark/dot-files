@@ -13,8 +13,22 @@
     - On **Linux**: bootstrap home-manager (installs all packages, manages dotfile symlinks)
 
 2. Install manually (not managed by nix):
-    - **[Ghostty](https://ghostty.org/download)** — terminal emulator (macOS: nix installs it automatically; Linux: download manually)
+    - **[1Password](https://1password.com/downloads/)** — password manager
+    - **[Arc](https://arc.net/)** — browser (macOS only)
+    - **[ChatGPT](https://openai.com/chatgpt/download/)** — AI assistant desktop app
+    - **[Claude Desktop](https://claude.ai/download)** — AI assistant desktop app
     - **[Docker Desktop](https://www.docker.com/products/docker-desktop/)** — container runtime
+    - **[Firefox](https://www.mozilla.org/firefox/)** — browser
+    - **[Google Chrome](https://www.google.com/chrome/)** — browser
+    - GlobalProtect — VPN client (download link provided by IT)
+    - **[Logi Options+](https://www.logitech.com/en-us/software/logi-options-plus.html)** — Logitech device manager
+    - **[MongoDB Compass](https://www.mongodb.com/try/download/compass)** — GUI for MongoDB
+    - **[OBSBOT Center](https://www.obsbot.com/download)** — webcam control app
+    - **[Postman](https://www.postman.com/downloads/)** — API client
+    - **[reMarkable](https://my.remarkable.com/device/apps)** — desktop companion for reMarkable tablet
+    - **[Slack](https://slack.com/downloads/)** — team messaging
+    - **[TOZO](https://apps.apple.com/us/app/tozo-tech-around-you/id1579260977)** — earbuds companion app
+    - **[Zoom](https://zoom.us/download)** — video conferencing
 
 3. Open neovim and run `:Lazy restore` to install plugins pinned to `lua/lazy-lock.json`
 
