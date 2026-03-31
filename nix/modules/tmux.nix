@@ -42,7 +42,10 @@ in
       vim-tmux-navigator
       {
         plugin = resurrect;
-        extraConfig = "set -g @resurrect-strategy-nvim 'session'";
+        extraConfig = ''
+          set -g @resurrect-strategy-nvim 'session'
+          set -g @resurrect-dir '$HOME/.local/share/tmux/resurrect'
+        '';
       }
       {
         plugin = continuum;
