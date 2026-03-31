@@ -4,7 +4,10 @@
   home.homeDirectory = "/Users/matthew.clark";
 
   programs.zsh.shellAliases = {
-    nix-update = "cd $DOTFILE_DIR && nix flake update && sudo darwin-rebuild switch --flake .";
+    nix-rebuild  = "cd $DOTFILE_DIR && sudo darwin-rebuild switch --flake .";
+    nix-update   = "cd $DOTFILE_DIR && nix flake update && sudo darwin-rebuild switch --flake .";
+    nix-rollback = "sudo darwin-rebuild --rollback";
+    nix-gc       = "sudo nix-collect-garbage -d";
   };
 
   home.activation.ghosttyApp = lib.hm.dag.entryAfter ["writeBoundary"] ''

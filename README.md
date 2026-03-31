@@ -38,29 +38,13 @@
 4. Open neovim and run `:Lazy restore` to install plugins pinned to `lua/lazy-lock.json`
 
 
-## Updating packages
+## Common nix commands
 
 ```bash
-nix-update    # alias: flake update + rebuild in one step
-
-# or manually:
-nix flake update                                        # bump flake.lock to latest nixpkgs
-sudo darwin-rebuild switch --flake ~/dot-files          # macOS
-home-manager switch --flake ~/dot-files                 # Linux
-```
-
-## Applying config changes (no version bump)
-
-```bash
-sudo darwin-rebuild switch --flake ~/dot-files     # macOS
-home-manager switch --flake ~/dot-files            # Linux
-```
-
-## Rolling back
-
-```bash
-darwin-rebuild --rollback     # macOS
-home-manager generations      # Linux — lists generations to roll back to
+nix-rebuild   # apply config changes without updating flake inputs
+nix-update    # bump flake.lock to latest nixpkgs, then rebuild
+nix-rollback  # roll back to previous generation (macOS); list generations (Linux)
+nix-gc        # garbage collect old generations and free disk space
 ```
 
 ## Adding a package
