@@ -13,7 +13,6 @@
     - On **Linux**: bootstrap home-manager (installs all packages, manages dotfile symlinks)
 
 2. Install manually (not managed by nix):
-    - **[1Password](https://1password.com/downloads/)** — password manager
     - **[Arc](https://arc.net/)** — browser (macOS only)
     - **[ChatGPT](https://openai.com/chatgpt/download/)** — AI assistant desktop app
     - **[Claude Desktop](https://claude.ai/download)** — AI assistant desktop app
@@ -29,8 +28,15 @@
     - **[Slack](https://slack.com/downloads/)** — team messaging
     - **[TOZO](https://apps.apple.com/us/app/tozo-tech-around-you/id1579260977)** — earbuds companion app
     - **[Zoom](https://zoom.us/download)** — video conferencing
+    * Note: Added to nix but not tested yet so verify they're installed and working properly before attempting to install manually:
+        - **[1Password GUI](https://1password.com/downloads/)** — password manager
+        - **[1Password CLI](https://app-updates.agilebits.com/product_history/CLI2)**
 
-3. Open neovim and run `:Lazy restore` to install plugins pinned to `lua/lazy-lock.json`
+3. Configure 1Password GUI to connect with CLI
+    * Even with nix installation you will need to: Go to `Settings → Developer` and enable "Connect with 1Password CLI
+
+4. Open neovim and run `:Lazy restore` to install plugins pinned to `lua/lazy-lock.json`
+
 
 ## Updating packages
 

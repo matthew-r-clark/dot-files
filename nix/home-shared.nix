@@ -54,6 +54,9 @@
     prettierd
     quick-lint-js
 
+    _1password-gui
+    _1password-cli
+
     # --- QMK keyboard tools (uncomment when needed) ---
     #   qmk
     #   avrdude
