@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Get API credential from 1password
+# Usage: op-get <key-name>
+
+op item get "$1" --fields label=credential --reveal

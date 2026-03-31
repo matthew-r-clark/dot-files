@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Edit API credential in 1password
+# Usage: op-edit <key-name> <credential>
+
+op item edit "$1" credential="$2"
