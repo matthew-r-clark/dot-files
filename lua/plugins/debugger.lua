@@ -15,83 +15,101 @@ return {
         'leoluz/nvim-dap-go',
     },
     keys = {
-        {
-            '<F5>',
-            function()
-                require('dap').continue()
-            end,
-            desc = 'Debug: Start/Continue',
-        },
-        -- {
-        --     '<F1>',
-        --     function()
-        --         require('dap').step_into()
-        --     end,
-        --     desc = 'Debug: Step Into',
-        -- },
-        -- {
-        --     '<F2>',
-        --     function()
-        --         require('dap').step_over()
-        --     end,
-        --     desc = 'Debug: Step Over',
-        -- },
-        -- {
-        --     '<F3>',
-        --     function()
-        --         require('dap').step_out()
-        --     end,
-        --     desc = 'Debug: Step Out',
-        -- },
-        {
-            '<leader>b',
-            function()
-                require('dap').toggle_breakpoint()
-            end,
-            desc = 'Debug: Toggle Breakpoint',
-        },
-        {
-            '<leader>dr',
-            function()
-                require('dap').repl.open()
-            end,
-            desc = 'Debug: Open REPL',
-        },
-        {
-            '<leader>dt',
-            function()
-                require('dap').terminate()
-            end,
-            desc = 'Debug: Terminate Session',
-        },
-        {
-            '<leader>de',
-            function()
-                require('dapui').eval()
-            end,
-            mode = { 'n', 'v' },
-            desc = 'Debug: Evaluate Expression',
-        },
+        -- Session / Flow
         {
             '<leader>dc',
             function()
-                require('dap').run_to_cursor()
+                require('dap').continue()
             end,
-            desc = 'Debug: Run to Cursor',
+            desc = 'Debug: Continue/Start',
         },
         {
-            '<leader>dl',
+            '<leader>dq',
+            function()
+                require('dap').terminate()
+            end,
+            desc = 'Debug: Quit/Terminate Session',
+        },
+        {
+            '<leader>dL',
             function()
                 require('dap').run_last()
             end,
             desc = 'Debug: Run Last',
         },
         {
-            '<leader>dx',
+            '<leader>dC',
             function()
-                require('dap').clear_breakpoints()
+                require('dap').run_to_cursor()
             end,
-            desc = 'Debug: Clear All Breakpoints',
+            desc = 'Debug: Run to Cursor',
+        },
+        -- Stepping
+        {
+            '<leader>dj', -- vim down
+            function()
+                require('dap').step_into()
+            end,
+            desc = 'Debug: Step Into',
+        },
+        {
+            '<leader>dk', -- vim up
+            function()
+                require('dap').step_out()
+            end,
+            desc = 'Debug: Step Out',
+        },
+        {
+            '<leader>dl', -- vim right
+            function()
+                require('dap').step_over()
+            end,
+            desc = 'Debug: Step Over',
+        },
+        {
+            '<leader>dh', -- vim left
+            function()
+                require('dap').step_back()
+            end,
+            desc = 'Debug: Step Back',
+        },
+        -- goto_() uses cursor line when called with no args
+        {
+            '<leader>dg',
+            function()
+                require('dap').goto_()
+            end,
+            desc = 'Debug: Goto Line',
+        },
+        -- Call stack navigation
+        {
+            '<leader>du',
+            function()
+                require('dap').up()
+            end,
+            desc = 'Debug: Up in Call Stack',
+        },
+        {
+            '<leader>dd',
+            function()
+                require('dap').down()
+            end,
+            desc = 'Debug: Down in Call Stack',
+        },
+        -- Breakpoints
+        {
+            '<leader>db',
+            function()
+                require('dap').toggle_breakpoint()
+            end,
+            desc = 'Debug: Toggle Breakpoint',
+        },
+        {
+            '<leader>dB',
+            function()
+                require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+            end,
+            desc = 'Debug: Set Conditional Breakpoint',
         },
         {
             '<leader>dp',
@@ -101,19 +119,34 @@ return {
             desc = 'Debug: Set Log Point',
         },
         {
-            '<leader>B',
+            '<leader>dx',
             function()
-                require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+                require('dap').clear_breakpoints()
             end,
-            desc = 'Debug: Set Breakpoint',
+            desc = 'Debug: Clear All Breakpoints',
         },
-        -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+        -- UI & Tools
         {
-            '<F7>',
+            '<leader>de',
+            function()
+                require('dapui').eval()
+            end,
+            mode = { 'n', 'v' },
+            desc = 'Debug: Evaluate Expression',
+        },
+        {
+            '<leader>dU',
             function()
                 require('dapui').toggle()
             end,
-            desc = 'Debug: See last session result.',
+            desc = 'Debug: Toggle UI',
+        },
+        {
+            '<leader>dR',
+            function()
+                require('dap').repl.open()
+            end,
+            desc = 'Debug: Open REPL',
         },
     },
     config = function()
@@ -238,6 +271,17 @@ return {
                     port = 9229,
                     request = 'attach',
                     name = 'Docker: attach to node (orders api)',
+                    remoteRoot = '/app',
+                    localRoot = '${workspaceFolder}',
+                    restart = true,
+                    skipFiles = { '${workspaceFolder}/node_modules/**/*.js' },
+                },
+                {
+                    type = 'pwa-node',
+                    address = '127.0.0.1',
+                    port = 9230,
+                    request = 'attach',
+                    name = 'Docker: attach to node (users api)',
                     remoteRoot = '/app',
                     localRoot = '${workspaceFolder}',
                     restart = true,
