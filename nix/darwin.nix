@@ -7,6 +7,9 @@
   # Match the existing nixbld GID from the Determinate Systems Nix installer
   ids.gids.nixbld = 350;
 
+  # Allow unfree packages (e.g. 1Password)
+  nixpkgs.config.allowUnfree = true;
+
   # Enable flakes and new CLI
   nix.settings.experimental-features = "nix-command flakes";
 
