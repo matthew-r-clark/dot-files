@@ -40,6 +40,7 @@
     scrcpy
     posting
     vi-mongo
+    uv
 
     # --- language version managers ---
     nodenv
