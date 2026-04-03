@@ -39,6 +39,7 @@
     httpie
     scrcpy
     posting
+    vi-mongo
 
     # --- language version managers ---
     nodenv
