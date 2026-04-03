@@ -12,6 +12,8 @@
       "cspell.json"
     ];
 
+    signing.format = null;
+
     settings = {
       user = {
         name  = "Matthew Clark";
