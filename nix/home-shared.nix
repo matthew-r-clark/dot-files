@@ -41,6 +41,7 @@
     posting
     vi-mongo
     uv
+    pipx
 
     # --- language version managers ---
     nodenv
