@@ -60,5 +60,15 @@
         ./nix/home-linux.nix
       ];
     };
+
+    # Linux alias for machines where the username is "matt"
+    homeConfigurations."matt" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      modules = [
+        ./nix/home-shared.nix
+        ./nix/home-linux.nix
+        { home.username = "matt"; home.homeDirectory = "/home/matt"; }
+      ];
+    };
   };
 }
