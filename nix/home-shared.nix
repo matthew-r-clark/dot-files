@@ -39,9 +39,12 @@
     httpie
     scrcpy
     posting
-    vi-mongo
     uv
     pipx
+
+    # database
+    vi-mongo
+    postgresql_18
 
     # --- language version managers ---
     nodenv
