@@ -67,7 +67,7 @@
       modules = [
         ./nix/home-shared.nix
         ./nix/home-linux.nix
-        { home.username = "matt"; home.homeDirectory = "/home/matt"; }
+        { home.username = nixpkgs.lib.mkForce "matt"; home.homeDirectory = nixpkgs.lib.mkForce "/home/matt"; }
       ];
     };
   };
