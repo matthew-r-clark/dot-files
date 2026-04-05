@@ -39,7 +39,6 @@
     httpie
     scrcpy
     posting
-    uv
     pipx
 
     # database
