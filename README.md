@@ -12,6 +12,7 @@
     - On **macOS**: bootstrap nix-darwin + home-manager (installs all packages, manages dotfile symlinks). First run requires sudo.
         - Applies macOS system defaults automatically: dark mode, fast key repeat, natural scroll disabled, Dock autohide + 44px tiles, Finder gallery view
     - On **Linux**: bootstrap home-manager (installs all packages, manages dotfile symlinks)
+    - Install sqlit (SQL TUI) with postgresql driver.
 
 2. Install manually (not managed by nix):
     - **[Arc](https://arc.net/)** — browser (macOS only)

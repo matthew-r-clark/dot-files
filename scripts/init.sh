@@ -40,3 +40,6 @@ else
     echo "Unsupported OS: $OS"
     exit 1
 fi
+
+# Install sqlit TUI with postgresql driver
+pipx install sqlit-tui && pipx inject sqlit-tui psycopg2-binary
