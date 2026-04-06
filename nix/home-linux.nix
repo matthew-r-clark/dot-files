@@ -15,7 +15,7 @@
   ];
 
   programs.zsh.shellAliases = {
-    nix-rebuild  = "cd $DOTFILE_DIR && home-manager switch --flake .";
+    nix-rebuild  = "cd $DOTFILE_DIR && home-manager switch --flake . -b bak";
     nix-update   = "cd $DOTFILE_DIR && nix flake update && home-manager switch --flake .";
     nix-rollback = "home-manager generations";
     nix-gc       = "nix-collect-garbage -d";
