@@ -53,21 +53,11 @@
     # Linux: standalone home-manager
     # First activation: nix run home-manager -- switch --flake ~/dot-files
     # Subsequent:       home-manager switch --flake ~/dot-files
-    homeConfigurations."matthew.clark" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages."x86_64-linux";
-      modules = [
-        ./nix/home-shared.nix
-        ./nix/home-linux.nix
-      ];
-    };
-
-    # Linux alias for machines where the username is "matt"
     homeConfigurations."matt" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      pkgs = import nixpkgs { system = "x86_64-linux"; config.allowUnfree = true; };
       modules = [
         ./nix/home-shared.nix
         ./nix/home-linux.nix
-        { home.username = nixpkgs.lib.mkForce "matt"; home.homeDirectory = nixpkgs.lib.mkForce "/home/matt"; }
       ];
     };
   };

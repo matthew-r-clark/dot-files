@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
-  home.username = "matthew.clark";
-  home.homeDirectory = "/home/matthew.clark";
+  home.username = "matt";
+  home.homeDirectory = "/home/matt";
 
   # ---------------------------------------------------------------------------
   # Packages — add Linux-specific tools here as needed.
