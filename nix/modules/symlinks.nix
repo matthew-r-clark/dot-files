@@ -6,6 +6,15 @@
   # without requiring a rebuild.
   # ---------------------------------------------------------------------------
   home.file = {
+    ".pspgconf".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/postgres/.pspgconf";
+
+    ".psqlrc".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/postgres/.psqlrc";
+
+
     ".claude/settings.json".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/claude/settings.json";

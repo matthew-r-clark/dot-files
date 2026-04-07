@@ -1,0 +1,18 @@
+\set QUIET 1
+
+-- Display settings
+\pset null '(null)'
+\pset linestyle unicode
+\pset border 2
+
+-- Timing
+\timing on
+
+-- History
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTSIZE 10000
+
+-- Pager
+\setenv PAGER pspg -X -b
+
+\set QUIET 0

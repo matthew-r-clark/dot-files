@@ -1,0 +1,4 @@
+theme = 16
+double_header = on
+force_uniborder = on
+quit_if_one_screen = on
