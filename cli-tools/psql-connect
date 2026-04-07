@@ -1,0 +1,13 @@
+#!/bin/bash
+set -euo pipefail
+
+# Connect to a PostgreSQL service defined in ~/.pg_service.conf,
+# with the password fetched from 1Password at runtime.
+#
+# Usage: psql-connect <service-name>
+# Convention: service [FOO] -> 1Password item FOO_POSTGRESQL (Employee vault)
+
+SERVICE="${1:?Usage: psql-connect <service-name>}"
+
+PGPASSWORD=$(op item get "${SERVICE}_POSTGRESQL" --vault Employee --fields label=password --reveal) \
+  psql "service=${SERVICE}"
