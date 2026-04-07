@@ -39,7 +39,6 @@
     httpie
     scrcpy
     posting
-    pipx
 
     # database
     vi-mongo
