@@ -17,17 +17,27 @@ if ! command -v nix &>/dev/null; then
 fi
 
 if [ "$OS" = "Darwin" ]; then
-    # install nix
+    # Install nix-darwin
     if command -v darwin-rebuild &>/dev/null; then
         echo "Running darwin-rebuild switch..."
-        darwin-rebuild switch --flake ~/dot-files
+        sudo darwin-rebuild switch --flake ~/dot-files
     else
         echo "Bootstrapping nix-darwin (requires sudo)..."
         sudo nix --extra-experimental-features 'nix-command flakes' \
-            run nix-darwin -- switch --flake ~/dot-files
+            run sudo nix-darwin -- switch --flake ~/dot-files
     fi
+
+    # Install Homebrew if not present
+    if ! command -v brew &>/dev/null; then
+        echo "Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+
+    echo "Running brew bundle..."
+    brew bundle --file ~/dot-files/Brewfile
+
 elif [ "$OS" = "Linux" ]; then
-    # install nix
+    # Install home-manager
     if command -v home-manager &>/dev/null; then
         echo "Running home-manager switch..."
         home-manager switch --flake ~/dot-files
@@ -35,6 +45,12 @@ elif [ "$OS" = "Linux" ]; then
         echo "Bootstrapping home-manager..."
         nix --extra-experimental-features 'nix-command flakes' \
             run home-manager -- switch --flake ~/dot-files
+    fi
+
+    # Install Ghostty
+    if ! command -v ghostty &>/dev/null; then
+        echo "Installing Ghostty..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
     fi
 else
     echo "Unsupported OS: $OS"

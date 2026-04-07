@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 {
   home.username = "matthew.clark";
   home.homeDirectory = "/Users/matthew.clark";
@@ -10,25 +10,9 @@
     nix-gc       = "sudo nix-collect-garbage -d";
   };
 
-  home.activation.ghosttyApp = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    run mkdir -p "$HOME/Applications"
-    # The nix store is read-only (555/444), so the existing copy must be unlocked before rm can delete it.
-    [ -d "$HOME/Applications/Ghostty.app" ] && run chmod -R u+w "$HOME/Applications/Ghostty.app"
-    run rm -rf "$HOME/Applications/Ghostty.app"
-    # Copy with -L to dereference symlinks, producing a real app bundle (not a symlink chain) for Spotlight.
-    run cp -rL "${pkgs.ghostty-bin}/Applications/Ghostty.app" "$HOME/Applications/Ghostty.app"
-    # Spotlight's metadata importer writes extended attributes to index the app; requires write permission.
-    run chmod -R u+w "$HOME/Applications/Ghostty.app"
-    # Trigger Spotlight indexing immediately rather than waiting for background mdworker to pick it up.
-    run /usr/bin/mdimport "$HOME/Applications/Ghostty.app"
-  '';
-
   home.packages = with pkgs; [
     # --- fonts ---
     nerd-fonts.inconsolata
-
-    # --- terminal ---
-    ghostty-bin
 
     # --- containers ---
     docker
