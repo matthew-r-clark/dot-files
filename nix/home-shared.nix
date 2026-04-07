@@ -43,6 +43,7 @@
     # database
     vi-mongo
     postgresql_18
+    pspg
 
     # --- language version managers ---
     nodenv
