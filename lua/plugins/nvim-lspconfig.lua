@@ -19,7 +19,7 @@ return { -- LSP
                 local opts = { buffer = args.buf }
                 map('n', 'go',   vim.lsp.buf.type_definition, opts)
                 map('n', 'gs',   vim.lsp.buf.signature_help,  opts)
-                map('n', '<F2>', vim.lsp.buf.rename,           opts)
+                map('n', '<F2>', function() return ':IncRename ' .. vim.fn.expand('<cword>') end, { expr = true, buffer = args.buf })
                 map('n', '<F4>', vim.lsp.buf.code_action,      opts)
                 map('n', 'gl',   vim.diagnostic.open_float,   opts)
             end,
