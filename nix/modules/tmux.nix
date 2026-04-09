@@ -74,6 +74,14 @@ in
 
       set -ga terminal-overrides '*:RGB:Ss=\E[%p1%d q:Se=\E[ q'
 
+      # Added for image.nvim
+      # Allow programs in tmux to bypass it and send escape sequences directly to the terminal
+      set -gq allow-passthrough on
+
+      # Recommended for better image management and focus detection
+      set -g visual-activity off
+      set-option -g focus-events on
+
       bind-key c new-window -c ~/development/taillight
 
       # is_vim: used for resize keybindings and C-e clear; C-hjkl nav is handled by vim-tmux-navigator plugin
