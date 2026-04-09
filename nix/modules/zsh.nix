@@ -6,18 +6,14 @@
     COLORTERM     = "truecolor";
     DELTA_PAGER   = "less -+X -+F --mouse";
     ODY_ENV       = "true";
-    ANDROID_SDK_ROOT = "${config.home.homeDirectory}/Library/Android/sdk";
   };
 
   home.sessionPath = [
     "${config.home.homeDirectory}/.pyenv/shims"
     "${config.home.homeDirectory}/bin"
-    "/usr/local/bin"
     "${config.home.homeDirectory}/.mvn/apache-maven-3.8.6/bin"
     "${config.home.homeDirectory}/.local/bin"
     "${config.home.homeDirectory}/dot-files/cli-tools"
-    "${config.home.homeDirectory}/Library/Android/sdk/emulator"
-    "${config.home.homeDirectory}/Library/Android/sdk/platform-tools"
   ];
 
   programs.zsh = {

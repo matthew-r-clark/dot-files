@@ -3,6 +3,16 @@
   home.username = "matthew.clark";
   home.homeDirectory = "/Users/matthew.clark";
 
+  home.sessionVariables = {
+    ANDROID_SDK_ROOT = "${config.home.homeDirectory}/Library/Android/sdk";
+  };
+
+  home.sessionPath = [
+    "/usr/local/bin"
+    "${config.home.homeDirectory}/Library/Android/sdk/emulator"
+    "${config.home.homeDirectory}/Library/Android/sdk/platform-tools"
+  ];
+
   programs.zsh.shellAliases = {
     nix-rebuild  = "cd $DOTFILE_DIR && sudo darwin-rebuild switch --flake .";
     nix-update   = "cd $DOTFILE_DIR && nix flake update && sudo darwin-rebuild switch --flake .";
