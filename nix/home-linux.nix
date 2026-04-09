@@ -3,6 +3,10 @@
   home.username = "matt";
   home.homeDirectory = "/home/matt";
 
+  # Required for standalone home-manager: puts the `home-manager` CLI on PATH
+  # so the nix-rebuild alias works after first bootstrap.
+  programs.home-manager.enable = true;
+
   # ---------------------------------------------------------------------------
   # Packages — add Linux-specific tools here as needed.
   # Cross-platform tools go in home-shared.nix instead.
