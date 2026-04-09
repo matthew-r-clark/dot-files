@@ -47,6 +47,18 @@ elif [ "$OS" = "Linux" ]; then
             run home-manager -- switch --flake ~/dot-files -b bak
     fi
 
+    # Re-source nix profile so packages installed by home-manager are on PATH
+    # shellcheck source=/dev/null
+    [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ] && . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+
+    # Set nix-managed zsh as the login shell (must run after home-manager installs zsh)
+    ZSH_PATH="$(which zsh 2>/dev/null || true)"
+    if [ -n "$ZSH_PATH" ] && [ "$SHELL" != "$ZSH_PATH" ]; then
+        echo "Setting $ZSH_PATH as default shell (re-login required)..."
+        grep -qxF "$ZSH_PATH" /etc/shells || echo "$ZSH_PATH" | sudo tee -a /etc/shells
+        chsh -s "$ZSH_PATH"
+    fi
+
     # Install Ghostty
     if ! command -v ghostty &>/dev/null; then
         echo "Installing Ghostty..."
