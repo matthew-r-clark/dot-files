@@ -44,7 +44,7 @@ elif [ "$OS" = "Linux" ]; then
     else
         echo "Bootstrapping home-manager..."
         nix --extra-experimental-features 'nix-command flakes' \
-            run home-manager -- switch --flake ~/dot-files
+            run home-manager -- switch --flake ~/dot-files -b bak
     fi
 
     # Install Ghostty
