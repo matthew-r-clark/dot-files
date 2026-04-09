@@ -57,7 +57,7 @@ in
     ];
 
     extraConfig = ''
-      set -g default-command $SHELL
+      set -g default-command "${pkgs.zsh}/bin/zsh"
 
       setw -g automatic-rename off
       set -g set-titles on
