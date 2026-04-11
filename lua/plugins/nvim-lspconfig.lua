@@ -17,6 +17,7 @@ return { -- LSP
             callback = function(args)
                 local map = vim.keymap.set
                 local opts = { buffer = args.buf }
+                map('n', 'gf',   vim.lsp.buf.definition,      opts)
                 map('n', 'go',   vim.lsp.buf.type_definition, opts)
                 map('n', 'gs',   vim.lsp.buf.signature_help,  opts)
                 map('n', '<F2>', function() return ':IncRename ' .. vim.fn.expand('<cword>') end, { expr = true, buffer = args.buf })
