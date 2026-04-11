@@ -8,6 +8,15 @@ return {
         editor_only_render_when_focused = true,
         window_overlap_clear_enabled = true,
         tmux_show_only_in_active_window = true,
+        integrations = {
+            markdown = {
+                enabled = true,
+                clear_in_insert_mode = true,
+                download_remote_images = true,
+                only_render_image_at_cursor = true,
+                filetypes = { "markdown", "vimwiki" }, --
+            },
+        },
     },
     config = function(_, opts)
         require('image').setup(opts)
