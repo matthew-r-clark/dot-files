@@ -74,7 +74,7 @@ in
 
       set -ga terminal-overrides '*:RGB:Ss=\E[%p1%d q:Se=\E[ q'
 
-      # Added for image.nvim
+      # Added for snacks.image
       # Allow programs in tmux to bypass it and send escape sequences directly to the terminal
       set -gq allow-passthrough on
 
