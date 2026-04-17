@@ -1,0 +1,18 @@
+{
+	"auths": {
+		"docker.internal.taillight.cloud": {}
+	},
+	"credsStore": "1password",
+	"currentContext": "desktop-linux",
+	"plugins": {
+		"debug": {
+			"hooks": "exec"
+		},
+		"scout": {
+			"hooks": "pull,buildx build"
+		}
+	},
+	"features": {
+		"hooks": "true"
+	}
+}
