@@ -17,6 +17,8 @@
     nerd-fonts.inconsolata
   ];
 
+  programs.git.settings.user.email = "clark.matthewr@gmail.com";
+
   programs.zsh.shellAliases = {
     nix-rebuild  = "cd $DOTFILE_DIR && home-manager switch --flake . -b bak";
     nix-update   = "cd $DOTFILE_DIR && nix flake update && home-manager switch --flake .";

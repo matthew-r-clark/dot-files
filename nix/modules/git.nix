@@ -14,6 +14,14 @@
 
     signing.format = null;
 
+    # home-manager appends includeIf blocks after settings, so these override the defaults below
+    includes = [
+      {
+        condition = "gitdir:~/dot-files/";
+        contents.user.email = "clark.matthewr@gmail.com";
+      }
+    ];
+
     settings = {
       user = {
         name  = "Matthew Clark";
