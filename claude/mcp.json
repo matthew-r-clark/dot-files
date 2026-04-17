@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "roadie": {
+      "type": "http",
+      "url": "https://tloroadiemcpapi.prd.taillight.com/mcp",
+      "headers": {
+        "X-Jira-Token": "${JIRA_TOKEN}",
+        "X-Bitbucket-Token": "${BITBUCKET_TOKEN}"
+      }
+    }
+  }
+}

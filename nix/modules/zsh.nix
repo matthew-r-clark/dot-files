@@ -68,6 +68,13 @@
       # version managers
       eval "$(nodenv init -)"
       eval "$(rbenv init - zsh)"
+
+      # inject 1Password secrets only when invoking claude
+      claude() {
+        JIRA_TOKEN="$(op-get JIRA_API_KEY)" \
+        BITBUCKET_TOKEN="$(op-get BITBUCKET_API_KEY)" \
+        command claude "$@"
+      }
     '';
   };
 }
