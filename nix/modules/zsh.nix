@@ -71,8 +71,8 @@
 
       # inject 1Password secrets only when invoking claude
       claude() {
-        JIRA_TOKEN="$(op-get JIRA_API_KEY)" \
-        BITBUCKET_TOKEN="$(op-get BITBUCKET_API_KEY)" \
+        JIRA_TOKEN="$(op read op://Employee/JIRA_API_KEY/credential)" \
+        BITBUCKET_TOKEN="$(op read op://Employee/BITBUCKET_API_KEY/credential)" \
         command claude "$@"
       }
     '';
