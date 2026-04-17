@@ -3,4 +3,4 @@
 # Add API credential to 1password
 # Usage: op-create <key-name> <credential>
 
-op item create --category="API Credential" --title="$1" credential="$2"
+op item create --vault Employee --category="API Credential" --title="$1" credential="$2"

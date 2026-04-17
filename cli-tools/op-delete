@@ -3,4 +3,4 @@
 # Delete API credential from 1password
 # Usage: op-delete <key-name>
 
-op item delete "$1" --archive
+op item delete "$1" --vault Employee --archive
