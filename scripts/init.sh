@@ -23,8 +23,7 @@ if [ "$OS" = "Darwin" ]; then
         sudo darwin-rebuild switch --flake ~/dot-files#mac
     else
         echo "Bootstrapping nix-darwin (requires sudo)..."
-        sudo nix --extra-experimental-features 'nix-command flakes' \
-            run nix-darwin -- switch --flake ~/dot-files#mac
+        sudo nix run nix-darwin -- switch --flake ~/dot-files#mac
     fi
 
     # Install Homebrew if not present
@@ -43,8 +42,7 @@ elif [ "$OS" = "Linux" ]; then
         home-manager switch --flake ~/dot-files
     else
         echo "Bootstrapping home-manager..."
-        nix --extra-experimental-features 'nix-command flakes' \
-            run home-manager -- switch --flake ~/dot-files -b bak
+        nix run home-manager -- switch --flake ~/dot-files -b bak
     fi
 
     # Re-source nix profile so packages installed by home-manager are on PATH
