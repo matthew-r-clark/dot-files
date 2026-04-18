@@ -20,11 +20,11 @@ if [ "$OS" = "Darwin" ]; then
     # Install nix-darwin
     if command -v darwin-rebuild &>/dev/null; then
         echo "Running darwin-rebuild switch..."
-        sudo darwin-rebuild switch --flake ~/dot-files
+        sudo darwin-rebuild switch --flake ~/dot-files#mac
     else
         echo "Bootstrapping nix-darwin (requires sudo)..."
         sudo nix --extra-experimental-features 'nix-command flakes' \
-            run sudo nix-darwin -- switch --flake ~/dot-files
+            run sudo nix-darwin -- switch --flake ~/dot-files#mac
     fi
 
     # Install Homebrew if not present

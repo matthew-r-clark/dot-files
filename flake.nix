@@ -18,11 +18,7 @@
   outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
   let
     pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-  in {
-    # macOS: nix-darwin + home-manager
-    # First activation: nix run nix-darwin -- switch --flake ~/dot-files
-    # Subsequent:       darwin-rebuild switch --flake ~/dot-files
-    darwinConfigurations."YGGXKP4X7W" = nix-darwin.lib.darwinSystem {
+    darwinSystem = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
         ./nix/darwin.nix
@@ -37,6 +33,11 @@
         }
       ];
     };
+  in {
+    # macOS: nix-darwin + home-manager
+    # First activation: nix run nix-darwin -- switch --flake ~/dot-files#mac
+    # Subsequent:       darwin-rebuild switch --flake ~/dot-files#mac
+    darwinConfigurations."mac" = darwinSystem;
 
     # `nix fmt` — format all .nix files
     formatter.aarch64-darwin = pkgs.alejandra;
