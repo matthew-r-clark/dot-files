@@ -6,6 +6,7 @@
   imports = [
     ./modules/symlinks.nix
     ./modules/zsh.nix
+    ./modules/env-secrets.nix
     ./modules/git.nix
     ./modules/tmux.nix
     ./modules/neovim.nix

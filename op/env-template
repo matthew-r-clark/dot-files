@@ -1,0 +1,4 @@
+export JIRA_TOKEN="{{ op://Employee/JIRA_API_KEY/credential }}"
+export BITBUCKET_TOKEN="{{ op://Employee/BITBUCKET_API_KEY/credential }}"
+export ARTIFACTORY_NPM_TOKEN="{{ op://Employee/ARTIFACTORY_NPM_TOKEN/credential }}"
+export ARTIFACTORY_TLO_NPM_TOKEN="{{ op://Employee/ARTIFACTORY_TLO_NPM_TOKEN/credential }}"

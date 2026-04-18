@@ -1,0 +1,26 @@
+#!/bin/bash
+set -euo pipefail
+
+login_and_store() {
+  local registry="$1" op_item="$2"
+  local tmp_config
+  tmp_config="$(mktemp)"
+  trap 'rm -f "$tmp_config"' RETURN
+
+  npm login --auth-type=legacy --registry="$registry" --userconfig="$tmp_config"
+
+  local token
+  token="$(sed -n 's/.*:_authToken=//p' "$tmp_config" | head -1)"
+  [[ -n "$token" ]] || { echo "Failed to extract token for $registry" >&2; return 1; }
+
+  op item edit "$op_item" --vault Employee credential="$token" >/dev/null
+  echo "Updated 1Password item: $op_item"
+}
+
+login_and_store \
+  "https://artifactory.internal.taillight.cloud/artifactory/api/npm/npm/" \
+  "ARTIFACTORY_NPM_TOKEN"
+
+login_and_store \
+  "https://artifactory.internal.taillight.cloud/artifactory/api/npm/tlo-npm/" \
+  "ARTIFACTORY_TLO_NPM_TOKEN"

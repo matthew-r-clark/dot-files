@@ -38,6 +38,10 @@
     ".docker/config.json".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/docker/config.json";
+
+    ".npmrc".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/npm/.npmrc";
   };
 
   xdg.configFile = {
