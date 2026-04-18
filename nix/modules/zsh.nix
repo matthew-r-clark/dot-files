@@ -54,6 +54,9 @@
       # oh-my-zsh extension: gsts (git stash show --patch) with untracked files
       gstv = "gsts -u";
 
+      # stripe
+      stripe-login = "op plugin init stripe";
+
       # ampy (MicroPython serial tool)
       py  = "ampy --port /dev/tty.usbmodem401101";
       pyg = "py get";
