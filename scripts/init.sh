@@ -24,7 +24,7 @@ if [ "$OS" = "Darwin" ]; then
     else
         echo "Bootstrapping nix-darwin (requires sudo)..."
         sudo nix --extra-experimental-features 'nix-command flakes' \
-            run sudo nix-darwin -- switch --flake ~/dot-files#mac
+            run nix-darwin -- switch --flake ~/dot-files#mac
     fi
 
     # Install Homebrew if not present
