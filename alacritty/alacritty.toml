@@ -1,0 +1,49 @@
+[font]
+normal = { family = "Hack Nerd Font Mono", style = "Regular" }
+size = 14.0
+
+[colors.primary]
+background = "#181E2A"
+foreground = "#D8DEE9"
+
+[colors.cursor]
+text    = "#181E2A"
+cursor  = "#D8DEE9"
+
+[colors.selection]
+background = "#4C566A"
+text       = "#ECEFF4"
+
+[colors.normal]
+black   = "#2E3440"
+red     = "#BF616A"
+green   = "#A3BE8C"
+yellow  = "#EBCB8B"
+blue    = "#81A1C1"
+magenta = "#B48EAD"
+cyan    = "#88C0D0"
+white   = "#E5E9F0"
+
+[colors.bright]
+black   = "#4C566A"
+red     = "#BF616A"
+green   = "#A3BE8C"
+yellow  = "#EBCB8B"
+blue    = "#81A1C1"
+magenta = "#B48EAD"
+cyan    = "#8FBCBB"
+white   = "#ECEFF4"
+
+[scrolling]
+history = 1000
+
+[window]
+option_as_alt = "Both"
+
+[terminal]
+osc52 = "CopyPaste"
+
+[[keyboard.bindings]]
+key   = "Comma"
+mods  = "Control"
+chars = "\u0002"

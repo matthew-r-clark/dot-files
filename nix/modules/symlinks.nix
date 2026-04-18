@@ -44,5 +44,9 @@
     "ghostty".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/ghostty";
+
+    "alacritty".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/alacritty";
   };
 }
