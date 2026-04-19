@@ -47,9 +47,7 @@
     pspg
 
     # --- language version managers ---
-    nodenv
     rbenv
-    pyenv
 
     # --- language runtimes ---
     cargo
