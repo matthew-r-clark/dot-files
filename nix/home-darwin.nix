@@ -15,8 +15,8 @@
   ];
 
   programs.zsh.shellAliases = {
-    nix-rebuild  = "cd $DOTFILE_DIR && sudo darwin-rebuild switch --flake .";
-    nix-update   = "cd $DOTFILE_DIR && nix flake update && sudo darwin-rebuild switch --flake .";
+    nix-rebuild  = "cd $DOTFILE_DIR && sudo darwin-rebuild switch --flake .#mac";
+    nix-update   = "cd $DOTFILE_DIR && nix flake update && sudo darwin-rebuild switch --flake .#mac";
     nix-rollback = "sudo darwin-rebuild --rollback";
     nix-gc       = "sudo nix-collect-garbage -d";
   };
