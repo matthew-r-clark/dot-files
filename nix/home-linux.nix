@@ -15,6 +15,7 @@
 
   home.packages = with pkgs; [
     nerd-fonts.inconsolata
+    nerd-fonts.hack
   ];
 
   programs.git.settings.user.email = "clark.matthewr@gmail.com";

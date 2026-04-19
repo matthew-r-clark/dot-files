@@ -24,6 +24,7 @@
   home.packages = with pkgs; [
     # --- fonts ---
     nerd-fonts.inconsolata
+    nerd-fonts.hack
 
     # --- containers ---
     docker
