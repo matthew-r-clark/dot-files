@@ -9,6 +9,7 @@
 
   home.sessionPath = [
     "/usr/local/bin"
+    "/opt/homebrew/bin/brew"
     "${config.home.homeDirectory}/Library/Android/sdk/emulator"
     "${config.home.homeDirectory}/Library/Android/sdk/platform-tools"
   ];
