@@ -82,7 +82,7 @@ in
       set -g visual-activity off
       set-option -g focus-events on
 
-      bind-key c new-window -c ~/development/taillight
+      bind-key c new-window -c ~/development/taillight/od-env
 
       # is_vim: used for resize keybindings and C-e clear; C-hjkl nav is handled by vim-tmux-navigator plugin
       is_vim="ps -o state= -o comm= -t '#{pane_tty}' | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
