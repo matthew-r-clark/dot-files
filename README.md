@@ -18,8 +18,8 @@
     - **[Arc](https://arc.net/)** — browser (macOS only)
     - **[ChatGPT](https://openai.com/chatgpt/download/)** — AI assistant desktop app
     - **[Claude Desktop](https://claude.ai/download)** — AI assistant desktop app
-    - **Claude CLI**
-	Run `curl -fsSL https://claude.ai/install.sh | bash`
+    - **Claude CLI**:
+        Run `curl -fsSL https://claude.ai/install.sh | bash`
     - **[Docker Desktop](https://www.docker.com/products/docker-desktop/)** — container runtime
     - **[Firefox](https://www.mozilla.org/firefox/)** — browser
     - **[Google Chrome](https://www.google.com/chrome/)** — browser
