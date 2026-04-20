@@ -2,7 +2,9 @@
 	"auths": {
 		"docker.internal.taillight.cloud": {}
 	},
-	"credsStore": "1password",
+	"credHelpers": {
+		"docker.internal.taillight.cloud": "1password"
+	},
 	"currentContext": "desktop-linux",
 	"plugins": {
 		"debug": {
