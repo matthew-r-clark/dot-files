@@ -19,7 +19,7 @@ return { -- LSP
                 local opts = { buffer = args.buf }
                 map('n', 'gf',   vim.lsp.buf.definition,      opts)
                 map('n', 'go',   vim.lsp.buf.type_definition, opts)
-                map('n', 'gs',   vim.lsp.buf.signature_help,  opts)
+                -- gs removed: conflicts with vim-sort-motion's gs operator (e.g. gsi). Use <C-k> in insert mode instead.
                 map('n', '<F2>', function() return ':IncRename ' .. vim.fn.expand('<cword>') end, { expr = true, buffer = args.buf })
                 map('n', '<F4>', vim.lsp.buf.code_action,      opts)
                 map('n', 'gl',   vim.diagnostic.open_float,   opts)
