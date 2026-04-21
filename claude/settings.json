@@ -1,8 +1,52 @@
 {
+  "permissions": {
+    "allow": [
+      "ListMcpResourcesTool(server=\"registry\")",
+      "ReadMcpResourceTool(server=\"registry\", uri=\"registry://service/*\")",
+      "mcp__registry__search_services",
+      "Bash(bash .claude/scripts/branches.sh:*)",
+      "Bash(node .claude/scripts/jira-transition-to-ready.js:*)",
+      "Bash(node .claude/scripts/pr-reviewers.js:*)",
+      "Bash(docker compose:*)",
+      "Bash(npm run:*)",
+      "Bash(npm test:*)",
+      "Bash(../../drun.sh npm run:*)",
+      "Bash(../../drun.sh npm test:*)",
+      "Bash(npm ci:*)",
+      "Bash(cd projects/* && git:*)",
+      "Bash(cd projects/* && npm run:*)",
+      "Bash(cd projects/* && npm test:*)",
+      "Bash(cd projects/* && npm ci:*)",
+      "Bash(git:*)",
+      "Bash(npm install:*)",
+      "Edit(projects/**)",
+      "Write(projects/**)",
+      "Bash(bash .claude/scripts/clear-scratch.sh:*)",
+      "Read(.claude/scratch/**)",
+      "Write(.claude/scratch/**)",
+      "mcp__roadie__get_jira_issue",
+      "mcp__roadie__list_jira_users",
+      "mcp__roadie__get_jira_transitions",
+      "mcp__roadie__compare_branches",
+      "mcp__roadie__get_branches",
+      "mcp__roadie__search_jira_issues",
+      "mcp__roadie__list_pull_requests",
+      "mcp__roadie__get_pull_request",
+      "mcp__roadie__get_pr_comments",
+      "mcp__roadie__get_pr_diff",
+      "Read(//Users/matthew.clark/dot-files/claude/**)",
+      "Bash(../../drun.sh npm:*)",
+      "mcp__roadie__list_repositories",
+      "mcp__roadie__get_pr_tasks",
+      "mcp__claude_ai_Google_Calendar__gcal_list_events"
+    ],
+    "defaultMode": "default"
+  },
   "model": "opusplan",
   "statusLine": {
     "type": "command",
     "command": "bash ~/.claude/custom/statusline-command.sh"
   },
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "effortLevel": "high"
 }
