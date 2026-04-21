@@ -54,6 +54,10 @@
       # oh-my-zsh extension: gsts (git stash show --patch) with untracked files
       gstv = "gsts -u";
 
+      # artifactory
+      npm-login-npm     = "npm login --auth-type=legacy --registry=https://artifactory.internal.taillight.cloud/artifactory/api/npm/npm/";
+      npm-login-tlo-npm = "npm login --auth-type=legacy --registry=https://artifactory.internal.taillight.cloud/artifactory/api/npm/tlo-npm/";
+
       # stripe
       stripe-login = "op plugin init stripe";
 
