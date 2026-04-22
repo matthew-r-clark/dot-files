@@ -32,7 +32,6 @@
     lazydocker
 
     # --- macOS utilities ---
-    rectangle
     redis
     stripe-cli
     imagemagick

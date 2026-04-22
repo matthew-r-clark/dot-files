@@ -3,3 +3,4 @@ brew "pyenv"
 
 cask "alacritty"
 cask "ghostty"
+cask "rectangle"
