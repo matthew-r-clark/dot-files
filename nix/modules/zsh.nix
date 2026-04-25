@@ -30,7 +30,6 @@
       rg  = "rg --hidden -g '!.git'";
 
       # docker
-      docker-compose = "docker compose";
       dc    = "docker compose";
       dcu   = "dc up -d";
       dcd   = "dc down";

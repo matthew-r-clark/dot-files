@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   # ---------------------------------------------------------------------------
   # Dotfile symlinks
@@ -49,5 +49,15 @@
     "alacritty".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/alacritty";
+  };
+
+  home.activation = {
+    # colima.yaml is the user-facing Colima config. Uses activation rather than
+    # home.file because ~/.colima/default/ may not exist before first colima start.
+    colimaConfig = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      mkdir -p "$HOME/.colima/default"
+      ln -sf "$HOME/dot-files/docker/colima.yaml" "$HOME/.colima/default/colima.yaml"
+    '';
+
   };
 }

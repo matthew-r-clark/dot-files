@@ -21,13 +21,23 @@
     nix-gc       = "sudo nix-collect-garbage -d";
   };
 
+  home.file.".docker/cli-plugins/docker-compose" = {
+    source = "${pkgs.docker-compose}/libexec/docker/cli-plugins/docker-compose";
+  };
+
+  home.file.".docker/cli-plugins/docker-buildx" = {
+    source = "${pkgs.docker-buildx}/libexec/docker/cli-plugins/docker-buildx";
+  };
+
   home.packages = with pkgs; [
     # --- fonts ---
     nerd-fonts.inconsolata
     nerd-fonts.hack
 
     # --- containers ---
+    colima
     docker
+    docker-buildx
     docker-compose
     lazydocker
 

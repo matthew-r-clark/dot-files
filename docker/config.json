@@ -5,7 +5,7 @@
 	"credHelpers": {
 		"docker.internal.taillight.cloud": "1password"
 	},
-	"currentContext": "desktop-linux",
+	"currentContext": "colima",
 	"plugins": {
 		"debug": {
 			"hooks": "exec"
