@@ -6,6 +6,7 @@ global.loaded = 1
 global.loaded_netrwPlugin = 1
 global.session_autosave = 'no'
 global.tmux_navigator_preserve_zoom = 1
+global.vim_jsx_pretty_disable_js = 1
 
 -- easymotion
 global.sort_motion_flags = 'ui'
