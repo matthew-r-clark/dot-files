@@ -1,6 +1,6 @@
 local wilder = require('wilder')
 
-wilder.init({
+wilder.setup({
     modes = {':'},
 })
 
@@ -10,7 +10,7 @@ wilder.set_option('renderer', wilder.popupmenu_renderer(
         highlights = {
             border = 'Normal',
         },
-        left = {' ', wilder.popupmenu_devicons()},
+        left = {' '},
         right = {' ', wilder.popupmenu_scrollbar()},
     })
 ))
@@ -18,8 +18,8 @@ wilder.set_option('renderer', wilder.popupmenu_renderer(
 wilder.set_option('pipeline', {
     wilder.branch(
         wilder.cmdline_pipeline({
-            language = 'python',
-            fuzzy = 2,
+            fuzzy = 1,
+            fuzzy_filter = wilder.lua_fzy_filter(),
         })
     ),
 })
