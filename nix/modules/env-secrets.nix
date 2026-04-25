@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  programs.zsh.initContent = lib.mkAfter ''
+  programs.zsh.profileExtra = lib.mkAfter ''
     # 1Password-backed env vars — resolved in a single `op inject` call (in-memory only).
     # If `op` is unavailable or the vault is locked, the eval is a no-op.
     if command -v op >/dev/null 2>&1; then
