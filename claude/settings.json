@@ -47,6 +47,7 @@
     "type": "command",
     "command": "bash ~/.claude/custom/statusline-command.sh"
   },
+  "effortLevel": "high",
   "voiceEnabled": true,
-  "effortLevel": "high"
+  "skipAutoPermissionPrompt": true
 }
