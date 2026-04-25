@@ -21,6 +21,10 @@
     nix-gc       = "sudo nix-collect-garbage -d";
   };
 
+  home.file."Library/Application Support/lazydocker".source =
+    config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dot-files/lazydocker";
+
   home.file.".docker/cli-plugins/docker-compose" = {
     source = "${pkgs.docker-compose}/libexec/docker/cli-plugins/docker-compose";
   };
