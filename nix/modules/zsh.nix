@@ -12,6 +12,7 @@
     "${config.home.homeDirectory}/.pyenv/shims"
     "${config.home.homeDirectory}/bin"
     "${config.home.homeDirectory}/.local/bin"
+    "${config.home.homeDirectory}/.cargo/bin"
     "${config.home.homeDirectory}/dot-files/cli-tools"
   ];
 
