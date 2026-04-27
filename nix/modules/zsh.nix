@@ -29,6 +29,9 @@
       c   = "clear";
       rg  = "rg --hidden -g '!.git'";
 
+      # claude
+      lzc = "lazyclaude";
+
       # docker
       dc    = "docker compose";
       dcu   = "dc up -d";
