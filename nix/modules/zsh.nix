@@ -11,7 +11,6 @@
   home.sessionPath = [
     "${config.home.homeDirectory}/.pyenv/shims"
     "${config.home.homeDirectory}/bin"
-    "${config.home.homeDirectory}/.mvn/apache-maven-3.8.6/bin"
     "${config.home.homeDirectory}/.local/bin"
     "${config.home.homeDirectory}/dot-files/cli-tools"
   ];
