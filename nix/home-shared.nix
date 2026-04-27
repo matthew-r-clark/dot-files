@@ -17,8 +17,8 @@
     enable = true;
     settings = {
       gui.theme = {
-        selectedLineBgColor  = [ "#434C5E" ];
-        selectedRangeBgColor = [ "#434C5E" ];
+        selectedLineBgColor  = [ "#2E3440" ];
+        selectedRangeBgColor = [ "#2E3440" ];
       };
     };
   };
