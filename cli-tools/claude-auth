@@ -1,3 +1,0 @@
-#!/bin/bash
-
-ANTHROPIC_API_KEY=$(op-get ANTHROPIC_API_KEY) claude
