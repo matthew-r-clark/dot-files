@@ -77,9 +77,6 @@
       eval "$(nodenv init -)"
       eval "$(rbenv init - zsh)"
       eval "$(lazyclaude --print-shell-integration zsh)"
-
-      claude-auth() { export ANTHROPIC_API_KEY=$(op-get ANTHROPIC_API_KEY); }
-      claude-noauth() { unset ANTHROPIC_API_KEY; }
     '';
   };
 }
