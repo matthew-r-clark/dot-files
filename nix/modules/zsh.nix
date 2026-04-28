@@ -5,7 +5,6 @@
     EDITOR        = "nvim";
     COLORTERM     = "truecolor";
     DELTA_PAGER   = "less -+X -+F --mouse";
-    ODY_ENV       = "true";
   };
 
   home.sessionPath = [
