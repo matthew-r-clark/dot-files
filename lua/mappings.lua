@@ -72,3 +72,20 @@ map('', '<M-k>', ':resize +1<CR>', {})
 map('', '<leader>sv', '<C-w>v', {})
 map('', '<leader>sh', '<C-w>s', {})
 map('', '<leader>se', '<C-w>=', {})
+
+-- vim-tmux-navigator: override terminal mode mappings to avoid lazygit appearing
+-- "suspended" when there is no adjacent pane. The plugin's default mapping does
+-- <C-\><C-n>:TmuxNavigate<CR> which leaves neovim in normal mode on failure.
+local nav_dirs = { h = 'Left', j = 'Down', k = 'Up', l = 'Right' }
+for key, dir in pairs(nav_dirs) do
+    map('t', '<C-' .. key .. '>', function()
+        local escape = vim.api.nvim_replace_termcodes('<C-\\><C-n>', true, false, true)
+        vim.api.nvim_feedkeys(escape, 'n', false)
+        vim.schedule(function()
+            vim.cmd('TmuxNavigate' .. dir)
+            if vim.bo.buftype == 'terminal' then
+                vim.cmd('startinsert')
+            end
+        end)
+    end, {})
+end
