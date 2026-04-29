@@ -10,6 +10,7 @@
       ".vimwiki_last_backup_time"
       ".DS_Store"
       "cspell.json"
+      "**/settings.local.json"
     ];
 
     signing.format = null;
