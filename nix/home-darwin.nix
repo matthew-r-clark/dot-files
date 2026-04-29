@@ -15,10 +15,11 @@
   ];
 
   programs.zsh.shellAliases = {
-    nix-rebuild  = "cd $DOTFILE_DIR && sudo darwin-rebuild switch --flake .#mac";
-    nix-update   = "cd $DOTFILE_DIR && nix flake update && sudo darwin-rebuild switch --flake .#mac";
-    nix-rollback = "sudo darwin-rebuild --rollback";
-    nix-gc       = "sudo nix-collect-garbage -d";
+    nix-rebuild       = "cd $DOTFILE_DIR && sudo darwin-rebuild switch --flake .#mac";
+    nix-update        = "cd $DOTFILE_DIR && nix flake update && sudo darwin-rebuild switch --flake .#mac";
+    nix-rollback      = "sudo darwin-rebuild --rollback";
+    nix-gc            = "sudo nix-collect-garbage -d";
+    lazyclaude-update = "CARGO_NET_GIT_FETCH_WITH_CLI=true cargo install --git ssh://git@bitbucket.internal.taillight.cloud:7999/~clarkm/lazyclaude.git";
   };
 
   home.file."Library/Application Support/lazydocker".source =
