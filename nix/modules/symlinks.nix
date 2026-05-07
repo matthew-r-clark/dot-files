@@ -50,6 +50,10 @@
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/alacritty";
 
+    "lazyclaude/config.json".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/lazyclaude/config.json";
+
   };
 
   home.activation = {
