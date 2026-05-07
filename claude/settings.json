@@ -40,7 +40,7 @@
       "mcp__roadie__get_pr_tasks",
       "mcp__claude_ai_Google_Calendar__gcal_list_events"
     ],
-    "defaultMode": "default"
+    "defaultMode": "auto"
   },
   "model": "opusplan",
   "statusLine": {
@@ -48,6 +48,8 @@
     "command": "bash ~/.claude/custom/statusline-command.sh"
   },
   "effortLevel": "high",
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "remoteControlAtStartup": true
 }
