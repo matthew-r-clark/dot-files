@@ -7,6 +7,15 @@
         "X-Jira-Token": "${JIRA_TOKEN}",
         "X-Bitbucket-Token": "${BITBUCKET_TOKEN}"
       }
+    },
+    "testmo": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["/Users/matthew.clark/development/taillight/mcp-servers/testmo/src/index.js"],
+      "env": {
+        "TESTMO_API_KEY": "${TESTMO_API_KEY}",
+        "TESTMO_BASE_URL": "${TESTMO_BASE_URL}"
+      }
     }
   }
 }
