@@ -1,12 +1,9 @@
 {
   "mcpServers": {
     "roadie": {
-      "type": "http",
-      "url": "https://tloroadiemcpapi.prd.taillight.com/mcp",
-      "headers": {
-        "X-Jira-Token": "${JIRA_TOKEN}",
-        "X-Bitbucket-Token": "${BITBUCKET_TOKEN}"
-      }
+      "type": "stdio",
+      "command": "/bin/bash",
+      "args": ["/Users/matthew.clark/dot-files/claude/roadie-proxy.sh"]
     },
     "testmo": {
       "type": "stdio",
