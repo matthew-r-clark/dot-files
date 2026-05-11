@@ -39,6 +39,10 @@
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/docker/config.json";
 
+    ".npmrc".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/npm/.npmrc";
+
   };
 
   xdg.configFile = {
@@ -53,6 +57,10 @@
     "lazyclaude/config.json".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/lazyclaude/config.json";
+
+    "npm/secrets.env".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/npm/secrets.env";
 
   };
 

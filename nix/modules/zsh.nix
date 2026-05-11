@@ -56,6 +56,7 @@
       gstv = "gsts -u";
 
       # artifactory
+      npm             = ''op run --env-file="$HOME/.config/npm/secrets.env" -- npm'';
       npm-login-npm     = "npm login --auth-type=legacy --registry=https://artifactory.internal.taillight.cloud/artifactory/api/npm/npm/";
       npm-login-tlo-npm = "npm login --auth-type=legacy --registry=https://artifactory.internal.taillight.cloud/artifactory/api/npm/tlo-npm/";
 
