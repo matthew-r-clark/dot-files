@@ -55,11 +55,6 @@
       # oh-my-zsh extension: gsts (git stash show --patch) with untracked files
       gstv = "gsts -u";
 
-      # artifactory
-      npm             = ''op run --env-file="$HOME/.config/npm/secrets.env" -- npm'';
-      npm-login-npm     = "npm login --auth-type=legacy --registry=https://artifactory.internal.taillight.cloud/artifactory/api/npm/npm/";
-      npm-login-tlo-npm = "npm login --auth-type=legacy --registry=https://artifactory.internal.taillight.cloud/artifactory/api/npm/tlo-npm/";
-
       # stripe
       stripe-login = "op plugin init stripe";
 
@@ -78,6 +73,34 @@
       eval "$(nodenv init -)"
       eval "$(rbenv init - zsh)"
       eval "$(lazyclaude --print-shell-integration zsh)"
+
+      npm() {
+        if [[ "$1" == "login" ]]; then
+          local dollar='$'
+          local npm_key="//artifactory.internal.taillight.cloud/artifactory/api/npm/npm/:_authToken"
+          local tlo_key="//artifactory.internal.taillight.cloud/artifactory/api/npm/tlo-npm/:_authToken"
+
+          echo "Logging in to Artifactory npm registry..."
+          command npm login --auth-type=legacy --registry=https://artifactory.internal.taillight.cloud/artifactory/api/npm/npm/ || return 1
+          local npm_token
+          npm_token=$(grep "^''${npm_key}=" ~/.npmrc | cut -d= -f2-)
+          op item edit ARTIFACTORY_NPM_TOKEN credential="$npm_token" --vault=Employee
+          command npm config set "$npm_key" "$dollar{ARTIFACTORY_NPM_TOKEN}"
+
+          echo "Logging in to Artifactory tlo-npm registry..."
+          command npm login --auth-type=legacy --registry=https://artifactory.internal.taillight.cloud/artifactory/api/npm/tlo-npm/ || return 1
+          local tlo_token
+          tlo_token=$(grep "^''${tlo_key}=" ~/.npmrc | cut -d= -f2-)
+          op item edit ARTIFACTORY_TLO_NPM_TOKEN credential="$tlo_token" --vault=Employee
+          command npm config set "$tlo_key" "$dollar{ARTIFACTORY_TLO_NPM_TOKEN}"
+        else
+          op run --env-file="$HOME/.config/npm/secrets.env" -- npm "$@"
+        fi
+      }
+
+      npx() {
+        op run --env-file="$HOME/.config/npm/secrets.env" -- npx "$@"
+      }
     '';
   };
 }
