@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+source "${HOME}/dot-files/npm/npx-wrapper.sh"
+
 ROADIE_ENV=$(cat "${HOME}/.claude/roadie-env" 2>/dev/null || echo "prd")
 
 case "${ROADIE_ENV}" in
@@ -13,7 +15,7 @@ esac
 
 JIRA_TOKEN=$(op read "op://Employee/MCP-Tokens/X-Jira-Token") \
 BITBUCKET_TOKEN=$(op read "op://Employee/MCP-Tokens/X-Bitbucket-Token") \
-exec npx mcp-remote@0.1.38 "${ROADIE_URL}" \
+npx mcp-remote@0.1.38 "${ROADIE_URL}" \
   --header 'X-Jira-Token: ${JIRA_TOKEN}' \
   --header 'X-Bitbucket-Token: ${BITBUCKET_TOKEN}' \
   --silent

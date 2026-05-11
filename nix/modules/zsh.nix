@@ -98,9 +98,7 @@
         fi
       }
 
-      npx() {
-        op run --env-file="$HOME/.config/npm/secrets.env" -- npx "$@"
-      }
+      source "${config.home.homeDirectory}/dot-files/npm/npx-wrapper.sh"
     '';
   };
 }
