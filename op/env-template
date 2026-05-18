@@ -1,2 +1,0 @@
-export TESTMO_API_KEY="{{ op://Employee/TESTMO_API_KEY/credential }}"
-export TESTMO_BASE_URL="{{ op://Employee/TESTMO_API_KEY/url }}"
