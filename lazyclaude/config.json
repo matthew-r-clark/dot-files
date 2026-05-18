@@ -4,6 +4,6 @@
   "worktree_branch_suffix": "-wt",
   "tick_rate_ms": 100,
   "notify_on_idle": true,
-  "auth_command": "op item get ANTHROPIC_API_KEY --fields label=credential --reveal",
+  "auth_command": "op item get 'Anthropic API Key' --fields label=credential --reveal",
   "compose_dir": "~/development/taillight/od-env"
 }

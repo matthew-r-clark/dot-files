@@ -20,6 +20,26 @@
         "type": "github"
       }
     },
+    "janus-scripts": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779136743,
+        "narHash": "sha256-ZgXQrlSEzZBSX1YHB0pynNdrjMlOF0fxxOBPryF5d0k=",
+        "path": "/Users/matthew.clark/development/taillight/janus-scripts",
+        "type": "path"
+      },
+      "original": {
+        "path": "/Users/matthew.clark/development/taillight/janus-scripts",
+        "type": "path"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -59,6 +79,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "janus-scripts": "janus-scripts",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs"
       }

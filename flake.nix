@@ -13,9 +13,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Odyssey team dev-environment: roadie MCP, claude zsh wrapper, docker 1pass cred helper
+    # Switch to remote URL once ready: git+ssh://git@bitbucket.internal.taillight.cloud:7999/tlo/janus-scripts.git
+    janus-scripts = {
+      url = "path:/Users/matthew.clark/development/taillight/janus-scripts";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, janus-scripts, ... }:
   let
     pkgs = nixpkgs.legacyPackages.aarch64-darwin;
     darwinSystem = nix-darwin.lib.darwinSystem {
@@ -27,6 +35,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "bak";
+          home-manager.extraSpecialArgs = { inherit janus-scripts; };
           home-manager.users."matthew.clark" = {
             imports = [ ./nix/home-shared.nix ./nix/home-darwin.nix ];
           };
