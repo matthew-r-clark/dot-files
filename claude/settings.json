@@ -48,8 +48,9 @@
     "command": "bash ~/.claude/custom/statusline-command.sh"
   },
   "effortLevel": "high",
+  "verbose": true,
+  "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "remoteControlAtStartup": true
+  "voiceEnabled": true
 }
