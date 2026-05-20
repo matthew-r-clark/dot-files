@@ -1,5 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, janus-scripts, ... }:
 {
+  imports = [
+    janus-scripts.homeManagerModules.default
+  ];
+
+  # janus manages: roadie MCP (headersHelper), claude zsh wrapper, docker credential helper
+  odyssey.enable = true;
+  # keep using npm-global claude-code rather than the nix-managed version
+  programs.claude-code.enable = lib.mkForce false;
+
   home.username = "matthew.clark";
   home.homeDirectory = "/Users/matthew.clark";
 

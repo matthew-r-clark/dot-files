@@ -31,14 +31,6 @@
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/claude/skills";
 
-    ".mcp.json".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/claude/mcp.json";
-
-    ".docker/config.json".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/docker/config.json";
-
   };
 
   xdg.configFile = {
