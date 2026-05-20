@@ -30,14 +30,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1779136743,
-        "narHash": "sha256-ZgXQrlSEzZBSX1YHB0pynNdrjMlOF0fxxOBPryF5d0k=",
-        "path": "/Users/matthew.clark/development/taillight/janus-scripts",
-        "type": "path"
+        "lastModified": 1779141191,
+        "narHash": "sha256-H9DPlY/U1YHiw2mfkcZv08KRXWOjMnSfdiBKNgLNq0s=",
+        "ref": "feature/BNC-4332-dogfooding",
+        "rev": "ef7627ad58a7bfe35e46dcc2ef37f082761c20d4",
+        "revCount": 18,
+        "type": "git",
+        "url": "ssh://git@bitbucket.internal.taillight.cloud:7999/tlo/janus-scripts.git"
       },
       "original": {
-        "path": "/Users/matthew.clark/development/taillight/janus-scripts",
-        "type": "path"
+        "ref": "feature/BNC-4332-dogfooding",
+        "type": "git",
+        "url": "ssh://git@bitbucket.internal.taillight.cloud:7999/tlo/janus-scripts.git"
       }
     },
     "nix-darwin": {

@@ -15,9 +15,8 @@
     };
 
     # Odyssey team dev-environment: roadie MCP, claude zsh wrapper, docker 1pass cred helper
-    # Switch to remote URL once ready: git+ssh://git@bitbucket.internal.taillight.cloud:7999/tlo/janus-scripts.git
     janus-scripts = {
-      url = "path:/Users/matthew.clark/development/taillight/janus-scripts";
+      url = "git+ssh://git@bitbucket.internal.taillight.cloud:7999/tlo/janus-scripts.git?ref=feature/BNC-4332-dogfooding";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
