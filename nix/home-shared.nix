@@ -56,6 +56,7 @@
 
     # --- formatters & linters ---
     prettierd
+    eslint_d
     quick-lint-js
 
     _1password-gui
