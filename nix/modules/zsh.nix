@@ -1,10 +1,10 @@
 { config, ... }:
 {
   home.sessionVariables = {
-    DOTFILE_DIR   = "${config.home.homeDirectory}/dot-files";
-    EDITOR        = "nvim";
-    COLORTERM     = "truecolor";
-    DELTA_PAGER   = "less -+X -+F --mouse";
+    DOTFILE_DIR = "${config.home.homeDirectory}/dot-files";
+    EDITOR = "nvim";
+    COLORTERM = "truecolor";
+    DELTA_PAGER = "less -+X -+F --mouse";
   };
 
   home.sessionPath = [
