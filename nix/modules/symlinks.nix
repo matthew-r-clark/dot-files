@@ -60,5 +60,13 @@
       ln -sf "$HOME/dot-files/docker/colima.yaml" "$HOME/.colima/default/colima.yaml"
     '';
 
+    # Repair the Docker socket symlink chain so Testcontainers and Ryuk find
+    # the Colima socket via the standard /var/run/docker.sock path.
+    # /var/run/docker.sock -> ~/.docker/run/docker.sock -> ~/.colima/default/docker.sock
+    dockerRunSocket = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      mkdir -p "$HOME/.docker/run"
+      ln -sf "$HOME/.colima/default/docker.sock" "$HOME/.docker/run/docker.sock"
+    '';
+
   };
 }
