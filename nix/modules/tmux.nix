@@ -84,11 +84,20 @@ in
 
       bind-key c new-window -c ~/development/taillight/od-env
 
-      # is_vim: used for resize keybindings and C-e clear; C-hjkl nav is handled by vim-tmux-navigator plugin
+      # is_vim: used for resize keybindings and C-e clear; C-hjkl nav is handled below
       is_vim="ps -o state= -o comm= -t '#{pane_tty}' | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+      # is_lazyclaude: pass C-hjkl through so lazyclaude's vim-pane navigation works
+      is_lazyclaude="ps -o state= -o comm= -t '#{pane_tty}' | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?lazyclaude$'"
 
       # C-e sends C-l (clear screen) when not in vim
       bind-key -n 'C-e' if-shell "$is_vim" 'send-keys C-e' 'send-keys C-l'
+
+      # Override vim-tmux-navigator C-hjkl bindings to also pass through for lazyclaude.
+      # extraConfig runs after plugin config so these shadow the plugin's bindings.
+      bind-key -n C-h if-shell "$is_vim || $is_lazyclaude" 'send-keys C-h' 'select-pane -L'
+      bind-key -n C-j if-shell "$is_vim || $is_lazyclaude" 'send-keys C-j' 'select-pane -D'
+      bind-key -n C-k if-shell "$is_vim || $is_lazyclaude" 'send-keys C-k' 'select-pane -U'
+      bind-key -n C-l if-shell "$is_vim || $is_lazyclaude" 'send-keys C-l' 'select-pane -R'
 
       # Split panes, preserving current path
       bind-key v split-window -h -c "#{pane_current_path}"
