@@ -39,6 +39,7 @@
     jq
     httpie
     scrcpy
+    bruno-cli
 
     # database
     vi-mongo
