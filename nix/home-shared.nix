@@ -39,7 +39,6 @@
     jq
     httpie
     scrcpy
-    posting
 
     # database
     vi-mongo
