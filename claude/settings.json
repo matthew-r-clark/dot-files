@@ -48,6 +48,7 @@
     "command": "bash ~/.claude/custom/statusline-command.sh"
   },
   "effortLevel": "xhigh",
+  "tui": "default",
   "verbose": true,
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
