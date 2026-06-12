@@ -4,16 +4,18 @@ set -euo pipefail
 config="$HOME/.claude.json"
 [ ! -f "$config" ] && echo '{}' > "$config"
 
-envfile="$HOME/dot-files/claude/testmo-secrets.env"
-script="$HOME/development/taillight/mcp-servers/testmo/src/index.js"
+script="$HOME/development/projects/testmo-mcp/src/index.js"
 
 managed_server=$(jq -n \
-  --arg envfile "$envfile" \
   --arg script "$script" \
   '{testmo: {
      type: "stdio",
      command: "op",
-     args: ["run", "--env-file=" + $envfile, "--", "node", $script]
+     args: ["run", "--", "node", $script],
+     env: {
+       TESTMO_API_KEY: "op://Employee/Testmo API/credential",
+       TESTMO_BASE_URL: "https://taillight.testmo.net"
+     }
    }}')
 
 tmp=$(mktemp)
