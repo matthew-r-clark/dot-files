@@ -15,13 +15,24 @@ Input: $ARGUMENTS
 
 **Date range:**
 
-- If a `YYYY-MM-DD` date is present in the arguments, the range is that full calendar day (midnight to midnight).
-- If no date is provided, the range is **yesterday at 9:30 AM Central Time through the current moment**. Central Time is UTC−5 in summer (CDT) and UTC−6 in winter (CST) — determine which applies based on today's date (CDT is active from the second Sunday of March through the first Sunday of November).
+Central Time offset: UTC−5 (CDT, active second Sunday of March through first Sunday of November) or UTC−6 (CST otherwise). Determine which applies based on today's date.
 
-Compute two values and use them in all queries below:
-- `RANGE_START`: yesterday's date + `T14:30:00Z` (CDT) or `T15:30:00Z` (CST) in ISO 8601 UTC
-- `RANGE_START_DATE`: yesterday's date as `YYYY-MM-DD` (used where only a date is accepted)
-- `RANGE_START_UNIX`: `RANGE_START` expressed as a Unix timestamp (seconds since epoch), for Slack's `after` parameter
+**Determining the anchor day:**
+- If a `YYYY-MM-DD` date was provided in the arguments, that date is the anchor day.
+- Otherwise the anchor day is yesterday.
+
+**Weekend expansion:**
+If the anchor day is a **Saturday or Sunday**, expand the range to cover the full weekend:
+- `RANGE_START` = the preceding Friday at 9:30 AM Central
+- `RANGE_END` = the following Monday at 9:30 AM Central, or the current moment if it has not yet been reached — whichever is earlier
+
+If the anchor day is a **weekday**:
+- `RANGE_START` = anchor day at 9:30 AM Central
+- `RANGE_END` = the following day at 9:30 AM Central, or the current moment if that time has not yet been reached — whichever is earlier
+
+Compute these derived values for use in all queries below:
+- `RANGE_START_DATE`: date portion of `RANGE_START` as `YYYY-MM-DD`
+- `RANGE_START_UNIX`: `RANGE_START` as a Unix timestamp (seconds since epoch)
 
 **Today's plans:** If the arguments contain a `today:` section (e.g. `today: finish the auth PR, review BNC-1234`), extract each item as a separate plan bullet. Otherwise leave today's plans empty — do not infer or fabricate them.
 
@@ -51,7 +62,7 @@ mcp__roadie__search_jira_issues(
 )
 ```
 
-Note: Jira interprets unzoned datetimes in the instance's configured timezone. `09:30` on `RANGE_START_DATE` is used as an approximation; results within a timezone-offset margin of the true start are acceptable.
+Note: Jira interprets unzoned datetimes in the instance's configured timezone. `09:30` on `RANGE_START_DATE` is used as an approximation. After fetching results, discard any issues whose `updated` timestamp falls outside `RANGE_START`–`RANGE_END`.
 
 Merge and deduplicate by issue key. For each issue record: key, summary, status, and project key (e.g. `BNC`, `TLO`).
 
@@ -131,8 +142,8 @@ mcp__roadie__get_commits(
 )
 ```
 
-From the PR results, keep PRs where the author is `Matthew Clark` and created/updated at or after `RANGE_START`.
-From the commit results, keep commits where the author email is `matthew.clark@taillight.com` and the commit timestamp is at or after `RANGE_START`.
+From the PR results, keep PRs where the author is `Matthew Clark` and created/updated within `RANGE_START`–`RANGE_END`.
+From the commit results, keep commits where the author email is `matthew.clark@taillight.com` and the commit timestamp falls within `RANGE_START`–`RANGE_END`.
 
 If `~clarkm` returns a 404 or "project not found" error, silently skip the personal repos section.
 
