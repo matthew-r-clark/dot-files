@@ -132,6 +132,11 @@ in
       set -g status-right "%H:%M:%S #[fg=${nord8},bg=${nord0Dark}]#[bg=${nord8},fg=${nord0Dark}] %b %d "
       setw -g window-status-format         "#[fg=${nord0Dark},bg=${nord3}]  #I #W #[fg=${nord2},bg=${nord3}]${sepRight}"
       setw -g window-status-current-format "#[bg=${nord0Dark},fg=${nord8}]${sepCurrent} #I #W ${sepRight}"
+
+      # continuum.tmux ran earlier (in the plugin section) and added its save
+      # interpolation to status-right, but our set -g status-right above overwrote
+      # it. Re-run continuum here so it adds the interpolation back after our override.
+      run-shell ${pkgs.tmuxPlugins.continuum.rtp}
     '';
   };
 }
