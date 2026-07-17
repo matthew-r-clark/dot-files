@@ -49,6 +49,10 @@
   },
   "effortLevel": "xhigh",
   "tui": "default",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "verbose": true,
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
