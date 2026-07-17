@@ -7,6 +7,7 @@
     ./modules/symlinks.nix
     ./modules/zsh.nix
     ./modules/testmo.nix
+    ./modules/roadie-dev.nix
     ./modules/git.nix
     ./modules/tmux.nix
     ./modules/neovim.nix
