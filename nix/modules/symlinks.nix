@@ -31,11 +31,7 @@
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/claude/skills";
 
-    ".npmrc".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/npm/.npmrc";
-
-  };
+};
 
   xdg.configFile = {
     "ghostty".source =
@@ -50,11 +46,7 @@
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/lazyclaude/config.json";
 
-    "npm/secrets.env".source =
-      config.lib.file.mkOutOfStoreSymlink
-        "${config.home.homeDirectory}/dot-files/npm/secrets.env";
-
-  };
+};
 
   home.activation = {
     # colima.yaml is the user-facing Colima config. Uses activation rather than
