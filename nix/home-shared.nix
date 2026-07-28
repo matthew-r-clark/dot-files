@@ -42,6 +42,7 @@
     scrcpy
     bruno-cli
     gh
+    ngrok
 
     # database
     vi-mongo
