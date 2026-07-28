@@ -41,6 +41,7 @@
     httpie
     scrcpy
     bruno-cli
+    gh
 
     # database
     vi-mongo
