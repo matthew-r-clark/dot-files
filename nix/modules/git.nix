@@ -11,6 +11,7 @@
       ".DS_Store"
       "cspell.json"
       "**/settings.local.json"
+      ".claude/"
     ];
 
     signing.format = null;
