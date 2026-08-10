@@ -7,6 +7,7 @@ return { -- notes
     'vimwiki/vimwiki',
     init = function()
         global.vimwiki_map_prefix = '<leader>vw'
+        global.vimwiki_global_ext = 0 -- don't claim .md files outside the wiki path below
         global.vimwiki_list = {{
             path = expand('$HOME/vimwiki/'),
             -- rx_todo = vim.regex('TODO|DONE|STARTED|FIXME|FIXED|XXX'),
