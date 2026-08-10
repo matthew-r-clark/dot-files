@@ -43,6 +43,7 @@
     bruno-cli
     gh
     ngrok
+    tree-sitter
 
     # database
     vi-mongo
