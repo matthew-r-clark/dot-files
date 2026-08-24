@@ -31,6 +31,10 @@
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/claude/skills";
 
+    ".claude/rules".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/claude/rules";
+
 };
 
   xdg.configFile = {
