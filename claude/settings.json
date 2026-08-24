@@ -48,7 +48,7 @@
     "command": "bash ~/.claude/custom/statusline-command.sh"
   },
   "effortLevel": "xhigh",
-  "tui": "default",
+  "tui": "fullscreen",
   "voice": {
     "enabled": true,
     "mode": "hold"
