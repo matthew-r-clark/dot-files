@@ -1,28 +1,3 @@
----
-paths:
-  - "**/*.test.js"
-  - "**/*.test.jsx"
-  - "**/*.test.mjs"
-  - "**/*.test.cjs"
-  - "**/*.test.ts"
-  - "**/*.test.tsx"
-  - "**/*.spec.js"
-  - "**/*.spec.jsx"
-  - "**/*.spec.mjs"
-  - "**/*.spec.cjs"
-  - "**/*.spec.ts"
-  - "**/*.spec.tsx"
-  - "**/__tests__/**/*.js"
-  - "**/__tests__/**/*.jsx"
-  - "**/__tests__/**/*.mjs"
-  - "**/__tests__/**/*.cjs"
-  - "**/__tests__/**/*.ts"
-  - "**/__tests__/**/*.tsx"
-  - "**/*.bats"
-  - "**/*_spec.lua"
-  - "**/*_test.lua"
----
-
 # Automated unit tests: what to cover, and how to decide
 
 Never write test cases that exercise a third-party dependency's or a

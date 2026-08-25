@@ -1,19 +1,3 @@
----
-paths:
-  - "**/*.js"
-  - "**/*.jsx"
-  - "**/*.mjs"
-  - "**/*.cjs"
-  - "**/*.ts"
-  - "**/*.tsx"
-  - "**/*.sh"
-  - "**/*.bash"
-  - "**/*.zsh"
-  - "**/*.lua"
-  - "**/*.sql"
-  - "**/*.nix"
----
-
 # Code comments: debate before writing
 
 Default to no comment. Well-named identifiers and clear structure should carry
@@ -34,5 +18,5 @@ parallel:
 
 Act as the orchestrator: weigh both arguments and decide whether to write the
 comment as proposed, write a shortened version informed by the "against"
-critique, or omit it entirely. Do this for every comment you write in these
-files, not just ones you're unsure about.
+critique, or omit it entirely. Do this for every comment you write, not just
+ones you're unsure about.
