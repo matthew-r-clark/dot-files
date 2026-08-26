@@ -20,3 +20,11 @@ Act as the orchestrator: weigh both arguments and decide whether to write the
 comment as proposed, write a shortened version informed by the "against"
 critique, or omit it entirely. Do this for every comment you write, not just
 ones you're unsure about.
+
+**No long single-line comments.** A single-line `/** ... */` is only for
+comments that are actually short. Once the wording needs a full sentence with
+its own internal clause or parenthetical, wrap it as a multiline block
+instead of collapsing it onto one long line — a long single-line comment
+isn't shorter, it's just harder to scan, and its length is usually a sign the
+wording itself still needs trimming from the debate above, not merely
+reformatting.
