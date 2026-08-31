@@ -14,12 +14,16 @@ parallel:
 - **For**: argue why this specific comment should be written, with the exact
   wording proposed.
 - **Against**: argue why it should be omitted (or shortened), critiquing the
-  proposed wording directly.
+  proposed wording directly. May instead propose a concrete code change
+  (renaming, extracting a variable or function, restructuring) that makes the
+  comment unnecessary by making the code itself clear.
 
-Act as the orchestrator: weigh both arguments and decide whether to write the
-comment as proposed, write a shortened version informed by the "against"
-critique, or omit it entirely. Do this for every comment you write, not just
-ones you're unsure about.
+Act as the orchestrator: weigh both arguments and make your own decision,
+informed by but not limited to either agent's specific suggestion. The
+outcome may combine elements of both — for example, applying part of the
+"against" agent's code change while still keeping a shorter comment for
+whatever residual non-obviousness remains. Do this for every comment you
+write, not just ones you're unsure about.
 
 **No long single-line comments.** A single-line `/** ... */` is only for
 comments that are actually short. Once the wording needs a full sentence with
