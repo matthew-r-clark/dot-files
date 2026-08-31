@@ -59,6 +59,7 @@
     redis
     stripe-cli
     imagemagick
+    yubikey-manager
     #   graphicsmagick
     #   ghostscript # PostScript and PDF interpreter
 
