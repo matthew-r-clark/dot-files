@@ -12,6 +12,7 @@
       "cspell.json"
       "**/settings.local.json"
       ".claude/"
+      "work-logs/"
     ];
 
     signing.format = null;
