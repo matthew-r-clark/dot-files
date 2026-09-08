@@ -60,6 +60,7 @@
     stripe-cli
     imagemagick
     yubikey-manager
+    ollama
     #   graphicsmagick
     #   ghostscript # PostScript and PDF interpreter
 
