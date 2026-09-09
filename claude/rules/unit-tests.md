@@ -9,18 +9,20 @@ Don't add a test case for the sake of coverage. Skip anything not necessary
 to the change at hand, and skip anything another existing test case already
 covers.
 
-Before adding a given test case, spawn two subagents with the Agent tool, in
-parallel:
+Before adding test cases, first collect the full list of candidates you're
+considering for the change at hand. Then spawn exactly two subagents with the
+Agent tool, in parallel, each given the whole list:
 
-- **For**: argue why this specific test case is necessary — what real
-  behavior or regression it would catch that nothing else covers.
-- **Against**: argue why it should be dropped — because it exercises a
-  third-party/built-in module, duplicates existing coverage, or tests
-  something that isn't necessary.
+- **For**: for every candidate, argue why that specific test case is
+  necessary — what real behavior or regression it would catch that nothing
+  else covers.
+- **Against**: for every candidate, argue why it should be dropped — because
+  it exercises a third-party/built-in module, duplicates existing coverage,
+  or tests something that isn't necessary.
 
-Act as the orchestrator: weigh both arguments and decide whether to write the
-test case as proposed or drop it. Do this per test case, not once for the
-whole suite.
+Act as the orchestrator: weigh both arguments per candidate and decide, for
+each one individually, whether to write it as proposed or drop it — one
+For/Against pair covering the whole batch, not one pair per test case.
 
 When writing JavaScript/TypeScript tests, generate test data with
 `@faker-js/faker` instead of hardcoding values, except where a specific
