@@ -5,3 +5,4 @@ logger.txt
 .DS_Store
 cspell.json
 .claude
+claude/skills/synced/
