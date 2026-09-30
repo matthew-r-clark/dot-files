@@ -47,12 +47,14 @@
     "type": "command",
     "command": "bash ~/.claude/custom/statusline-command.sh"
   },
+  "feedbackDrafts": "off",
   "effortLevel": "xhigh",
   "tui": "fullscreen",
   "voice": {
     "enabled": true,
     "mode": "hold"
   },
+  "editorMode": "normal",
   "verbose": true,
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
