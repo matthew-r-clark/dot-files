@@ -4,8 +4,9 @@
     janus-scripts.homeManagerModules.default
   ];
 
-  # janus manages: roadie MCP (headersHelper), claude zsh wrapper, docker credential helper
+  # janus manages: roadie MCP (headersHelper), docker credential helper
   odyssey.enable = true;
+  odyssey.core.enable = lib.mkForce false;
   # keep using npm-global claude-code rather than the nix-managed version
   programs.claude-code.enable = lib.mkForce false;
 

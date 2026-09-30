@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Odyssey team dev-environment: roadie MCP, claude zsh wrapper, docker 1pass cred helper
+    # Odyssey team dev-environment: roadie MCP, docker 1pass cred helper
     janus-scripts = {
       url = "git+ssh://git@bitbucket.internal.taillight.cloud:7999/tlo/janus-scripts.git?ref=feature/BNC-4332-dogfooding";
       inputs.nixpkgs.follows = "nixpkgs";
