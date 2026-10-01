@@ -6,6 +6,10 @@
   # without requiring a rebuild.
   # ---------------------------------------------------------------------------
   home.file = {
+    ".hammerspoon/init.lua".source =
+      config.lib.file.mkOutOfStoreSymlink
+        "${config.home.homeDirectory}/dot-files/hammerspoon/init.lua";
+
     ".pspgconf".source =
       config.lib.file.mkOutOfStoreSymlink
         "${config.home.homeDirectory}/dot-files/postgres/.pspgconf";
