@@ -60,7 +60,9 @@ Defined in `nix/modules/zsh.nix` — includes shortcuts for Docker (`dc`, `dcu`,
 
 ## cli-tools
 
-`~/dot-files/cli-tools/` is on `$PATH` automatically. Available commands: `op-get`, `op-create`, `op-edit`, `op-delete`, `git-reword-commit`, `git-replace-message`, `ireplace`, `replace`, `claude-auth`, `gen-git-prepare-commit-msg-hook`.
+`~/dot-files/cli-tools/` is on `$PATH` automatically. Available commands: `op-get`, `op-create`, `op-edit`, `op-delete`, `git-reword-commit`, `git-replace-message`, `ireplace`, `replace`, `claude-auth`, `gen-git-prepare-commit-msg-hook`, `tmux-dev-template`.
+
+`tmux-dev-template [dir]` (or `prefix + e` in tmux) splits the current tmux window into nvim | lazygit / claude, all in `dir` (defaults to the current pane's directory).
 
 ## Claude Code config
 

@@ -1,0 +1,71 @@
+#!/bin/bash
+set -euo pipefail
+
+# Split the current tmux window into nvim | lazygit / claude panes.
+
+readonly EDITOR_COMMAND=nvim
+readonly GIT_COMMAND=lazygit
+readonly AGENT_COMMAND=claude
+readonly SIDE_COLUMN_WIDTH=45%
+readonly IDLE_SHELL=zsh
+readonly SCRIPT_NAME=${0##*/}
+readonly USAGE="usage: $SCRIPT_NAME [-t target-pane] [dir]"
+
+target_pane=""
+while getopts "t:" opt; do
+  case $opt in
+    t) target_pane=$OPTARG ;;
+    *) echo "$USAGE" >&2; exit 2 ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+fail() {
+  if [[ -n $target_pane ]]; then
+    tmux display-message -t "$target_pane" "$SCRIPT_NAME: $1"
+    # A non-zero exit makes run-shell hide this message.
+    exit 0
+  fi
+  echo "$SCRIPT_NAME: $1" >&2
+  exit 1
+}
+
+editor_pane=${target_pane:-${TMUX_PANE:-}}
+[[ -n $editor_pane ]] || fail "not inside tmux"
+
+pane_info() {
+  tmux display-message -p -t "$editor_pane" "$1"
+}
+
+split_pane() {
+  tmux split-window -d -c "$dir" -P -F '#{pane_id}' "$@"
+}
+
+type_into_shell() {
+  tmux send-keys -t "$1" -l "$2" \; send-keys -t "$1" Enter
+}
+
+require_idle_shell() {
+  local current_command
+  current_command=$(pane_info '#{pane_current_command}')
+  [[ $current_command == "$IDLE_SHELL" ]] || fail "pane is busy running $current_command"
+}
+
+pane_path=$(pane_info '#{pane_current_path}')
+requested_dir=${1:-$pane_path}
+dir=$(cd -- "$requested_dir" 2>/dev/null && pwd -P) || fail "not a directory: $requested_dir"
+
+(( $(pane_info '#{window_panes}') == 1 )) || fail "window is already split"
+
+# Our own pane is busy running this script.
+[[ $editor_pane == "${TMUX_PANE:-}" ]] || require_idle_shell
+
+git_pane=$(split_pane -h -t "$editor_pane" -l "$SIDE_COLUMN_WIDTH")
+agent_pane=$(split_pane -v -t "$git_pane")
+
+type_into_shell "$git_pane" "$GIT_COMMAND"
+type_into_shell "$agent_pane" "$AGENT_COMMAND"
+
+editor_keys=$EDITOR_COMMAND
+[[ $dir == "$pane_path" ]] || editor_keys="cd $(printf %q "$dir") && $EDITOR_COMMAND"
+type_into_shell "$editor_pane" "$editor_keys"

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   # Nord color palette (https://www.nordtheme.com/docs/colors-and-palettes)
   # Polar Night (dark)
@@ -102,6 +102,8 @@ in
       # Split panes, preserving current path
       bind-key v split-window -h -c "#{pane_current_path}"
       bind-key h split-window -v -c "#{pane_current_path}"
+
+      bind-key e run-shell "${config.home.homeDirectory}/dot-files/cli-tools/tmux-dev-template -t '#{pane_id}'"
 
       # Smart pane resizing with vim awareness
       bind-key -n 'M-k' if-shell "$is_vim" 'send-keys M-k' 'resize-pane -U 5'
